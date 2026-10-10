@@ -446,6 +446,190 @@ select.inp{padding-right:30px;background:#fbfaf7 url("data:image/svg+xml,%3Csvg 
 .rstamp p{font-size:14.5px;opacity:.8;line-height:1.5}
 .rstamp .xpbonus{display:inline-block;margin-top:14px;background:rgba(255,211,77,.2);color:#ffd34d;font-weight:900;font-size:15px;padding:8px 16px;border-radius:999px}
 
+/* —— 字体系统 v8 · 参考 Keep：PingFang + SF 数字，粗细对比清晰、颜色克制 —— */
+:root{
+  --ink:#1c1c1e;--ink2:#3a3a3c;--sub:#8a8a8f;--sub2:#aeaeb2;
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif;
+  --font-num:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue","DIN Alternate",var(--font);
+  /* 字号阶梯 */
+  --fs-display:34px;   /* 大数字：百分比、等级 */
+  --fs-title:22px;     /* 页面/卡片主标题 */
+  --fs-section:20px;   /* 区块标题、分类名 */
+  --fs-body:16px;      /* 任务名、正文 */
+  --fs-sub:14px;       /* 次要正文、按钮小字 */
+  --fs-meta:13px;      /* 说明、时间 */
+  --fs-caption:11px;   /* 角标、标签 */
+  /* 字重：只用四档 */
+  --fw-r:400;--fw-m:500;--fw-sb:600;--fw-b:700;
+  --lh:1.5;--lh-tight:1.15;
+}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:var(--font);font-size:var(--fs-body);font-weight:var(--fw-r);line-height:var(--lh);letter-spacing:0;color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+b,strong{font-weight:var(--fw-sb)}
+.muted{color:var(--sub)}.small{font-size:var(--fs-meta)}
+/* 数字统一 SF 风格：等宽、紧凑 */
+.ringwrap .c b,.rank b,.hchip b,.pring .c b,.pring .c .live,.kpi b,.stk b,.grade b,.rstat b,.rgrade .gb b,.revchips .hchip b,
+.cathead .cnt,.cathead .cnt b,.rcat .rp,.task .tm,.slot,.heat .hd b,.sd .dd,.rec .v,.field input,.ritem .tm,.delta,.floatxp,.topbar .d div,.einfo .td,.task .td{font-variant-numeric:tabular-nums}
+.ringwrap .c b,.rank b,.hchip b,.pring .c b,.kpi b,.stk b,.grade b,.rstat b,.rgrade .gb b,.revchips .hchip b,.revstat .big,.field input,.floatxp{font-family:var(--font-num);letter-spacing:-.02em}
+
+/* 顶部日期栏 */
+.topbar .d b{font-size:var(--fs-section);font-weight:var(--fw-b);letter-spacing:-.01em}
+.reviewmode .topbar .d b{letter-spacing:-.01em}
+.topbar .d div{font-size:var(--fs-meta);font-weight:var(--fw-r);color:var(--sub)}
+.navbtn{font-size:20px;font-weight:var(--fw-m);color:var(--ink)}
+.todaybtn,.hintchip,.editbtn{font-size:12px;font-weight:var(--fw-sb)}
+.previewbanner,.editbanner{font-size:var(--fs-meta);font-weight:var(--fw-m)}
+
+/* 成绩卡 hero */
+.ringwrap .c b{font-size:28px;font-weight:var(--fw-b);line-height:1}
+.ringwrap .c span{font-size:var(--fs-caption);font-weight:var(--fw-r);opacity:.85}
+.rank{font-size:var(--fs-meta);font-weight:var(--fw-r);opacity:.9}
+.rank b{font-size:var(--fs-title);font-weight:var(--fw-b);line-height:1.2}
+.hchip{font-size:12px;font-weight:var(--fw-r);line-height:1.3}
+.hchip b{font-size:20px;font-weight:var(--fw-b);line-height:1.15}
+.rulehint{font-size:12px;font-weight:var(--fw-r);line-height:1.45}
+.hero .endcta .btn{font-size:15px;font-weight:var(--fw-sb)}
+.next .k{font-size:var(--fs-caption);font-weight:var(--fw-sb);letter-spacing:.02em}
+.next b{font-size:var(--fs-body);font-weight:var(--fw-sb)}
+.endbar .k,.renc .k,.comment .k,.diarycard .dk{font-size:var(--fs-caption);font-weight:var(--fw-sb);letter-spacing:.02em}
+.endbar b{font-size:15px;font-weight:var(--fw-sb)}
+.endbar .btn{font-size:var(--fs-meta);font-weight:var(--fw-sb)}
+.closedban b{font-size:15px;font-weight:var(--fw-sb);color:var(--ink)}
+.closedban .sub{font-size:12px;color:var(--sub)}
+.closedban .btn{font-size:var(--fs-meta);font-weight:var(--fw-sb)}
+
+/* 分类卡片 */
+.cathead h3{font-size:var(--fs-section);font-weight:var(--fw-b);letter-spacing:0;color:var(--ink);line-height:1.25}
+.cathead .cs{font-size:var(--fs-meta);font-weight:var(--fw-r);color:var(--sub)}
+.cathead .cnt{font-size:12px;font-weight:var(--fw-m)}
+.cathead .cnt b{font-size:15px;font-weight:var(--fw-b)}
+.tt,.catbody .tt,.einfo .tt{font-size:var(--fs-body);font-weight:var(--fw-m);color:var(--ink);line-height:1.35}
+.task .td,.einfo .td{font-size:var(--fs-meta);font-weight:var(--fw-r);color:var(--sub);line-height:1.4;margin-top:2px}
+.task.done .tt{color:var(--sub2);font-weight:var(--fw-r)}
+.toggle.done .tt{color:var(--ink);font-weight:var(--fw-m)}
+.task .tm{font-size:15px;font-weight:var(--fw-sb);color:var(--ink2)}
+.task .tm small{font-size:12px;font-weight:var(--fw-m)}
+.tag{font-size:var(--fs-caption);font-weight:var(--fw-m);padding:2px 7px}
+.tag.xp{background:#eefaf3;color:#1f9d5a}
+.slot{font-size:var(--fs-sub);font-weight:var(--fw-sb);color:var(--ink2)}
+.slot small{font-size:var(--fs-caption);font-weight:var(--fw-r)}
+.pring .c b{font-size:var(--fs-display);font-weight:var(--fw-b)}
+.pring .c span{font-size:var(--fs-caption);font-weight:var(--fw-r)}
+.pring .c .live{font-size:12px;font-weight:var(--fw-sb)}
+.pstat{font-size:var(--fs-sub);font-weight:var(--fw-m);color:var(--ink2)}
+.field input{font-size:20px;font-weight:var(--fw-sb)}
+.field span,.field label{font-size:12px;font-weight:var(--fw-r);color:var(--sub)}
+
+/* 按钮 */
+.btn{font-size:15px;font-weight:var(--fw-sb);letter-spacing:0}
+.btn.sm{font-size:var(--fs-sub)}
+.donebtn{font-size:16px;font-weight:var(--fw-sb)}
+.ib{font-size:16px;font-weight:var(--fw-sb);color:var(--ink2)}
+
+/* 底部 tab：选中黑色加粗，未选中浅灰 */
+.tab{font-size:11px;font-weight:var(--fw-r);color:var(--sub2);letter-spacing:.01em}
+.tab.on{color:var(--ink);font-weight:var(--fw-sb)}
+
+/* 区块标题 */
+h2{font-size:var(--fs-section);font-weight:var(--fw-b);letter-spacing:0;line-height:1.3;color:var(--ink)}
+h2 small{font-size:var(--fs-meta);font-weight:var(--fw-r);color:var(--sub)}
+
+/* 本周 */
+.heat .hl{font-size:12px;font-weight:var(--fw-m);color:var(--ink2)}
+.heat .hd{font-size:var(--fs-caption);font-weight:var(--fw-r);color:var(--sub)}
+.heat .hd b{font-size:15px;font-weight:var(--fw-sb);color:var(--ink)}
+.hc{font-size:var(--fs-caption);font-weight:var(--fw-sb)}
+.legend{font-size:12px;font-weight:var(--fw-r);color:var(--sub)}
+.kpi b{font-size:24px;font-weight:var(--fw-b);line-height:1.2}
+.kpi span,.rstat span{font-size:12px;font-weight:var(--fw-r)}
+.stk b{font-size:20px;font-weight:var(--fw-b)}
+.stk span{font-size:12px;font-weight:var(--fw-r);color:var(--sub)}
+.badge b,.ach b{font-size:var(--fs-meta);font-weight:var(--fw-sb);color:var(--ink)}
+.badge span,.ach span{font-size:var(--fs-caption);font-weight:var(--fw-r);color:var(--sub)}
+.badge.lock b{color:var(--sub2)}
+
+/* 记录 / 设置 */
+.rec{font-size:15px}
+.rec .dt{font-weight:var(--fw-m);color:var(--ink2)}
+.rec .v{font-weight:var(--fw-sb)}
+.rec .v small{font-weight:var(--fw-r);color:var(--sub)}
+.delta{font-size:12px;font-weight:var(--fw-m)}
+.empty{font-size:var(--fs-sub);color:var(--sub)}
+.set p{font-size:var(--fs-sub);font-weight:var(--fw-r);color:var(--ink2);line-height:1.55}
+.rule{font-size:var(--fs-meta);color:var(--ink2);line-height:1.55}
+.rule b{font-weight:var(--fw-sb)}
+.foot{font-size:var(--fs-caption);color:var(--sub2)}
+.toast{font-size:15px;font-weight:var(--fw-sb)}
+.toast small{font-size:12px;font-weight:var(--fw-r)}
+.floatxp{font-size:18px;font-weight:var(--fw-b)}
+.dlist .dd{font-size:var(--fs-sub);font-weight:var(--fw-sb);color:var(--ink)}
+.dlist .dg{font-size:var(--fs-caption);font-weight:var(--fw-m)}
+.dlist .dp{font-size:var(--fs-sub);color:var(--ink2);line-height:1.5}
+.dlist .meta{font-size:12px;color:var(--sub)}
+
+/* 编辑弹层 */
+.fl{font-size:var(--fs-meta);font-weight:var(--fw-sb);color:var(--ink2)}
+.inp{font-size:16px;font-weight:var(--fw-r)}
+.hint{font-size:12px;color:var(--sub);line-height:1.5}
+.seg button{font-size:var(--fs-sub);font-weight:var(--fw-m);color:var(--ink2)}
+.seg button.on{font-weight:var(--fw-sb)}
+.wdays button{font-size:15px;font-weight:var(--fw-sb);color:var(--sub)}
+.tgl b{font-size:15px;font-weight:var(--fw-m)}
+.slotn,.wkd{font-size:var(--fs-meta);font-weight:var(--fw-sb)}
+.shead h3,.shead b{font-size:var(--fs-section);font-weight:var(--fw-b)}
+
+/* 当日回顾 */
+.revhero .rhead{font-size:12px;font-weight:var(--fw-m);letter-spacing:.02em}
+.grade b{font-size:44px;font-weight:var(--fw-b);letter-spacing:-.03em}
+.grade span{font-size:12px;font-weight:var(--fw-m);letter-spacing:.04em}
+.revstat .big{font-size:var(--fs-title);font-weight:var(--fw-b);letter-spacing:-.01em}
+.revstat .sub{font-size:var(--fs-meta);font-weight:var(--fw-r)}
+.revchips .hchip{font-size:12px;font-weight:var(--fw-r)}
+.revchips .hchip b{font-size:20px;font-weight:var(--fw-b)}
+.revup{font-size:var(--fs-meta);font-weight:var(--fw-m)}
+.comment b,.renc b{font-size:15px;font-weight:var(--fw-r);line-height:1.6;color:inherit}
+.comment b{color:var(--ink)}
+.rcat .rn{font-size:var(--fs-body);font-weight:var(--fw-sb)}
+.rcat .rs{font-size:12px;color:var(--sub)}
+.rcat .rp{font-size:15px;font-weight:var(--fw-b)}
+.ritem{font-size:var(--fs-sub);line-height:1.45}
+.ritem .nm{font-weight:var(--fw-r);color:var(--ink)}
+.ritem.miss .nm{color:var(--sub2)}
+.ritem .mk{font-weight:var(--fw-b)}
+.ritem .tm{font-size:12px;font-weight:var(--fw-r);color:var(--sub)}
+.sd .dn{font-size:var(--fs-caption);font-weight:var(--fw-r);color:var(--sub)}
+.sd .dd{font-size:16px;font-weight:var(--fw-sb)}
+.cmp span{font-size:12px;font-weight:var(--fw-m);color:var(--ink2)}
+.revempty b{font-size:17px;font-weight:var(--fw-sb)}
+.revempty p{font-size:var(--fs-sub)}
+.diarycard .dt{font-size:15px;font-weight:var(--fw-r);line-height:1.65;color:var(--ink)}
+.diarycard .tagchip{font-size:12px;font-weight:var(--fw-m)}
+
+/* 结算仪式弹窗 */
+.rhead .rt{font-size:12px;font-weight:var(--fw-sb);letter-spacing:.08em}
+.rhead .rst{font-size:12px;font-weight:var(--fw-r)}
+.rfoot .btn{font-size:16px;font-weight:var(--fw-sb)}
+.rfoot .btn.skip{font-size:15px;font-weight:var(--fw-r)}
+.rgrade .gb b{font-size:56px;font-weight:var(--fw-b);letter-spacing:-.03em}
+.rgrade .gb span{font-size:12px;font-weight:var(--fw-m);letter-spacing:.08em}
+.rgrade .litline{font-size:var(--fs-title);font-weight:var(--fw-b)}
+.rgrade .sub{font-size:var(--fs-sub);font-weight:var(--fw-r)}
+.rstat b{font-size:22px;font-weight:var(--fw-b)}
+.rcatring .nm{font-size:var(--fs-caption);font-weight:var(--fw-r)}
+.rhl .ht,.rtitle-k{font-size:12px;font-weight:var(--fw-sb);letter-spacing:.04em}
+.rhl .hchip{flex:0 0 auto;white-space:nowrap;font-size:var(--fs-meta);font-weight:var(--fw-r);line-height:1.4}
+.rtom{font-size:var(--fs-meta);line-height:1.5}
+.moods button span{font-size:var(--fs-caption);font-weight:var(--fw-r)}
+.rprompt{font-size:var(--fs-sub);font-weight:var(--fw-r)}
+.rdiary{font-size:16px;font-weight:var(--fw-r);line-height:1.6}
+.qtags button{font-size:var(--fs-meta);font-weight:var(--fw-m)}
+.rhint{font-size:12px}
+.rstamp .seal b{font-size:26px;font-weight:var(--fw-b);letter-spacing:.06em}
+.rstamp .seal span{font-size:var(--fs-meta);font-variant-numeric:tabular-nums}
+.rstamp h3{font-size:var(--fs-title);font-weight:var(--fw-b)}
+.rstamp p{font-size:15px;font-weight:var(--fw-r);line-height:1.6}
+.rstamp .xpbonus{font-size:15px;font-weight:var(--fw-sb)}
+.rwtitle{font-size:var(--fs-title);font-weight:var(--fw-b);margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -1358,7 +1542,7 @@ function renderSettings() {
     <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
   <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复（自定义的分类和任务会保留）。建议先导出备份。</p>
     <button class="btn danger full" data-act="reset">清空全部数据</button></div>
-  <div class="foot">每日打卡 v7 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+  <div class="foot">每日打卡 v8 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
 }
 /* =====================================================================
  *  编辑分类和任务（底部弹出表单）
@@ -1608,7 +1792,7 @@ document.addEventListener('click', ev => {
   }
 });
 /* =====================================================================
- *  结束今天 · 结算仪式 + 日记（v7）
+ *  结束今天 · 结算仪式 + 日记（v8）
  * ===================================================================== */
 const MOODS = [
   { id: 'great', e: '😄', label: '很棒' },
@@ -1852,9 +2036,9 @@ function renderRitual() {
     if (teaser) body += `<div class="rtom">📅 ${esc(teaser)}</div>`;
   } else if (step === 2) {
     body = `<div style="text-align:center;padding:6px 0 4px"><div style="font-size:40px;margin-bottom:6px">📝</div>
-      <div style="font-size:20px;font-weight:900;margin-bottom:4px">写点什么</div>
+      <div class="rwtitle">写点什么</div>
       <div style="font-size:13px;opacity:.7;margin-bottom:12px">一两句就好 · 也可以跳过</div></div>
-      <div class="k" style="font-size:12px;font-weight:800;opacity:.7;margin-bottom:6px">今天心情</div>
+      <div class="k rtitle-k" style="opacity:.7;margin-bottom:6px">今天心情</div>
       <div class="moods">${MOODS.map(m => `<button type="button" class="${ritual.mood === m.id ? 'on' : ''}" data-act="rit-mood" data-v="${m.id}">${m.e}<span>${m.label}</span></button>`).join('')}</div>
       <div class="rprompt">💭 ${esc(ritual.prompt)}</div>
       <textarea class="rdiary" id="ritDiary" placeholder="今天想记下来的事…">${esc(ritual.text)}</textarea>
