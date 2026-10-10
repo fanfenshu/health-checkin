@@ -185,6 +185,30 @@ textarea{width:100%;min-height:100px;border:2px solid var(--line);border-radius:
 .floatxp{position:fixed;z-index:55;font-weight:900;font-size:17px;color:#7a5cf0;pointer-events:none;animation:fl 1s ease-out forwards;text-shadow:0 1px 0 #fff}
 @keyframes fl{from{opacity:1;transform:translate(-50%,0)}to{opacity:0;transform:translate(-50%,-46px)}}
 .foot{text-align:center;font-size:11.5px;color:#a8adb5;margin:6px 0 4px}
+
+/* —— 分类卡片 v2：大类标题更醒目，子项缩进成组 —— */
+.cat{padding:0 0 10px;overflow:hidden;border-top:5px solid var(--c)}
+.cathead{padding:14px 16px 10px;background:var(--cl)}
+.cathead .ce{width:44px;height:44px;border-radius:14px;font-size:24px}
+.cathead h3{font-size:19px;font-weight:900;letter-spacing:.5px;color:var(--ink)}
+.cathead .cnt{font-size:13px;font-weight:800;color:#fff;background:var(--c);border-radius:999px;padding:5px 11px;white-space:nowrap;box-shadow:0 2px 6px var(--cs)}
+.cathead .cnt b{font-size:16px;font-weight:900}
+.cat.complete .cathead:after{content:none}
+.cat.complete .cnt{display:inline-block}
+.catbar{height:6px;background:var(--cl);margin:0}
+.catbody{position:relative;margin:10px 12px 0 22px;padding-left:12px;border-left:3px solid var(--cs)}
+.catbody>.task,.catbody>.multi,.catbody>.weigh,.catbody>.piano{border:0;border-radius:14px;background:#faf8f4;margin-bottom:8px;position:relative}
+.catbody>.task:last-child,.catbody>.multi:last-child,.catbody>.weigh:last-child{margin-bottom:0}
+.catbody>.task:before,.catbody>.multi:before,.catbody>.weigh:before{content:"";position:absolute;left:-15px;top:26px;width:12px;height:3px;background:var(--cs)}
+.catbody>.task{min-height:60px;padding:11px 12px;gap:10px}
+.catbody>.multi,.catbody>.weigh{padding:11px 12px 12px}
+.catbody>.piano{padding:12px}
+.catbody>.task.done{background:#f3f7f4}
+.catbody>.task.missed,.catbody>.weigh.missed{background:var(--miss)}
+.catbody>.task.nowing{background:var(--cl);box-shadow:inset 0 0 0 2px var(--c)}
+.catbody .chk{width:30px;height:30px}
+.catbody .tt{font-size:15px}
+.catbody .small.muted[style]{padding:2px 4px 2px!important;margin-top:0!important}
 </style>
 </head>
 <body>
@@ -466,10 +490,11 @@ function renderToday() {
     const done = ts.filter(t => frac(t, k) >= 1).length, cst = streak(catPred(cid));
     const sub = [cid === 'sport' ? esc(ts[0].phase) : '', cst ? `🔥 连续 ${cst} ${cid === 'weigh' ? '周' : '天'}` : ''].filter(Boolean).join(' · ') || (cid === 'piano' ? '有空就练，不限时间' : '完成全部 +' + CONFIG.xp.catBonus + ' XP');
     h += `<div class="card cat ${ce.complete ? 'complete' : ''}" style="${catStyle(c)}">
-      <div class="cathead"><div class="ce">${c.emoji}</div><div class="sp"><h3>${c.name}</h3><div class="cs">${sub}</div></div><div class="cnt">${done}/${ts.length}</div></div>
-      <div class="catbar"><i style="width:${(ce.frac * 100).toFixed(1)}%"></i></div>`;
+      <div class="cathead"><div class="ce">${c.emoji}</div><div class="sp"><h3>${c.name}</h3><div class="cs">${sub}</div></div><div class="cnt">${ce.complete ? '✓ 全部完成' : `<b>${done}</b>/${ts.length} 已完成`}</div></div>
+      <div class="catbar"><i style="width:${(ce.frac * 100).toFixed(1)}%"></i></div>
+      <div class="catbody">`;
     for (const t of ts) h += renderTask(t, k);
-    h += `</div>`;
+    h += `</div></div>`;
   }
   h += `<div class="foot">数据只保存在这台手机上 · 记得定期在「设置」里备份</div>`;
   return h;
