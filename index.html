@@ -272,6 +272,75 @@ select.inp{padding-right:30px;background:#fbfaf7 url("data:image/svg+xml,%3Csvg 
 .wked .inp{height:44px;background:#fff}
 .sact{position:sticky;bottom:0;display:flex;gap:8px;background:#fff;margin:16px -18px 0;padding:12px 18px calc(var(--sab) + 14px);border-top:1px solid var(--line)}
 .sact .btn{height:50px}
+
+/* —— 当日回顾 v5 —— */
+.reviewmode .topbar .d b{letter-spacing:.3px}
+.revhero{position:relative;overflow:hidden;padding:18px 16px 16px;border-radius:var(--radius);margin-bottom:14px;color:#fff;box-shadow:0 8px 28px rgba(50,40,20,.12)}
+.revhero.lit{background:linear-gradient(145deg,#ff9a5c 0%,#ff6b88 48%,#8f6bff 100%)}
+.revhero.unlit{background:linear-gradient(145deg,#8a93a3 0%,#6b7380 55%,#555c68 100%)}
+.revhero.empty{background:linear-gradient(145deg,#c8c2b8 0%,#a8a29a 100%)}
+.revhero:after{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.1);pointer-events:none}
+.revhero .rhead{display:flex;align-items:center;gap:4px;font-size:12.5px;font-weight:800;opacity:.92;margin-bottom:12px;letter-spacing:.5px}
+.revhero .rhead .pill{background:rgba(255,255,255,.22);border-radius:999px;padding:3px 10px}
+.revtop{display:flex;align-items:center;gap:14px}
+.grade{width:92px;height:92px;flex-shrink:0;border-radius:24px;background:rgba(255,255,255,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.28)}
+.grade b{font-size:42px;font-weight:900;line-height:1;letter-spacing:-1px}
+.grade span{font-size:13px;font-weight:800;opacity:.95;margin-top:2px;letter-spacing:1px}
+.revstat .big{font-size:22px;font-weight:900;line-height:1.25;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.revstat .sub{font-size:13px;opacity:.92;margin-top:4px;line-height:1.4}
+.revstat .stars{letter-spacing:2px;font-size:16px;margin-top:4px}
+.revchips{display:flex;gap:8px;margin-top:14px}
+.revchips .hchip{flex:1;background:rgba(255,255,255,.18);border-radius:14px;padding:8px 8px;font-size:11.5px;line-height:1.2;text-align:center}
+.revchips .hchip b{font-size:17px;font-weight:900;display:block;margin-bottom:2px}
+.revup{margin-top:10px;font-size:12.5px;font-weight:800;background:rgba(255,255,255,.22);border-radius:12px;padding:8px 12px;display:flex;align-items:center;gap:8px}
+.comment{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:16px;padding:14px 14px;margin-bottom:14px;box-shadow:0 2px 12px rgba(50,40,20,.06);border-left:5px solid #7a5cf0}
+.comment .e{font-size:26px;line-height:1;margin-top:1px}
+.comment .k{font-size:11px;font-weight:800;color:#7a5cf0;letter-spacing:.5px}
+.comment b{font-size:14.5px;font-weight:700;display:block;margin-top:2px;line-height:1.45;color:var(--ink)}
+.achrow{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;margin:0 -2px 4px;scrollbar-width:none}
+.achrow::-webkit-scrollbar{display:none}
+.ach{flex:0 0 auto;min-width:112px;max-width:140px;border-radius:16px;padding:12px 10px 10px;text-align:center;background:linear-gradient(160deg,#fff7e0,#ffe7ef);border:2px solid #ffd98a}
+.ach .e{font-size:28px;line-height:1.1}
+.ach b{display:block;font-size:12.5px;margin-top:4px;line-height:1.25}
+.ach span{display:block;font-size:10.5px;color:var(--sub);margin-top:2px;line-height:1.25}
+.rcat{border-radius:16px;padding:12px 14px;margin-bottom:8px;background:#faf8f4;border-left:4px solid var(--c)}
+.rcat:last-child{margin-bottom:0}
+.rcat .rh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.rcat .re{width:36px;height:36px;border-radius:11px;background:var(--c);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 6px var(--cs)}
+.rcat .rn{font-size:15.5px;font-weight:800}
+.rcat .rs{font-size:12px;color:var(--sub)}
+.rcat .rp{font-weight:900;font-size:14px;color:var(--c);margin-left:auto}
+.rmini{height:4px;border-radius:2px;background:#e8e4dc;margin-bottom:8px;overflow:hidden}
+.rmini i{display:block;height:100%;background:var(--c)}
+.ritem{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:13.5px;line-height:1.35}
+.ritem .mk{width:18px;flex-shrink:0;text-align:center;font-weight:900;margin-top:1px}
+.ritem.ok .mk{color:var(--ok)}
+.ritem.miss .mk{color:#c9a06a}
+.ritem.miss{color:#9aa0a8}
+.ritem .nm{flex:1;min-width:0;font-weight:700}
+.ritem .tm{flex-shrink:0;font-size:12px;font-weight:700;color:var(--sub);font-variant-numeric:tabular-nums}
+.strip7{display:flex;gap:6px;justify-content:space-between;margin-top:4px}
+.sd{flex:1;min-width:0;border-radius:14px;padding:8px 2px 7px;text-align:center;background:#f6f4f0;border:2px solid transparent;cursor:pointer}
+.sd .dn{font-size:10.5px;font-weight:800;color:var(--sub);line-height:1}
+.sd .dd{font-size:15px;font-weight:900;margin:3px 0 2px;line-height:1}
+.sd .dot{font-size:14px;line-height:1;height:16px}
+.sd.on{background:#fff0ee;border-color:#ff6b6b;box-shadow:0 2px 8px rgba(255,107,107,.2)}
+.sd.on .dd{color:#ff5a3c}
+.sd.lit{background:#fff5e8}
+.sd.fut{opacity:.45}
+.sd.empty{opacity:.7}
+.cmp{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.cmp span{font-size:12.5px;font-weight:700;color:#5b616b;background:#f6f4f0;border-radius:999px;padding:5px 11px}
+.cmp .up{color:var(--ok)}.cmp .down{color:#e0603c}
+.bfbar{display:flex;gap:8px;margin-bottom:14px}
+.bfbar .btn{flex:1;height:48px}
+.editbanner{display:flex;align-items:center;gap:10px;background:#fff7e8;border:1px solid #ffd98a;border-radius:14px;padding:10px 14px;margin-bottom:14px;color:#b86e00;font-size:13.5px;font-weight:700}
+.editbanner .e{font-size:22px}
+.revempty{text-align:center;padding:36px 16px 28px}
+.revempty .e{font-size:48px;display:block;margin-bottom:8px}
+.revempty b{display:block;font-size:17px;margin-bottom:6px}
+.revempty p{font-size:13.5px;color:var(--sub);line-height:1.5}
+
 </style>
 </head>
 <body>
@@ -576,7 +645,7 @@ function levelOf(xp) {
   return { lv: i + 1, name: L[i][1], cur, nxt, p: nxt ? (xp - cur) / (nxt - cur) : 1 };
 }
 /* ===================================================================== */
-let view = 'today', viewDay = todayKey(), weekOf = todayKey(), justDone = null, exportText = '';
+let view = 'today', viewDay = todayKey(), weekOf = todayKey(), justDone = null, exportText = '', pastEdit = false;
 let snap = null;
 
 function statusOf(k, startHm, endHm) {
@@ -602,7 +671,7 @@ function daySubline(k, isToday, isFuture) {
   const back = `<span class="todaybtn" data-act="gotoday">回到今天</span>`;
   if (isToday) return `<div class="subrow">${rel} · 计划第 ${week} 周 <span class="editbtn" data-act="edit">✏️ 编辑任务</span></div>`;
   if (isFuture) return `<div class="subrow">${rel} · 预览 · 第 ${week} 周 ${back}</div>`;
-  return `<div class="subrow">${rel} · 补卡 · 第 ${week} 周 ${back}</div>`;
+  return `<div class="subrow">${rel} · 当日回顾 · 第 ${week} 周 ${back}</div>`;
 }
 function potentialXp(e) {
   let xp = 0;
@@ -615,14 +684,20 @@ function potentialXp(e) {
   return xp;
 }
 function renderToday() {
-  const k = viewDay, tk = todayKey(), e = evalDay(k), tot = totals(), L = levelOf(tot.xp);
-  const fl = streak(x => evalDay(x).lit), isToday = k === tk, isFuture = isFutureDay(k), d = parseKey(k);
+  const k = viewDay, tk = todayKey(), isToday = k === tk, isFuture = isFutureDay(k), isPast = isPastDay(k);
+  if (isPast && !pastEdit) return renderPastReview(k);
+  const e = evalDay(k), tot = totals(), L = levelOf(tot.xp);
+  const fl = streak(x => evalDay(x).lit), d = parseKey(k);
   const left = e.ts.filter(t => t.core && frac(t, k) < 1).length;
   const maxF = maxFutureKey();
   let h = `<div class="topbar">
     <button type="button" class="navbtn" data-act="day" data-n="-1" ${k <= CONFIG.startDate ? 'disabled' : ''} aria-label="前一天">‹</button>
     <div class="d"><b>${fmtMD(k)} ${WD[d.getDay()]}</b>${daySubline(k, isToday, isFuture)}</div>
     <button type="button" class="navbtn" data-act="day" data-n="1" ${k >= maxF ? 'disabled' : ''} aria-label="后一天">›</button></div>`;
+  if (isPast && pastEdit) {
+    h += `<div class="editbanner"><span class="e">✏️</span><div class="sp">补卡模式 · 改完后会重新算总结</div>
+      <button type="button" class="btn pri sm" style="--c:#f08a3c;--cs:#f08a3c55;flex:0;min-width:96px;height:40px" data-act="pastdone">完成</button></div>`;
+  }
   if (isFuture) {
     const pot = potentialXp(e);
     h += `<div class="previewbanner"><span class="e">👀</span><div class="sp">${esc(relDayLabel(k))}的日程预览 · 共 ${e.ts.length} 项任务，全部完成约 +${pot} XP<br><span class="small" style="font-weight:600;opacity:.85">到当天再打卡，现在只看安排</span></div></div>`;
@@ -673,6 +748,244 @@ function renderToday() {
   h += `<div class="foot">数据只保存在这台手机上 · 记得定期在「设置」里备份 · 左右滑动可换天</div>`;
   return h;
 }
+
+
+/* —— 当日回顾（过去的日子） —— */
+function streakAt(k) {
+  let n = 0;
+  for (let d = k; d >= CONFIG.startDate; d = addDays(d, -1)) { if (evalDay(d).lit) n++; else break; }
+  return n;
+}
+function xpUpTo(k) {
+  let xp = 0; const seen = new Set();
+  for (const d of Object.keys(S.days)) { if (d < CONFIG.startDate || d > k) continue; xp += evalDay(d).xp; seen.add(d); }
+  for (const d of Object.keys(S.weights)) { if (seen.has(d) || d < CONFIG.startDate || d > k) continue; xp += evalDay(d).xp; }
+  return xp;
+}
+function gradeOf(e) {
+  if (!e.ts.length) return { g: '—', stars: 0, label: '无任务' };
+  if (e.perfect) return { g: 'S', stars: 3, label: '完美' };
+  if (e.pct >= 0.9 && e.lit) return { g: 'A', stars: 3, label: '优秀' };
+  if (e.lit) return { g: 'B', stars: 2, label: '点亮' };
+  if (e.pct >= 0.5) return { g: 'C', stars: 1, label: '过半' };
+  if (e.any) return { g: 'D', stars: 1, label: '起步' };
+  return { g: 'E', stars: 0, label: '空白' };
+}
+function fmtCheckTime(v) {
+  if (typeof v !== 'number' || v < 1e11) return '';
+  const d = new Date(v), h = d.getHours(), m = d.getMinutes();
+  return `${pad(h)}:${pad(m)}`;
+}
+function checkTimeOf(t, k) {
+  const r = peekDay(k);
+  if (t.type === 'multi') return '';
+  if (t.type === 'weigh' && S.weights[k]) return ''; // weigh has no separate ts yet
+  if (t.type === 'piano' || t.type === 'number') return '';
+  return fmtCheckTime(r.t[t.id]);
+}
+function dayAchievements(k, e) {
+  const out = [];
+  for (const b of CONFIG.badges) if (S.badges[b.id] === k) out.push({ e: b.e, name: b.name, desc: '徽章解锁', kind: 'badge' });
+  if (e.perfect) out.push({ e: '💯', name: '完美一天', desc: '全部完成', kind: 'perfect' });
+  for (const c of catsFor(k)) {
+    const ce = e.cats[c.id];
+    if (ce && ce.complete) out.push({ e: c.emoji, name: `${c.name}全勤`, desc: '分类全部完成', kind: 'cat' });
+  }
+  const pm = Math.floor(pianoSec(k) / 60);
+  if (pm > 0) {
+    let best = 0;
+    for (let d = CONFIG.startDate; d <= k; d = addDays(d, 1)) best = Math.max(best, Math.floor(pianoSec(d) / 60));
+    if (pm >= best && pm >= 30) out.push({ e: '🎹', name: '练琴最长一天', desc: `当天 ${pm} 分钟`, kind: 'best' });
+  }
+  const w = S.weights[k];
+  if (w && (w.w || w.waist)) {
+    const ws = weightList().filter(x => x.k <= k);
+    if (ws.length === 1) out.push({ e: '⚖️', name: '第一次称重', desc: w.w ? `${w.w} 斤` : `${w.waist} cm`, kind: 'first' });
+  }
+  // de-dupe by name
+  const seen = new Set(); return out.filter(a => (seen.has(a.name) ? false : (seen.add(a.name), true)));
+}
+function dayComment(k, e) {
+  if (k < CONFIG.startDate) return '这天还没开始计划，从计划第一天再看总结吧。';
+  if (!e.ts.length) return '这一天没有安排任务。';
+  if (!e.any && e.pct < 0.01) return '这天没有记录，点下面「补卡」补几项也能攒经验。';
+  if (e.perfect) {
+    const piano = e.ts.find(t => t.type === 'piano' && frac(t, k) >= 1);
+    if (piano) return `满分！运动饮食护腰练琴全到位，是可以骄傲的一天。`;
+    return '满分的一天！每项都勾上了，给自己鼓个掌。';
+  }
+  const done = [], miss = [];
+  for (const t of e.ts) {
+    const name = t.type === 'piano' ? t.title : (t.id === 'morning' ? '晨间护腰' : t.id === 'nocola' ? '零可乐' : t.title);
+    if (frac(t, k) >= 1) done.push(name); else if (frac(t, k) < 0.5) miss.push(name);
+  }
+  const catDone = catsFor(k).filter(c => e.cats[c.id] && e.cats[c.id].complete).map(c => c.name);
+  const bits = [];
+  if (e.lit) bits.push('这一天点亮了');
+  if (catDone.length) bits.push(`${catDone.slice(0, 2).join('和')}全勤`);
+  else if (done.length) bits.push(`${done.slice(0, 2).join('和')}都完成了`);
+  if (miss.length === 1) bits.push(`就差「${miss[0]}」`);
+  else if (miss.length === 2) bits.push(`${miss[0]}和${miss[1]}漏了`);
+  else if (miss.length > 2) bits.push(`还差 ${miss.length} 项`);
+  if (e.lit && miss.length && e.pct >= 0.85) return `${bits[0] || '不错'}，${miss.slice(0, 2).join('、')}漏打了，不然就是满分的一天。`;
+  if (!e.lit) {
+    const need = Math.max(1, Math.ceil(e.ts.length * CONFIG.streakRule.minPct) - Math.round(e.pct * e.ts.length));
+    const coreLeft = e.ts.filter(t => t.core && frac(t, k) < 1).map(t => t.type === 'piano' ? t.title : t.title);
+    if (coreLeft.length && coreLeft.length <= 2) return `还差 ★${coreLeft.join('、')} 就能点亮，补上火苗就不断。`;
+    return `完成了 ${Math.round(e.pct * 100)}%，再补大约 ${need} 项就能点亮这一天。`;
+  }
+  let line = bits.filter(Boolean).join('，');
+  if (!line.endsWith('。')) line += '。';
+  if (e.pct >= 0.9) line = line.replace(/。$/, '，几乎满分。');
+  return line || '扎实的一天，继续保持。';
+}
+function renderStrip7(k) {
+  const tk = todayKey();
+  let from = addDays(k, -3), to = addDays(k, 3);
+  if (from < CONFIG.startDate) { const shift = diffDays(from, CONFIG.startDate); from = CONFIG.startDate; to = addDays(to, shift); }
+  if (to > tk) { const shift = diffDays(tk, to); to = tk; from = addDays(from, -shift); if (from < CONFIG.startDate) from = CONFIG.startDate; }
+  let h = '<div class="strip7">';
+  for (let d = from; d <= to; d = addDays(d, 1)) {
+    const e = (d >= CONFIG.startDate && d <= tk) ? evalDay(d) : null;
+    const cls = [d === k ? 'on' : '', e && e.lit ? 'lit' : '', d > tk ? 'fut' : '', e && !e.any ? 'empty' : ''].filter(Boolean).join(' ');
+    const dot = !e ? '·' : e.lit ? '🔥' : e.any ? '●' : '○';
+    h += `<button type="button" class="sd ${cls}" data-act="openday" data-k="${d}"><div class="dn">${WD[wdOf(d)].slice(1)}</div><div class="dd">${parseKey(d).getDate()}</div><div class="dot">${dot}</div></button>`;
+  }
+  return h + '</div>';
+}
+function taskDoneLabel(t, k) {
+  if (t.type === 'piano') {
+    const m = Math.floor(taskSec(k, t.id) / 60);
+    return `${esc(t.title)} ${m} 分钟` + (m >= (t.bonusMin || 999) ? ' ⭐' : m >= t.goalMin ? ' ✓' : '');
+  }
+  if (t.type === 'multi') {
+    const n = slotDone(t, k).length;
+    return `${esc(t.title)} ${n}/${t.slots.length}`;
+  }
+  if (t.type === 'weigh') {
+    const w = S.weights[k] || {};
+    return `${esc(t.title)}${w.w ? ' · ' + w.w + ' 斤' : ''}${w.waist ? ' · ' + w.waist + ' cm' : ''}`;
+  }
+  if (t.type === 'number') {
+    const v = peekDay(k).n && peekDay(k).n[t.id];
+    return `${esc(t.title)}${v != null ? ' · ' + v + (t.unit ? ' ' + esc(t.unit) : '') : ''}`;
+  }
+  return (t.icon ? esc(t.icon) + ' ' : '') + esc(t.title);
+}
+function renderPastReview(k) {
+  const tk = todayKey(), e = evalDay(k), d = parseKey(k), gr = gradeOf(e);
+  const fl = streakAt(k), xpEnd = xpUpTo(k), L = levelOf(xpEnd);
+  const xpPrev = k > CONFIG.startDate ? xpUpTo(addDays(k, -1)) : 0;
+  const Lprev = levelOf(xpPrev), leveled = L.lv > Lprev.lv;
+  const empty = !e.any && e.pct < 0.01;
+  const maxF = maxFutureKey();
+  const beforePlan = k < CONFIG.startDate;
+  let h = `<div class="topbar reviewmode">
+    <button type="button" class="navbtn" data-act="day" data-n="-1" ${k <= CONFIG.startDate ? 'disabled' : ''} aria-label="前一天">‹</button>
+    <div class="d"><b>${fmtMD(k)} ${WD[d.getDay()]}</b>${daySubline(k, false, false)}</div>
+    <button type="button" class="navbtn" data-act="day" data-n="1" ${k >= maxF ? 'disabled' : ''} aria-label="后一天">›</button></div>`;
+
+  if (beforePlan) {
+    h += `<div class="card"><div class="revempty"><span class="e">🌱</span><b>这天还没开始计划</b><p>计划从 ${fmtMD(CONFIG.startDate)} 起算，往右翻到那一天再看总结。</p></div></div>`;
+    h += `<div class="card"><h2>📅 近 7 天</h2>${renderStrip7(k)}</div>`;
+    return h;
+  }
+
+  // Hero
+  const heroCls = empty ? 'empty' : e.lit ? 'lit' : 'unlit';
+  const stars = '★'.repeat(gr.stars) + '☆'.repeat(Math.max(0, 3 - gr.stars));
+  let resultBig, resultSub;
+  if (empty) { resultBig = '没有记录'; resultSub = '补卡后这里会变成成绩单'; }
+  else if (e.lit) { resultBig = `<span class="flame on">🔥</span> 已点亮`; resultSub = fl > 1 ? `连续第 ${fl} 天` : '火苗点燃的一天'; }
+  else {
+    const pct = Math.round(e.pct * 100);
+    const needN = Math.max(1, Math.ceil(e.ts.length * CONFIG.streakRule.minPct) - Math.round(e.pct * e.ts.length));
+    resultBig = '未点亮';
+    resultSub = `完成 ${pct}% · 差 ${needN} 项就能点亮`;
+  }
+  h += `<div class="revhero ${heroCls}"><div class="rhead"><span class="pill">当日回顾</span><span>· ${esc(relDayLabel(k))}</span></div>
+    <div class="revtop"><div class="grade"><b>${gr.g}</b><span>${esc(gr.label)}</span></div>
+      <div class="sp revstat"><div class="big">${resultBig}</div><div class="stars">${stars}</div><div class="sub">${resultSub}</div></div></div>
+    <div class="revchips">
+      <div class="hchip"><b>${Math.round(e.pct * 100)}%</b>完成度</div>
+      <div class="hchip"><b>+${e.xp}</b>当日 XP</div>
+      <div class="hchip"><b>Lv.${L.lv}</b>${esc(L.name)}</div>
+    </div>`;
+  if (leveled) h += `<div class="revup">🎉 这一天升级到 Lv.${L.lv}「${esc(L.name)}」！</div>`;
+  h += `</div>`;
+
+  // Comment
+  h += `<div class="comment"><div class="e">💬</div><div class="sp"><div class="k">当日点评</div><b>${esc(dayComment(k, e))}</b></div></div>`;
+
+  // Achievements
+  const ach = empty ? [] : dayAchievements(k, e);
+  if (ach.length) {
+    h += `<div class="card"><h2>🏅 当日成就<small>${ach.length} 项</small></h2><div class="achrow">${ach.map(a =>
+      `<div class="ach"><div class="e">${a.e}</div><b>${esc(a.name)}</b><span>${esc(a.desc)}</span></div>`).join('')}</div></div>`;
+  }
+
+  // Empty state body
+  if (empty) {
+    h += `<div class="card"><div class="revempty"><span class="e">📭</span><b>这天没有记录</b><p>可以补卡，补完再回来看总结。<br>点亮规则：完成 ≥80%，或 ★核心任务全部完成。</p>
+      <button type="button" class="btn pri" style="--c:#f08a3c;--cs:#f08a3c55;margin-top:12px;min-width:160px" data-act="pastedit">✏️ 去补卡</button></div></div>`;
+  } else {
+    // Category breakdown
+    h += `<div class="card"><h2>📊 分类完成</h2>`;
+    for (const c of catsFor(k).filter(c => e.cats[c.id])) {
+      const ce = e.cats[c.id], ts = e.ts.filter(t => t.cat === c.id);
+      const doneN = ts.filter(t => frac(t, k) >= 1).length;
+      h += `<div class="rcat" style="${catStyle(c)}"><div class="rh"><div class="re">${esc(c.emoji)}</div>
+        <div class="sp"><div class="rn">${esc(c.name)}</div><div class="rs">${ce.complete ? '全勤 +' + CONFIG.xp.catBonus + ' XP' : doneN + '/' + ts.length + ' 完成'}</div></div>
+        <div class="rp">${ce.complete ? '✓' : Math.round(ce.frac * 100) + '%'}</div></div>
+        <div class="rmini"><i style="width:${(ce.frac * 100).toFixed(1)}%"></i></div>`;
+      for (const t of ts) {
+        const ok = frac(t, k) >= 1, partial = !ok && frac(t, k) > 0;
+        const tm = checkTimeOf(t, k);
+        let extra = '';
+        if (t.type === 'weigh' && S.weights[k]) {
+          const w = S.weights[k], prev = weightList().filter(x => x.k < k), last = prev[prev.length - 1];
+          if (last && w.w && last.w) { const dl = +(w.w - last.w).toFixed(1); extra = ` <span class="delta ${dl <= 0 ? 'down' : 'up'}">${dl > 0 ? '↑' : '↓'}${Math.abs(dl)} 斤</span>`; }
+          if (last && w.waist && last.waist) { const dl = +(w.waist - last.waist).toFixed(1); extra += ` <span class="delta ${dl <= 0 ? 'down' : 'up'}">${dl > 0 ? '↑' : '↓'}${Math.abs(dl)} cm</span>`; }
+        }
+        if (t.type === 'sleep') extra += ` <span class="muted">目标 ${esc(t.time)}</span>`;
+        h += `<div class="ritem ${ok ? 'ok' : 'miss'}"><div class="mk">${ok ? '✓' : (partial ? '◐' : '○')}</div><div class="nm">${taskDoneLabel(t, k)}${extra}</div>${tm ? `<div class="tm">${tm}</div>` : ''}</div>`;
+        if (t.type === 'multi') {
+          const dn = slotDone(t, k), mts = (peekDay(k).mts && peekDay(k).mts[t.id]) || {};
+          for (let i = 0; i < t.slots.length; i++) {
+            const d = dn.includes(i), label = t.slots[i] || `第 ${i + 1} 次`;
+            const st = fmtCheckTime(mts[i]);
+            h += `<div class="ritem ${d ? 'ok' : 'miss'}" style="padding-left:18px"><div class="mk">${d ? '✓' : '○'}</div><div class="nm">${esc(label)}</div>${st ? `<div class="tm">${st}</div>` : ''}</div>`;
+          }
+        }
+      }
+      h += `</div>`;
+    }
+    h += `</div>`;
+  }
+
+  // Context: 7-day strip + comparison
+  const prevK = addDays(k, -1);
+  const prevE = prevK >= CONFIG.startDate ? evalDay(prevK) : null;
+  let avg = 0, avgN = 0;
+  for (let i = 1; i <= 7; i++) { const d2 = addDays(k, -i); if (d2 < CONFIG.startDate) break; avg += evalDay(d2).pct; avgN++; }
+  if (avgN) avg /= avgN;
+  h += `<div class="card"><h2>📅 近 7 天<small>点一天可跳转</small></h2>${renderStrip7(k)}<div class="cmp">`;
+  if (prevE) {
+    const dlt = Math.round((e.pct - prevE.pct) * 100);
+    h += `<span class="${dlt > 0 ? 'up' : dlt < 0 ? 'down' : ''}">${dlt > 0 ? '↑' : dlt < 0 ? '↓' : '→'} 比前一天 ${dlt > 0 ? '+' : ''}${dlt}%</span>`;
+  }
+  if (avgN) {
+    const dlt = Math.round((e.pct - avg) * 100);
+    h += `<span class="${dlt > 0 ? 'up' : dlt < 0 ? 'down' : ''}">近 7 天均值 ${Math.round(avg * 100)}%（${dlt > 0 ? '+' : ''}${dlt}）</span>`;
+  }
+  h += `<span>当日 +${e.xp} XP</span></div></div>`;
+
+  // Backfill CTA（空白日空状态里已有「去补卡」，这里不再重复）
+  if (!empty) h += `<div class="bfbar"><button type="button" class="btn ghost" data-act="pastedit">✏️ 补卡 / 修改记录</button></div>`;
+  h += `<div class="foot">过去的日子用「当日回顾」看成绩 · 点补卡可修改 · 左右滑动换天</div>`;
+  return h;
+}
+
 function nextTaskPreview(k, e) {
   let best = null;
   const consider = (t, hm, label) => {
@@ -906,7 +1219,7 @@ function renderSettings() {
     <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
   <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复（自定义的分类和任务会保留）。建议先导出备份。</p>
     <button class="btn danger full" data-act="reset">清空全部数据</button></div>
-  <div class="foot">每日打卡 v3 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+  <div class="foot">每日打卡 v5 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
 }
 /* =====================================================================
  *  编辑分类和任务（底部弹出表单）
@@ -1214,29 +1527,29 @@ function clampViewDay(k) {
   const max = maxFutureKey();
   return k > max ? max : k;
 }
-function shiftDay(n) { viewDay = clampViewDay(addDays(viewDay, n)); render(); scrollTo(0, 0); }
+function shiftDay(n) { viewDay = clampViewDay(addDays(viewDay, n)); pastEdit = false; render(); scrollTo(0, 0); }
 function guardWritable(k) {
   if (isFutureDay(k)) { toast('👀 这是预览', '到当天再打卡'); return false; }
   return true;
 }
 document.addEventListener('click', ev => {
   const tab = ev.target.closest('[data-tab]');
-  if (tab) { view = tab.dataset.tab; if (view === 'today') viewDay = todayKey(); if (view === 'week') weekOf = todayKey(); exportText = ''; render(); scrollTo(0, 0); return; }
+  if (tab) { view = tab.dataset.tab; if (view === 'today') { viewDay = todayKey(); pastEdit = false; } if (view === 'week') weekOf = todayKey(); exportText = ''; render(); scrollTo(0, 0); return; }
   const el = ev.target.closest('[data-act]'); if (!el) return;
   if (el.disabled || el.getAttribute('aria-disabled') === 'true') return;
   const a = el.dataset.act, k = viewDay, task = id => tasksFor(k).find(t => t.id === id);
   switch (a) {
     case 'day': shiftDay(+el.dataset.n); break;
-    case 'gotoday': viewDay = todayKey(); render(); scrollTo(0, 0); break;
+    case 'gotoday': viewDay = todayKey(); pastEdit = false; render(); scrollTo(0, 0); break;
     case 'openday': {
       const dk = el.dataset.k;
       if (dk < CONFIG.startDate || dk > maxFutureKey()) return;
-      viewDay = dk; view = 'today'; render(); scrollTo(0, 0); break;
+      viewDay = dk; view = 'today'; pastEdit = false; render(); scrollTo(0, 0); break;
     }
     case 'week': weekOf = addDays(weekOf, +el.dataset.n); render(); break;
     case 'thisweek': weekOf = todayKey(); render(); break;
     case 'check': { if (!guardWritable(k)) break; const t = task(el.dataset.id); if (!t) break; mutate(k, () => { const r = dayRec(k); if (r.t[t.id]) delete r.t[t.id]; else { r.t[t.id] = now(); justDone = t.id; } }, `[data-id="${t.id}"]`); break; }
-    case 'slot': { if (!guardWritable(k)) break; const t = task(el.dataset.id), i = +el.dataset.i; if (!t) break; mutate(k, () => { const r = dayRec(k), arr = r.m[t.id] = r.m[t.id] || [], j = arr.indexOf(i); if (j >= 0) arr.splice(j, 1); else { arr.push(i); justDone = t.id + ':' + i; } }, `[data-id="${t.id}"][data-i="${i}"]`); break; }
+    case 'slot': { if (!guardWritable(k)) break; const t = task(el.dataset.id), i = +el.dataset.i; if (!t) break; mutate(k, () => { const r = dayRec(k), arr = r.m[t.id] = r.m[t.id] || [], j = arr.indexOf(i); if (j >= 0) { arr.splice(j, 1); if (r.mts && r.mts[t.id]) delete r.mts[t.id][i]; } else { arr.push(i); r.mts = r.mts || {}; r.mts[t.id] = r.mts[t.id] || {}; r.mts[t.id][i] = now(); justDone = t.id + ':' + i; } }, `[data-id="${t.id}"][data-i="${i}"]`); break; }
     case 'tstart': {
       const id = el.dataset.id || 'piano';
       if (S.timer && timerId() !== id) { const ot = tasksFor(S.timer.day).find(t => t.id === timerId()); toast(`先结束「${ot ? ot.title : '上一个'}」的计时`, '同一时间只能计一项'); break; }
@@ -1249,6 +1562,8 @@ document.addEventListener('click', ev => {
       if (raw && isNaN(v)) { toast('请输入数字'); break; } inp.blur();
       mutate(k, () => { const r = dayRec(k); r.n = r.n || {}; if (raw === '') delete r.n[id]; else { r.n[id] = v; justDone = id; } }, `[data-act="nsave"][data-id="${id}"]`);
       if (raw !== '' && !$('.toast.show')) toast('✅ 已记录', `${t.title} ${v} ${t.unit || ''}`); break; }
+    case 'pastedit': pastEdit = true; render(); scrollTo(0, 0); break;
+    case 'pastdone': pastEdit = false; render(); scrollTo(0, 0); celebrate(); break;
     case 'edit': view = 'edit'; render(); scrollTo(0, 0); break;
     case 'editdone': view = 'today'; viewDay = todayKey(); render(); scrollTo(0, 0); snap = takeSnap(); break;
     case 'wsave': saveWeight(el.dataset.k, $('#wW').value, $('#wWaist').value); break;
