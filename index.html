@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="每日打卡">
+<meta name="theme-color" content="#f4f2ee">
+<meta name="format-detection" content="telephone=no">
+<title>每日打卡</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+:root{--bg:#f4f2ee;--card:#fff;--ink:#22262d;--sub:#7a808a;--line:#ece8e0;--ok:#22b46b;--warn:#f0a020;--miss:#fff4e6;--radius:20px;
+  --sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg)}
+body{font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif;color:var(--ink);line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none;overscroll-behavior-y:none}
+input,textarea{-webkit-user-select:text;user-select:text;font:inherit}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+#app{max-width:560px;margin:0 auto;padding:calc(var(--sat) + 12px) 14px calc(var(--sab) + 92px)}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(50,40,20,.06)}
+.muted{color:var(--sub)}.small{font-size:12.5px}
+.row{display:flex;align-items:center;gap:10px}
+.sp{flex:1}
+.topbar{display:flex;align-items:center;gap:6px;margin:2px 2px 12px}
+.topbar .d{flex:1;text-align:center}
+.topbar .d b{font-size:19px;font-weight:800}
+.topbar .d div{font-size:12px;color:var(--sub)}
+.navbtn{width:44px;height:44px;border-radius:14px;background:#fff;font-size:20px;font-weight:700;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.navbtn:disabled{opacity:.3}
+.todaybtn{font-size:12px;font-weight:700;color:#ff6b6b;background:#fff0ee;border-radius:999px;padding:3px 10px;margin-top:3px;display:inline-block}
+.hero{background:linear-gradient(135deg,#ff9a5c 0%,#ff6b88 55%,#8f6bff 100%);color:#fff;padding:16px 16px 14px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08);pointer-events:none}
+.hero .top{display:flex;align-items:center;gap:14px}
+.ringwrap{position:relative;width:92px;height:92px;flex-shrink:0}
+.ringwrap svg,.pring svg{transform:rotate(-90deg)}
+.ringwrap .c,.pring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ringwrap .c b{font-size:24px;font-weight:900;line-height:1}
+.ringwrap .c span{font-size:11px;opacity:.9}
+.rank{font-size:13px;opacity:.92}
+.rank b{font-size:20px;font-weight:900;display:block;line-height:1.25}
+.xpbar{height:10px;border-radius:6px;background:rgba(255,255,255,.28);margin:8px 0 4px;overflow:hidden}
+.xpbar i{display:block;height:100%;background:#fff;border-radius:6px;transition:width .6s cubic-bezier(.2,.9,.3,1.2)}
+.hero .chips{display:flex;gap:8px;margin-top:12px}
+.hchip{flex:1;background:rgba(255,255,255,.18);border-radius:14px;padding:7px 10px;font-size:12px;line-height:1.25}
+.hchip b{font-size:18px;font-weight:900;display:block}
+.flame{display:inline-block;transform-origin:50% 90%}
+.flame.on{animation:flick 1.6s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1) rotate(-3deg)}50%{transform:scale(1.12) rotate(3deg)}}
+.rulehint{margin-top:10px;font-size:11.5px;background:rgba(0,0,0,.12);border-radius:10px;padding:6px 10px}
+.next{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px 14px;margin-bottom:14px;border-left:6px solid var(--c);box-shadow:0 2px 12px rgba(50,40,20,.06)}
+.next .e{font-size:28px}
+.next .k{font-size:11px;font-weight:800;color:var(--c);letter-spacing:.5px}
+.next b{font-size:15.5px;display:block}
+.cat{padding:0;overflow:hidden}
+.cathead{display:flex;align-items:center;gap:10px;padding:13px 16px 11px;background:linear-gradient(90deg,var(--cl) 0%,#fff 100%)}
+.cathead .ce{width:38px;height:38px;border-radius:12px;background:var(--c);display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 8px var(--cs)}
+.cathead h3{font-size:17px;font-weight:800}
+.cathead .cs{font-size:12px;color:var(--sub)}
+.cathead .cnt{font-weight:900;font-size:15px;color:var(--c)}
+.catbar{height:5px;background:var(--line)}
+.catbar i{display:block;height:100%;background:var(--c);transition:width .5s}
+.cat.complete .cathead:after{content:"✓ 全部完成";font-size:12px;font-weight:800;color:#fff;background:var(--c);border-radius:999px;padding:3px 9px;white-space:nowrap}
+.cat.complete .cnt{display:none}
+.task{display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:66px;border-top:1px solid var(--line);position:relative;width:100%;text-align:left}
+.catbar+.task,.catbar+.multi,.catbar+.weigh{border-top:0}
+.task:active{background:#faf8f4}
+.chk{width:34px;height:34px;flex-shrink:0;border-radius:50%;border:3px solid #d9d4ca;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.chk svg{width:18px;height:18px;opacity:0;transform:scale(.4);transition:all .25s cubic-bezier(.2,.9,.3,1.5)}
+.task.done .chk{background:var(--c);border-color:var(--c)}
+.task.done .chk svg{opacity:1;transform:scale(1)}
+.task .tx{flex:1;min-width:0}
+.tt{font-size:15.5px;font-weight:700}
+.task .td{font-size:12.5px;color:var(--sub);margin-top:1px}
+.task.done .tt{color:#9aa0a8;text-decoration:line-through;text-decoration-color:rgba(0,0,0,.25)}
+.task.done .td{opacity:.6}
+.task .tm{flex-shrink:0;text-align:right;font-size:13px;font-weight:800;color:#5b616b;line-height:1.3}
+.task .tm small{display:block;font-size:12px;font-weight:800;color:var(--ok)}
+.tag{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 8px;margin-top:3px;white-space:nowrap}
+.tag.miss{background:#ffe9cc;color:#b86e00}
+.tag.now{background:var(--c);color:#fff;animation:pulse 1.6s infinite}
+.tag.xp{background:#f3f0ff;color:#7a5cf0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.task.missed,.weigh.missed{background:var(--miss)}
+.task.missed .chk{border-color:#f3c27a;border-style:dashed}
+.task.nowing{background:linear-gradient(90deg,var(--cl),#fff)}
+.task.pop .chk{animation:pop .5s cubic-bezier(.2,.9,.3,1.4)}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.toggle .sw{width:54px;height:32px;border-radius:999px;background:#e3dfd6;position:relative;flex-shrink:0;transition:background .2s}
+.toggle .sw:after{content:"";position:absolute;left:3px;top:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);transition:left .2s}
+.toggle.done .sw{background:var(--c)}
+.toggle.done .sw:after{left:25px}
+.toggle.done .tt{text-decoration:none;color:var(--ink)}
+.slots{display:flex;gap:8px;margin-top:8px}
+.slot{flex:1;height:48px;border-radius:12px;border:2px solid #e3dfd6;font-weight:800;font-size:13px;color:#5b616b;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15;transition:all .2s}
+.slot small{font-size:10px;font-weight:700;opacity:.85}
+.slot.done{background:var(--c);border-color:var(--c);color:#fff}
+.slot.missed{border-style:dashed;border-color:#f3c27a;background:var(--miss);color:#b86e00}
+.slot.now{border-color:var(--c);color:var(--c)}
+.slot.pop{animation:pop .45s}
+.multi{display:block;padding:12px 16px 14px;border-top:1px solid var(--line)}
+.piano{padding:14px 16px 16px;display:flex;gap:14px;align-items:center}
+.pring{position:relative;width:118px;height:118px;flex-shrink:0}
+.pring .c b{font-size:30px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.pring .c span{font-size:11px;color:var(--sub)}
+.pring .c .live{font-size:12px;font-weight:800;color:var(--c);font-variant-numeric:tabular-nums}
+.pctl{flex:1;min-width:0}
+.pstat{font-size:13px;font-weight:700;margin-bottom:8px}
+.btns{display:flex;gap:7px;flex-wrap:wrap}
+.btn{height:44px;border-radius:13px;padding:0 14px;font-weight:800;font-size:14.5px;background:#f2efe9;display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap}
+.btn.pri{background:var(--c,#ff6b6b);color:#fff;box-shadow:0 3px 10px var(--cs,rgba(0,0,0,.15))}
+.btn.ghost{background:#fff;border:2px solid var(--line)}
+.btn.sm{height:40px;padding:0 6px;font-size:13.5px;flex:1}
+.btn.danger{background:#ffe8e8;color:#c43c3c}
+.btn.full{width:100%}
+.btn:active{transform:scale(.96)}
+.weigh{padding:12px 16px 16px;border-top:1px solid var(--line)}
+.fields{display:flex;gap:8px;margin-top:8px}
+.field{flex:1;position:relative;min-width:0}
+.field input{width:100%;height:50px;border-radius:13px;border:2px solid var(--line);padding:0 40px 0 12px;font-size:19px;font-weight:800;background:#fbfaf7;outline:none;color:var(--ink)}
+.field input:focus{border-color:var(--c,#16a3b8);background:#fff}
+.field span{position:absolute;right:12px;bottom:15px;font-size:13px;color:var(--sub);font-weight:700}
+.field label{display:block;font-size:11.5px;color:var(--sub);font-weight:700;margin-bottom:3px}
+.tabbar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;padding:6px 8px calc(var(--sab) + 6px);z-index:20}
+.tab{flex:1;height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:#9aa0a8;border-radius:14px}
+.tab .i{font-size:22px;line-height:1.1;filter:grayscale(1);opacity:.55}
+.tab.on{color:var(--ink)}
+.tab.on .i{filter:none;opacity:1}
+h2{font-size:17px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+h2 small{margin-left:auto;font-size:12px;font-weight:600;color:var(--sub)}
+.heat{display:grid;grid-template-columns:58px repeat(7,1fr);gap:5px;align-items:center}
+.heat .hl{font-size:12px;font-weight:700;color:#4b5058;white-space:nowrap;overflow:hidden}
+.heat .hd{text-align:center;font-size:11px;font-weight:800;color:var(--sub);line-height:1.15;border-radius:10px;padding:3px 0}
+.heat .hd b{display:block;font-size:14px;color:var(--ink)}
+.heat .hd.today{background:#ffefe9}
+.heat .hd.today b{color:#ff5a3c}
+.hc{aspect-ratio:1;border-radius:9px;background:#f1eee8;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff}
+.hc.na{background:repeating-linear-gradient(45deg,#f6f4f0,#f6f4f0 4px,#efece6 4px,#efece6 8px)}
+.hc.fut{background:#f8f7f4;border:1.5px dashed #e3dfd6}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);margin-top:10px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:3px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{background:#faf8f4;border-radius:14px;padding:10px 4px;text-align:center}
+.kpi b{display:block;font-size:22px;font-weight:900;line-height:1.2}
+.kpi span{font-size:11.5px;color:var(--sub);font-weight:600}
+.streaks{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.stk{border-radius:14px;padding:10px 12px;background:var(--cl);display:flex;align-items:center;gap:8px}
+.stk .e{font-size:22px}
+.stk b{font-size:18px;font-weight:900;color:var(--c)}
+.stk span{font-size:12px;color:#5b616b;display:block;line-height:1.2}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.badge{border-radius:16px;padding:12px 6px 10px;text-align:center;background:linear-gradient(160deg,#fff7e0,#ffe7ef);border:2px solid #ffd98a}
+.badge .e{font-size:30px;line-height:1.1}
+.badge b{display:block;font-size:12.5px;margin-top:4px;line-height:1.25}
+.badge span{display:block;font-size:10.5px;color:var(--sub);margin-top:2px;line-height:1.25}
+.badge.lock{background:#f6f4f0;border:2px dashed #e3dfd6}
+.badge.lock .e{filter:grayscale(1);opacity:.35}
+.badge.lock b{color:#9aa0a8}
+.bprog{height:4px;border-radius:2px;background:#e8e4dc;margin:5px 8px 0;overflow:hidden}
+.bprog i{display:block;height:100%;background:#f0b23a}
+.rec{display:flex;align-items:center;padding:10px 2px;border-top:1px solid var(--line);font-size:14px}
+.rec:first-of-type{border-top:0}
+.rec .dt{width:92px;font-weight:700}
+.rec .v{flex:1;font-weight:800}
+.rec .v small{color:var(--sub);font-weight:600}
+.del{width:36px;height:36px;border-radius:10px;color:#c43c3c;font-size:16px}
+.delta{font-size:12px;font-weight:800;margin-left:4px}
+.delta.down{color:var(--ok)}.delta.up{color:#e0603c}
+.chart{width:100%;height:auto;display:block}
+.empty{text-align:center;padding:22px 10px;color:var(--sub);font-size:13.5px}
+.empty .e{font-size:38px;display:block;margin-bottom:4px}
+.set p{font-size:13.5px;color:#4b5058;margin-bottom:8px}
+.set .btns{margin-top:6px}
+textarea{width:100%;min-height:100px;border:2px solid var(--line);border-radius:12px;padding:10px;font-size:12px;font-family:ui-monospace,Menlo,monospace;margin-top:8px;background:#fbfaf7}
+.rule{background:#faf8f4;border-radius:12px;padding:10px 12px;font-size:13px;color:#4b5058;margin-top:6px}
+.rule b{color:var(--ink)}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.toast{opacity:0;position:fixed;left:50%;top:calc(var(--sat) + 14px);transform:translate(-50%,-160%);background:#22262d;color:#fff;border-radius:16px;padding:11px 18px;font-weight:800;font-size:14.5px;z-index:60;transition:transform .35s cubic-bezier(.2,.9,.3,1.3);box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.toast small{display:block;font-weight:600;opacity:.8;font-size:12px}
+.floatxp{position:fixed;z-index:55;font-weight:900;font-size:17px;color:#7a5cf0;pointer-events:none;animation:fl 1s ease-out forwards;text-shadow:0 1px 0 #fff}
+@keyframes fl{from{opacity:1;transform:translate(-50%,0)}to{opacity:0;transform:translate(-50%,-46px)}}
+.foot{text-align:center;font-size:11.5px;color:#a8adb5;margin:6px 0 4px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<nav class="tabbar" id="tabbar">
+  <button class="tab" data-tab="today"><span class="i">✅</span>今天</button>
+  <button class="tab" data-tab="week"><span class="i">📅</span>本周</button>
+  <button class="tab" data-tab="records"><span class="i">📈</span>记录</button>
+  <button class="tab" data-tab="settings"><span class="i">⚙️</span>设置</button>
+</nav>
+<canvas id="fx"></canvas>
+<div class="toast" id="toast"></div>
+<script>
+/* =====================================================================
+ *  任务配置 —— 以后改计划（比如第 3–4 周加量）只需要改这里
+ * ===================================================================== */
+const CONFIG = {
+  startDate: '2026-10-10',      // 计划开始日（之前的日子不计入统计）
+  dayStartHour: 4,              // 凌晨 4 点前仍算「前一天」（适配晚睡作息）
+  graceMin: 60,                 // 到点后 60 分钟内 →「现在」；超过还没做 →「未完成」
+  streakRule: { minPct: 0.8 },  // 点亮一天：完成 ≥80%，或全部 ★核心任务完成
+
+  categories: [
+    { id: 'weigh', name: '每周一记录', emoji: '⚖️', color: '#16a3b8' },
+    { id: 'sport', name: '运动',       emoji: '🏃', color: '#22b46b' },
+    { id: 'diet',  name: '饮食',       emoji: '🥗', color: '#f08a3c' },
+    { id: 'back',  name: '护腰与久坐', emoji: '🧘', color: '#8a6fe0' },
+    { id: 'rest',  name: '作息',       emoji: '🌙', color: '#4f6fe0' },
+    { id: 'piano', name: '练琴',       emoji: '🎹', color: '#e2549a' },
+  ],
+
+  // 运动：按星期几变化（0=周日 … 6=周六）。进入新阶段：在数组末尾加一项，from 写开始日期。
+  sportPhases: [
+    { from: '2026-10-10', label: '第 1–2 周 · 先养腰膝、建习惯', byWeekday: {
+      1: { icon: '🏊', title: '游泳 30 分钟', desc: '蛙泳膝盖不舒服就换自由泳或水中走路' },
+      2: { icon: '🏋️', title: '健身房 40 分钟', desc: '椭圆机/单车 20 分钟 + 坐姿划船、高位下拉、平板支撑 20 分钟' },
+      3: { icon: '🚶', title: '快走 40 分钟', desc: '心率保持 110–135 次/分' },
+      4: { icon: '🏊', title: '游泳 30 分钟', desc: '膝盖不舒服就换自由泳或水中走路' },
+      5: { icon: '🏋️', title: '健身房 40 分钟', desc: '同周二 + 臀桥、浅蹲（膝盖不疼的范围内）' },
+      6: { icon: '🚶', title: '快走 60 分钟（或游泳）', desc: '天气不好就去游泳' },
+      0: { icon: '🛋️', title: '休息日 · 只做拉伸', desc: '拉伸 10–15 分钟，让腰和膝盖恢复', xp: 20 },
+    }},
+    // 第 3–4 周示例（腰膝好转后取消注释并调整）：
+    // { from: '2026-10-24', label: '第 3–4 周 · 加量', byWeekday: {
+    //   1: { icon: '🏊', title: '游泳 45 分钟', desc: '' },
+    //   2: { icon: '🏋️', title: '全身力量训练', desc: '深蹲、硬拉入门、推胸、划船' },
+    //   3: { icon: '🚶', title: '快走 45 分钟', desc: '' },
+    //   4: { icon: '🏋️', title: '全身力量训练', desc: '深蹲、硬拉入门、推胸、划船' },
+    //   5: { icon: '🏸', title: '羽毛球 1 小时', desc: '热身做足，腰膝不疼才打' },
+    //   6: { icon: '🏋️', title: '全身力量训练 + 快走', desc: '' },
+    //   0: { icon: '🛋️', title: '休息日 · 只做拉伸', desc: '', xp: 20 },
+    // }},
+  ],
+
+  // 睡觉目标：10/10–10/16 这周 01:45，之后每周提前 15 分钟，最早到 00:30
+  bedtime: { weekStart: '2026-10-10', first: '01:45', stepMin: 15, floor: '00:30' },
+
+  // type: check 普通打卡 | toggle 全天开关 | multi 多个小格 | sport 运动 | sleep 按时睡觉 | piano 练琴 | weigh 称重
+  // days: 适用的星期（0=周日），不写=每天；core: ★核心任务
+  tasks: [
+    { id: 'morning', cat: 'back', type: 'check', time: '08:00', title: '温水 + 10 分钟护腰动作', desc: '猫牛式、死虫式、鸟狗式、臀桥 各 2 组×10 次 · 慢、不疼', xp: 20, core: true },
+    { id: 'weigh', cat: 'weigh', type: 'weigh', time: '08:05', days: [1], title: '空腹称体重、量腰围', desc: '腰围量肚脐那一圈', xp: 25 },
+    { id: 'breakfast', cat: 'diet', type: 'check', time: '08:30', title: '早餐', desc: '2 个鸡蛋 + 无糖豆浆/牛奶 + 玉米/红薯/包子', xp: 15, core: true },
+    { id: 'sit', cat: 'back', type: 'multi', days: [1, 2, 3, 4, 5], slots: ['10:00', '11:00', '14:30', '16:30'], title: '久坐起身', desc: '站起来 3–5 分钟，顺便做几个护腰动作', xpEach: 5, xpAll: 5 },
+    { id: 'lunch', cat: 'diet', type: 'check', time: '12:30', title: '午餐', desc: '一荤一素 + 半碗饭 · 清炖、蒸、卤、清炒', xp: 15, core: true },
+    { id: 'fruit', cat: 'diet', type: 'check', time: '15:30', title: '水果一份', desc: '一个苹果或一拳头的量', xp: 10 },
+    { id: 'sport', cat: 'sport', type: 'sport', time: '18:00', end: '19:00', xp: 40, core: true },
+    { id: 'dinner', cat: 'diet', type: 'check', time: '19:30', title: '晚餐', desc: '主食比中午少、蔬菜多 · 睡前 4 小时吃完', xp: 15, core: true },
+    { id: 'nocola', cat: 'diet', type: 'toggle', title: '今天没喝普通可乐', desc: '零度可乐 / 气泡水可以喝', xp: 10 },
+    { id: 'stretch', cat: 'rest', type: 'check', time: '23:30', title: '拉伸 10 分钟，放下手机', desc: '准备睡觉', xp: 15 },
+    { id: 'sleep', cat: 'rest', type: 'sleep', title: '按时睡觉', xp: 20 },
+    { id: 'piano', cat: 'piano', type: 'piano', title: '练琴', goalMin: 30, bonusMin: 60, xp: 30, bonusXp: 20, core: true },
+  ],
+
+  xp: { catBonus: 10, dayLit: 20, perfect: 30 },
+
+  levels: [
+    [0, '新手上路'], [300, '起步者'], [900, '自律学徒'], [1800, '习惯养成者'], [3200, '燃脂战士'], [5000, '核心稳定者'],
+    [7500, '自律达人'], [10500, '健康骑士'], [14500, '腰围终结者'], [20000, '健康王者'], [27000, '传奇'],
+  ],
+
+  badges: [
+    { id: 'first',    e: '🌱', name: '初次打卡',      desc: '完成第一项任务',        stat: 'checks',     goal: 1 },
+    { id: 'weigh1',   e: '⚖️', name: '第一次称重',    desc: '记录体重',              stat: 'weighs',     goal: 1 },
+    { id: 'perfect',  e: '💯', name: '完美一天',      desc: '一天全部完成',          stat: 'perfect',    goal: 1 },
+    { id: 'streak3',  e: '🔥', name: '三日火苗',      desc: '连续点亮 3 天',         stat: 'dayRun',     goal: 3 },
+    { id: 'streak7',  e: '🔥', name: '一周火焰',      desc: '连续点亮 7 天',         stat: 'dayRun',     goal: 7 },
+    { id: 'streak21', e: '🌋', name: '21 天习惯',     desc: '连续点亮 21 天',        stat: 'dayRun',     goal: 21 },
+    { id: 'sport7',   e: '🏃', name: '连续 7 天运动', desc: '运动打卡 7 天不断',     stat: 'sportRun',   goal: 7 },
+    { id: 'back7',    e: '🧘', name: '护腰一周',      desc: '晨间护腰连续 7 天',     stat: 'backRun',    goal: 7 },
+    { id: 'sleep7',   e: '🌙', name: '早睡一周',      desc: '按时睡觉连续 7 天',     stat: 'sleepRun',   goal: 7 },
+    { id: 'cola7',    e: '🥤', name: '一周零可乐',    desc: '连续 7 天没喝普通可乐', stat: 'colaRun',    goal: 7 },
+    { id: 'piano60',  e: '🎹', name: '一小时琴手',    desc: '单日练琴 60 分钟',      stat: 'pianoMax',   goal: 60 },
+    { id: 'piano10h', e: '🎼', name: '练琴 10 小时',  desc: '练琴累计 10 小时',      stat: 'pianoTotal', goal: 600 },
+    { id: 'piano50h', e: '🏅', name: '练琴 50 小时',  desc: '练琴累计 50 小时',      stat: 'pianoTotal', goal: 3000 },
+    { id: 'waist2',   e: '📏', name: '腰围 −2cm',     desc: '比第一次量少 2cm',      stat: 'waistDrop',  goal: 2 },
+    { id: 'weight5',  e: '📉', name: '减重 5 斤',     desc: '比第一次称轻 5 斤',     stat: 'weightDrop', goal: 5 },
+    { id: 'goal130',  e: '🏆', name: '目标 130 斤',   desc: '体重到达 130 斤',       stat: 'goal130',    goal: 1 },
+  ],
+};
+
+/* ===================================================================== */
+const KEY = 'hc_checkin_v1';
+const WD = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+const WCH = '一二三四五六日';
+const CAT = Object.fromEntries(CONFIG.categories.map(c => [c.id, c]));
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// 时钟（测试用：?now=2026-10-12T09:30 模拟时间）
+let clockOffset = 0;
+try { const q = new URLSearchParams(location.search).get('now'); if (q) { const t = new Date(q).getTime(); if (!isNaN(t)) clockOffset = t - Date.now(); } } catch (e) {}
+const now = () => Date.now() + clockOffset;
+
+// 日期工具
+const pad = n => String(n).padStart(2, '0');
+const keyOf = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parseKey = k => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); };
+const addDays = (k, n) => { const d = parseKey(k); d.setDate(d.getDate() + n); return keyOf(d); };
+const diffDays = (a, b) => Math.round((parseKey(b) - parseKey(a)) / 864e5);
+const wdOf = k => parseKey(k).getDay();
+const todayKey = () => keyOf(new Date(now() - CONFIG.dayStartHour * 3600e3));
+const hm2min = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+const min2hm = m => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
+const fmtMD = k => { const d = parseKey(k); return `${d.getMonth() + 1}月${d.getDate()}日`; };
+function at(k, hm) { const d = parseKey(k); let m = hm2min(hm); if (m < CONFIG.dayStartHour * 60) m += 1440; return d.getTime() + m * 60e3; }
+const weekMonday = k => addDays(k, -((wdOf(k) + 6) % 7));
+
+// 存储
+const blank = () => ({ v: 1, days: {}, weights: {}, timer: null, badges: {}, created: todayKey() });
+let S;
+function load() {
+  try { S = JSON.parse(localStorage.getItem(KEY)) || blank(); } catch (e) { S = blank(); }
+  for (const k of ['days', 'weights', 'badges']) S[k] = S[k] || {};
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { toast('⚠️ 保存失败', '手机存储空间可能不足'); } }
+const dayRec = k => { const r = S.days[k] = S.days[k] || {}; r.t = r.t || {}; r.m = r.m || {}; r.piano = r.piano || 0; return r; };
+const EMPTY = { t: {}, m: {}, piano: 0 };
+const peekDay = k => S.days[k] ? { ...EMPTY, ...S.days[k] } : EMPTY;
+
+// 任务解析
+function sportFor(k) {
+  let ph = CONFIG.sportPhases[0];
+  for (const p of CONFIG.sportPhases) if (p.from <= k) ph = p;
+  return { ...ph.byWeekday[wdOf(k)], phase: ph.label };
+}
+function bedtimeFor(k) {
+  const b = CONFIG.bedtime, idx = Math.max(0, Math.floor(diffDays(b.weekStart, k) / 7));
+  return min2hm(Math.max(hm2min(b.first) - b.stepMin * idx, hm2min(b.floor)));
+}
+const _tf = {};
+function tasksFor(k) {
+  if (_tf[k]) return _tf[k];
+  const wd = wdOf(k);
+  return _tf[k] = CONFIG.tasks.filter(t => !t.days || t.days.includes(wd)).map(t => {
+    if (t.type === 'sport') { const s = sportFor(k); return { ...t, title: s.title, desc: s.desc, icon: s.icon, phase: s.phase, xp: s.xp ?? t.xp }; }
+    if (t.type === 'sleep') { const bt = bedtimeFor(k); return { ...t, time: bt, desc: `本周目标 ${bt} 前上床（每周提前 15 分钟）` }; }
+    return t;
+  });
+}
+
+// 练琴计时（开始时间存进 localStorage，关掉 App 也不会丢）
+const timerMs = () => { const t = S.timer; return t ? t.accMs + (t.startTs ? now() - t.startTs : 0) : 0; };
+const pianoSec = k => (peekDay(k).piano || 0) + (S.timer && S.timer.day === k ? timerMs() / 1000 : 0);
+
+// 进度
+function frac(t, k) {
+  const r = peekDay(k);
+  switch (t.type) {
+    case 'multi': return (r.m[t.id] || []).length / t.slots.length;
+    case 'piano': return Math.min(pianoSec(k) / 60 / t.goalMin, 1);
+    case 'weigh': return S.weights[k] && S.weights[k].w ? 1 : 0;
+    default: return r.t[t.id] ? 1 : 0;
+  }
+}
+function taskXp(t, k) {
+  const r = peekDay(k);
+  if (t.type === 'multi') { const n = (r.m[t.id] || []).length; return n * t.xpEach + (n === t.slots.length ? t.xpAll : 0); }
+  if (t.type === 'piano') { const m = pianoSec(k) / 60; return (m >= t.goalMin ? t.xp : 0) + (m >= t.bonusMin ? t.bonusXp : 0); }
+  return frac(t, k) >= 1 ? t.xp : 0;
+}
+function evalDay(k) {
+  const ts = tasksFor(k), cats = {};
+  let sum = 0, xp = 0, coreOk = true, hasCore = false, any = false;
+  for (const t of ts) {
+    const f = frac(t, k); sum += f; xp += taskXp(t, k); if (f > 0) any = true;
+    if (t.core) { hasCore = true; if (f < 1) coreOk = false; }
+    const c = cats[t.cat] = cats[t.cat] || { n: 0, sum: 0 }; c.n++; c.sum += f;
+  }
+  for (const id in cats) { const c = cats[id]; c.frac = c.sum / c.n; c.complete = c.frac >= 0.999; if (c.complete) xp += CONFIG.xp.catBonus; }
+  const pct = ts.length ? sum / ts.length : 0, perfect = pct >= 0.999;
+  const lit = pct >= CONFIG.streakRule.minPct - 1e-9 || (hasCore && coreOk);
+  if (lit) xp += CONFIG.xp.dayLit;
+  if (perfect) xp += CONFIG.xp.perfect;
+  return { ts, cats, pct, perfect, lit, coreOk, any, xp };
+}
+function rangeKeys() { const out = [], t = todayKey(); for (let k = CONFIG.startDate; k <= t; k = addDays(k, 1)) out.push(k); return out; }
+// 连续天数：今天还没完成不打断（从昨天往前数）；pred 返回 null = 这天没有这项（跳过）
+function streak(pred) {
+  const t = todayKey(); let n = pred(t) === true ? 1 : 0;
+  for (let k = addDays(t, -1); k >= CONFIG.startDate; k = addDays(k, -1)) { const p = pred(k); if (p === false) break; if (p === true) n++; }
+  return n;
+}
+function longestRun(pred) {
+  let best = 0, cur = 0; const t = todayKey();
+  for (const k of rangeKeys()) { const p = pred(k); if (p === true) { cur++; best = Math.max(best, cur); } else if (p === false && k !== t) cur = 0; }
+  return best;
+}
+const catPred = id => k => { const c = evalDay(k).cats[id]; return c ? c.complete : null; };
+const taskPred = id => k => { const t = tasksFor(k).find(x => x.id === id); return t ? frac(t, k) >= 1 : null; };
+const weightList = () => Object.keys(S.weights).sort().map(k => ({ k, ...S.weights[k] })).filter(x => x.w || x.waist);
+function totals() {
+  let xp = 0, checks = 0, perfect = 0, pianoTotal = 0, pianoMax = 0; const tk = todayKey();
+  for (const k of Object.keys(S.days)) {
+    if (k < CONFIG.startDate || k > tk) continue;
+    const e = evalDay(k); xp += e.xp; if (e.perfect) perfect++; if (e.any) checks++;
+    const m = pianoSec(k) / 60; pianoTotal += m; pianoMax = Math.max(pianoMax, m);
+  }
+  for (const k of Object.keys(S.weights)) if (!S.days[k] && k >= CONFIG.startDate && k <= tk) xp += evalDay(k).xp;
+  const ws = weightList(), wv = ws.filter(x => x.w), wa = ws.filter(x => x.waist);
+  if (ws.length) checks++;
+  return {
+    xp, checks, perfect, pianoTotal, pianoMax, weighs: wv.length,
+    dayRun: longestRun(k => evalDay(k).lit), sportRun: longestRun(catPred('sport')), backRun: longestRun(taskPred('morning')),
+    sleepRun: longestRun(taskPred('sleep')), colaRun: longestRun(taskPred('nocola')),
+    waistDrop: wa.length > 1 ? wa[0].waist - Math.min(...wa.map(x => x.waist)) : 0,
+    weightDrop: wv.length > 1 ? wv[0].w - Math.min(...wv.map(x => x.w)) : 0,
+    goal130: wv.some(x => x.w <= 130) ? 1 : 0,
+  };
+}
+function levelOf(xp) {
+  const L = CONFIG.levels; let i = 0;
+  while (i + 1 < L.length && xp >= L[i + 1][0]) i++;
+  const cur = L[i][0], nxt = L[i + 1] ? L[i + 1][0] : null;
+  return { lv: i + 1, name: L[i][1], cur, nxt, p: nxt ? (xp - cur) / (nxt - cur) : 1 };
+}
+/* ===================================================================== */
+let view = 'today', viewDay = todayKey(), weekOf = todayKey(), justDone = null, exportText = '';
+let snap = null;
+
+function statusOf(k, startHm, endHm) {
+  const tk = todayKey();
+  if (k < tk) return 'missed';
+  if (k > tk) return 'upcoming';
+  if (!startHm) return 'allday';
+  const s = at(k, startHm), e = at(k, endHm || startHm) + CONFIG.graceMin * 60e3, n = now();
+  return n < s ? 'upcoming' : n <= e ? 'now' : 'missed';
+}
+const CHK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const catStyle = c => `--c:${c.color};--cl:${c.color}1f;--cs:${c.color}55`;
+function ring(size, stroke, p, color, bg) {
+  const r = (size - stroke) / 2, C = 2 * Math.PI * r;
+  return `<svg width="${size}" height="${size}"><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${bg}" stroke-width="${stroke}"/><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${C.toFixed(2)}" stroke-dashoffset="${(C * (1 - Math.min(p, 1))).toFixed(2)}" style="transition:stroke-dashoffset .6s;${p <= 0 ? 'opacity:0' : ''}"/></svg>`;
+}
+const coreNames = () => CONFIG.tasks.filter(t => t.core).map(t => t.type === 'piano' ? `练琴 ${t.goalMin} 分钟` : t.type === 'sport' ? '运动' : t.id === 'morning' ? '晨间护腰' : t.title).join('、');
+
+function renderToday() {
+  const k = viewDay, tk = todayKey(), e = evalDay(k), tot = totals(), L = levelOf(tot.xp);
+  const fl = streak(x => evalDay(x).lit), isToday = k === tk, d = parseKey(k);
+  const left = e.ts.filter(t => t.core && frac(t, k) < 1).length;
+  let h = `<div class="topbar">
+    <button class="navbtn" data-act="day" data-n="-1" ${k <= CONFIG.startDate ? 'disabled' : ''}>‹</button>
+    <div class="d"><b>${fmtMD(k)} ${WD[d.getDay()]}</b><div>${isToday ? '今天 · 计划第 ' + (Math.floor(diffDays(CONFIG.startDate, k) / 7) + 1) + ' 周' : `<span class="todaybtn" data-act="gotoday">补卡中 · 回到今天 ›</span>`}</div></div>
+    <button class="navbtn" data-act="day" data-n="1" ${k >= tk ? 'disabled' : ''}>›</button></div>`;
+  h += `<div class="card hero"><div class="top">
+    <div class="ringwrap">${ring(92, 10, e.pct, '#fff', 'rgba(255,255,255,.28)')}<div class="c"><b>${Math.round(e.pct * 100)}%</b><span>${isToday ? '今日完成' : '当日完成'}</span></div></div>
+    <div class="sp"><div class="rank">Lv.${L.lv}<b>${L.name}</b></div>
+      <div class="xpbar"><i style="width:${(L.p * 100).toFixed(1)}%"></i></div>
+      <div class="small" style="opacity:.92">${tot.xp} XP${L.nxt ? ` · 距「${CONFIG.levels[L.lv][1]}」还差 ${L.nxt - tot.xp}` : ' · 满级'}</div></div></div>
+    <div class="chips">
+      <div class="hchip"><b><span class="flame ${fl ? 'on' : ''}">🔥</span> ${fl}</b>连续点亮天数</div>
+      <div class="hchip"><b>+${e.xp}</b>${isToday ? '今日' : '当日'} XP</div>
+      <div class="hchip"><b>${e.lit ? '已点亮 ✨' : left + ' 项'}</b>${e.lit ? (isToday ? '今天' : '这一天') : '★核心还差'}</div>
+    </div>
+    <div class="rulehint">🔥 点亮一天：完成 ≥80%，或 ★核心任务（${coreNames()}）全部完成</div></div>`;
+  if (isToday) h += nextTask(k, e);
+  for (const cid of CONFIG.categories.map(c => c.id).filter(id => e.cats[id])) {
+    const c = CAT[cid], ce = e.cats[cid], ts = e.ts.filter(t => t.cat === cid);
+    const done = ts.filter(t => frac(t, k) >= 1).length, cst = streak(catPred(cid));
+    const sub = [cid === 'sport' ? esc(ts[0].phase) : '', cst ? `🔥 连续 ${cst} ${cid === 'weigh' ? '周' : '天'}` : ''].filter(Boolean).join(' · ') || (cid === 'piano' ? '有空就练，不限时间' : '完成全部 +' + CONFIG.xp.catBonus + ' XP');
+    h += `<div class="card cat ${ce.complete ? 'complete' : ''}" style="${catStyle(c)}">
+      <div class="cathead"><div class="ce">${c.emoji}</div><div class="sp"><h3>${c.name}</h3><div class="cs">${sub}</div></div><div class="cnt">${done}/${ts.length}</div></div>
+      <div class="catbar"><i style="width:${(ce.frac * 100).toFixed(1)}%"></i></div>`;
+    for (const t of ts) h += renderTask(t, k);
+    h += `</div>`;
+  }
+  h += `<div class="foot">数据只保存在这台手机上 · 记得定期在「设置」里备份</div>`;
+  return h;
+}
+function nextTask(k, e) {
+  const n = now(); let best = null;
+  const cand = (t, hm, label) => {
+    const s = at(k, hm), end = at(k, t.end || hm) + CONFIG.graceMin * 60e3;
+    if (end < n) return;
+    if (!best || s < best.s) best = { t, s, label, hm, live: n >= s };
+  };
+  for (const t of e.ts) {
+    if (frac(t, k) >= 1) continue;
+    if (t.type === 'multi') { const dn = peekDay(k).m[t.id] || []; t.slots.forEach((s, i) => { if (!dn.includes(i)) cand(t, s, `${t.title} · ${s}`); }); }
+    else if (t.time) cand(t, t.time, t.type === 'sleep' ? `${t.title}（${t.time} 前）` : t.title);
+  }
+  if (!best) {
+    const p = e.ts.find(t => t.type === 'piano');
+    if (p && frac(p, k) < 1) return `<div class="next" style="${catStyle(CAT.piano)}"><div class="e">🎹</div><div class="sp"><div class="k">别忘了练琴</div><b>今天还差 ${Math.ceil(p.goalMin - pianoSec(k) / 60)} 分钟达标</b></div></div>`;
+    return '';
+  }
+  const c = CAT[best.t.cat];
+  return `<div class="next" style="${catStyle(c)}"><div class="e">${best.t.icon || c.emoji}</div><div class="sp"><div class="k">${best.live ? '● 现在该做' : '下一项 · ' + best.hm}</div><b>${esc(best.label)}</b></div><div class="small muted">${best.live ? '' : untilText(best.s - n)}</div></div>`;
+}
+function untilText(ms) { const m = Math.round(ms / 60e3); return m < 60 ? `${m} 分钟后` : `${Math.floor(m / 60)} 小时 ${m % 60} 分后`; }
+function timeCol(t, k, st, done) {
+  if (done) return `<div class="tm"><small>+${taskXp(t, k)} XP</small></div>`;
+  const tm = t.type === 'sleep' ? `${t.time} 前` : t.end ? `${t.time}–${t.end}` : t.time;
+  const tag = st === 'missed' ? '<span class="tag miss">未完成</span>' : st === 'now' ? '<span class="tag now">现在</span>' : `<span class="tag xp">+${t.xp} XP</span>`;
+  return `<div class="tm">${tm}<br>${tag}</div>`;
+}
+function renderTask(t, k) {
+  if (t.type === 'multi') {
+    const dn = peekDay(k).m[t.id] || [];
+    return `<div class="multi"><div class="row"><div class="sp"><div class="tt">${esc(t.title)} <span class="muted small">${dn.length}/${t.slots.length}</span></div><div class="small muted">${esc(t.desc)}</div></div><span class="tag xp">每次 +${t.xpEach}</span></div>
+      <div class="slots">${t.slots.map((s, i) => { const d = dn.includes(i), st = d ? 'done' : statusOf(k, s); return `<button class="slot ${st === 'done' || st === 'missed' || st === 'now' ? st : ''} ${justDone === t.id + ':' + i ? 'pop' : ''}" data-act="slot" data-id="${t.id}" data-i="${i}">${d ? '✓ ' + s : s}<small>${d ? '已起身' : st === 'missed' ? '未完成' : st === 'now' ? '现在' : '起身'}</small></button>`; }).join('')}</div></div>`;
+  }
+  if (t.type === 'piano') return renderPiano(t, k);
+  if (t.type === 'weigh') return renderWeigh(t, k);
+  const done = frac(t, k) >= 1, st = done ? 'done' : statusOf(k, t.time, t.end);
+  if (t.type === 'toggle') {
+    return `<button class="task toggle ${done ? 'done' : ''} ${st === 'missed' ? 'missed' : ''} ${justDone === t.id ? 'pop' : ''}" data-act="check" data-id="${t.id}"><div class="tx"><div class="tt">🥤 ${esc(t.title)}</div><div class="td">${esc(t.desc)} · ${done ? `<b style="color:var(--ok)">+${t.xp} XP</b>` : '全天有效，喝了就别打开'}</div></div><div class="sw"></div></button>`;
+  }
+  const cls = `${done ? 'done' : st === 'missed' ? 'missed' : st === 'now' ? 'nowing' : ''} ${justDone === t.id ? 'pop' : ''}`;
+  return `<button class="task ${cls}" data-act="check" data-id="${t.id}"><div class="chk">${CHK}</div><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? t.icon + ' ' : ''}${esc(t.title)}</div><div class="td">${esc(t.desc)}</div></div>${timeCol(t, k, st, done)}</button>`;
+}
+function fmtDur(ms) { const s = Math.floor(ms / 1000), hh = Math.floor(s / 3600); return `${hh ? hh + ':' : ''}${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`; }
+function renderPiano(t, k) {
+  const m = Math.floor(pianoSec(k) / 60), isToday = k === todayKey();
+  const tm = S.timer && S.timer.day === k ? S.timer : null, running = !!(tm && tm.startTs);
+  const p1 = m / t.goalMin, p2 = Math.max(m - t.goalMin, 0) / (t.bonusMin - t.goalMin);
+  let stat = m >= t.bonusMin ? `⭐ 超额完成！今天 ${m} 分钟` : m >= t.goalMin ? `🎉 已达标！再练 ${t.bonusMin - m} 分钟奖励 +${t.bonusXp}` : `还差 <b style="color:var(--c)">${t.goalMin - m}</b> 分钟达标（+${t.xp} XP）`;
+  if (!isToday && m < t.goalMin) stat = `这天练了 ${m} 分钟，可以补记`;
+  const live = tm ? `<span class="live" id="pLive">${running ? '● ' : '⏸ '}${fmtDur(timerMs())}</span>` : `<span>${m >= t.goalMin ? '分钟 ✓' : '/ ' + t.goalMin + ' 分钟'}</span>`;
+  return `<div class="piano" id="pianoCard">
+    <div class="pring" id="pRing">${ring(118, 11, p1, CAT.piano.color, '#f6e1ec')}${p2 > 0 ? `<div style="position:absolute;inset:15px">${ring(88, 8, p2, '#f0b23a', '#fbefd2')}</div>` : ''}<div class="c"><b id="pMin">${m}</b>${live}</div></div>
+    <div class="pctl"><div class="pstat">${stat}</div>
+      ${isToday ? `<div class="btns" style="margin-bottom:7px">${running ? `<button class="btn pri" data-act="tpause" style="flex:1">⏸ 暂停</button>` : `<button class="btn pri" data-act="tstart" style="flex:1">▶ ${tm ? '继续' : '开始计时'}</button>`}${tm ? `<button class="btn ghost" data-act="tstop">⏹ 结束</button>` : ''}</div>` : ''}
+      <div class="btns"><button class="btn sm" data-act="padd" data-n="10">+10</button><button class="btn sm" data-act="padd" data-n="15">+15</button><button class="btn sm" data-act="padd" data-n="30">+30</button><button class="btn sm" data-act="padd" data-n="-10" style="color:#9aa0a8">−10</button></div>
+    </div></div><div class="small muted" style="padding:0 16px 14px;margin-top:-4px">什么时候练都行 · 每天 ${t.goalMin} 分钟达标、${t.bonusMin} 分钟有奖励 · 计时中关掉 App 也不会停</div>`;
+}
+function renderWeigh(t, k) {
+  const w = S.weights[k] || {}, prev = weightList().filter(x => x.k < k), last = prev[prev.length - 1];
+  const done = frac(t, k) >= 1, st = done ? 'done' : statusOf(k, t.time);
+  return `<div class="weigh ${st === 'missed' ? 'missed' : ''}">
+    <div class="row"><div class="sp"><div class="tt">${done ? '✅ ' : ''}${esc(t.title)}</div><div class="small muted">${esc(t.desc)}${last ? ` · 上次 ${last.w ? last.w + ' 斤' : ''}${last.waist ? ' / ' + last.waist + ' cm' : ''}` : ' · 第一次记录就是起点'}</div></div>${done ? `<span class="tag xp">+${t.xp} XP</span>` : st === 'missed' ? '<span class="tag miss">未完成</span>' : st === 'now' ? '<span class="tag now">现在</span>' : `<span class="tag xp">${t.time}</span>`}</div>
+    <div class="fields"><div class="field"><label>体重</label><input id="wW" type="number" inputmode="decimal" step="0.1" placeholder="145" value="${w.w ?? ''}"><span>斤</span></div>
+      <div class="field"><label>腰围</label><input id="wWaist" type="number" inputmode="decimal" step="0.1" placeholder="—" value="${w.waist ?? ''}"><span>cm</span></div></div>
+    <button class="btn pri full" style="margin-top:10px" data-act="wsave" data-k="${k}">${done ? '更新记录' : '保存记录'}</button></div>`;
+}
+
+/* —— 本周 —— */
+const hexA = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a.toFixed(2)})`; };
+function renderWeek() {
+  const mon = weekMonday(weekOf), tk = todayKey(), days = [...Array(7)].map((_, i) => addDays(mon, i));
+  const evs = days.map(k => (k <= tk && k >= CONFIG.startDate) ? evalDay(k) : null), isThis = days.includes(tk);
+  let h = `<div class="topbar"><button class="navbtn" data-act="week" data-n="-7" ${mon <= weekMonday(CONFIG.startDate) ? 'disabled' : ''}>‹</button>
+    <div class="d"><b>${fmtMD(mon)} – ${fmtMD(days[6])}</b><div>${isThis ? '本周' : `<span class="todaybtn" data-act="thisweek">回到本周 ›</span>`}</div></div>
+    <button class="navbtn" data-act="week" data-n="7" ${isThis ? 'disabled' : ''}>›</button></div>`;
+  const wxp = evs.reduce((a, e) => a + (e ? e.xp : 0), 0), lit = evs.filter(e => e && e.lit).length;
+  const pm = days.map(k => Math.floor(pianoSec(k) / 60)), ptot = pm.reduce((a, b) => a + b, 0);
+  h += `<div class="card"><div class="kpis"><div class="kpi"><b style="color:#7a5cf0">${wxp}</b><span>本周 XP ⚡</span></div><div class="kpi"><b style="color:#ff6b4a">${lit}<small style="font-size:13px;color:#9aa0a8">/7</small></b><span>点亮天数 🔥</span></div><div class="kpi"><b style="color:${CAT.piano.color}">${(ptot / 60).toFixed(1)}</b><span>练琴小时 🎹</span></div></div></div>`;
+  h += `<div class="card"><h2>🗓️ 打卡热力图<small>点一天可补卡</small></h2><div class="heat"><div></div>`;
+  days.forEach((k, i) => { h += `<div class="hd ${k === tk ? 'today' : ''}" data-act="openday" data-k="${k}">${WCH[i]}<b>${parseKey(k).getDate()}</b></div>`; });
+  const rows = [{ id: '_all', name: '全天', emoji: '⭐', color: '#ff6b4a' }, ...CONFIG.categories];
+  const short = { back: '护腰', weigh: '称重' };
+  for (const c of rows) {
+    h += `<div class="hl">${c.emoji} ${short[c.id] || c.name}</div>`;
+    days.forEach((k, i) => {
+      const e = evs[i];
+      if (!e) { h += `<div class="hc fut"></div>`; return; }
+      const f = c.id === '_all' ? e.pct : (e.cats[c.id] ? e.cats[c.id].frac : null);
+      if (f === null) { h += `<div class="hc na"></div>`; return; }
+      const full = c.id === '_all' ? e.lit : f >= .999;
+      h += `<div class="hc" data-act="openday" data-k="${k}" style="background:${f <= 0 ? '#f1eee8' : hexA(c.color, 0.22 + 0.78 * f)}">${full ? (c.id === '_all' ? '🔥' : '✓') : f > 0 ? Math.round(f * 100) : ''}</div>`;
+    });
+  }
+  h += `</div><div class="legend"><span>颜色越深完成越多（数字=%）</span><span>✓ 分类全完成</span><span>🔥 当天点亮</span><span><i style="background:repeating-linear-gradient(45deg,#f6f4f0,#f6f4f0 3px,#e3dfd6 3px,#e3dfd6 6px)"></i>当天没有该项</span></div></div>`;
+  h += `<div class="card"><h2>🎹 练琴分钟<small>虚线：30 达标 · 60 奖励</small></h2>${barChart(pm, days, tk, v => v >= 60 ? '#f0b23a' : v >= 30 ? '#e2549a' : '#f2b6d2', [[30, '#e2549a'], [60, '#f0b23a']], 70)}</div>`;
+  h += `<div class="card"><h2>⚡ 每日 XP<small>🔥 = 点亮</small></h2>${barChart(evs.map(e => e ? e.xp : 0), days, tk, () => 'url(#xg)', [], 100, evs)}</div>`;
+  h += `<div class="card"><h2>🔥 分类连胜</h2><div class="streaks">${CONFIG.categories.map(c => `<div class="stk" style="${catStyle(c)}"><div class="e">${c.emoji}</div><div><b>${streak(catPred(c.id))}</b> <span style="display:inline">${c.id === 'weigh' ? '周' : '天'}</span><span>${c.name}</span></div></div>`).join('')}</div></div>`;
+  return h + renderBadges();
+}
+function barChart(vals, days, tk, colFn, lines, minMax, evs) {
+  const W = 320, H = 150, top = 16, bot = 22, max = Math.max(minMax, ...vals) * 1.12, y = v => top + (H - top - bot) * (1 - v / max), bw = 26;
+  let s = `<svg viewBox="0 0 ${W} ${H}" class="chart"><defs><linearGradient id="xg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a7bff"/><stop offset="1" stop-color="#ff8a9a"/></linearGradient></defs>`;
+  for (const [v, col] of lines) s += `<line x1="6" x2="${W - 6}" y1="${y(v)}" y2="${y(v)}" stroke="${col}" stroke-dasharray="4 4" stroke-width="1.5" opacity=".7"/><text x="${W - 4}" y="${y(v) - 3}" font-size="9" text-anchor="end" fill="${col}">${v}</text>`;
+  vals.forEach((v, i) => {
+    const cx = 24 + i * ((W - 48) / 6);
+    if (v > 0) s += `<rect x="${cx - bw / 2}" y="${y(v)}" width="${bw}" height="${H - bot - y(v)}" rx="7" fill="${colFn(v)}"/><text x="${cx}" y="${y(v) - 4}" font-size="11" font-weight="800" text-anchor="middle" fill="#4b5058">${v}</text>`;
+    s += `<text x="${cx}" y="${H - 6}" font-size="11" text-anchor="middle" fill="${days[i] === tk ? '#ff5a3c' : '#8a8f98'}" font-weight="700">${WCH[i]}${evs && evs[i] && evs[i].lit ? '🔥' : ''}</text>`;
+  });
+  return s + `</svg>`;
+}
+function renderBadges() {
+  const st = totals(), got = CONFIG.badges.filter(b => S.badges[b.id]).length;
+  return `<div class="card"><h2>🏅 成就徽章<small>已解锁 ${got}/${CONFIG.badges.length}</small></h2><div class="badges">${CONFIG.badges.map(b => {
+    const ok = S.badges[b.id], p = Math.min((st[b.stat] || 0) / b.goal, 1);
+    return `<div class="badge ${ok ? '' : 'lock'}"><div class="e">${b.e}</div><b>${b.name}</b><span>${ok ? fmtMD(ok) + ' 解锁' : b.desc}</span>${ok ? '' : `<div class="bprog"><i style="width:${(p * 100).toFixed(0)}%"></i></div>`}</div>`;
+  }).join('')}</div></div>`;
+}
+
+/* —— 记录 —— */
+function renderRecords() {
+  const ws = weightList(), tk = todayKey(), cur = S.weights[tk] || {};
+  let h = `<div class="topbar"><div class="d"><b>身体记录</b><div>每周一早上空腹 · 同一时间</div></div></div>`;
+  h += `<div class="card" style="--c:#16a3b8;--cs:#16a3b855"><h2>✍️ 记一笔</h2>
+    <div class="fields" style="margin-top:0"><div class="field"><label>体重</label><input id="rW" type="number" inputmode="decimal" step="0.1" placeholder="145" value="${cur.w ?? ''}"><span>斤</span></div>
+    <div class="field"><label>腰围（肚脐一圈）</label><input id="rWaist" type="number" inputmode="decimal" step="0.1" placeholder="—" value="${cur.waist ?? ''}"><span>cm</span></div></div>
+    <div class="fields"><div class="field"><label>日期</label><input id="rDate" type="date" value="${tk}" max="${tk}" style="padding-right:12px;font-size:16px"></div></div>
+    <button class="btn pri full" style="margin-top:10px" data-act="rsave">保存</button></div>`;
+  if (!ws.length) return h + `<div class="card"><div class="empty"><span class="e">📏</span>还没有记录<br>周一早上称完体重、量完腰围记下来，这里就会出现趋势线</div></div>`;
+  const block = (list, f, unit, title, sub, col, goal) => {
+    if (!list.length) return '';
+    const first = list[0][f], last = list[list.length - 1][f], d = +(last - first).toFixed(1);
+    const third = goal ? `<div class="kpi"><b>${Math.max(0, +(last - goal).toFixed(1))}</b><span>离目标还差</span></div>` : `<div class="kpi"><b>${list.length}</b><span>次记录</span></div>`;
+    return `<div class="card"><h2>${title}<small>${sub}</small></h2><div class="kpis" style="margin-bottom:10px"><div class="kpi"><b>${last}</b><span>最新（${unit}）</span></div><div class="kpi"><b style="color:${d <= 0 ? 'var(--ok)' : '#e0603c'}">${d > 0 ? '+' : ''}${d}</b><span>比第一次</span></div>${third}</div>${lineChart(list.map(x => [x.k, x[f]]), col, goal, f)}</div>`;
+  };
+  h += block(ws.filter(x => x.w), 'w', '斤', '⚖️ 体重', '目标 130 斤', '#16a3b8', 130);
+  h += block(ws.filter(x => x.waist), 'waist', 'cm', '📏 腰围', '减肚子主要看这个', '#f08a3c', null);
+  h += `<div class="card"><h2>🗂️ 历史</h2>${ws.slice().reverse().map((x, i, arr) => { const p = arr[i + 1], dl = p && x.w && p.w ? +(x.w - p.w).toFixed(1) : null;
+    return `<div class="rec"><div class="dt">${fmtMD(x.k)}<div class="small muted">${WD[wdOf(x.k)]}</div></div><div class="v">${x.w ? x.w + ' <small>斤</small>' : '—'}${dl ? `<span class="delta ${dl < 0 ? 'down' : 'up'}">${dl > 0 ? '↑' : '↓'}${Math.abs(dl)}</span>` : ''}</div><div class="v">${x.waist ? x.waist + ' <small>cm</small>' : '—'}</div><button class="del" data-act="rdel" data-k="${x.k}">✕</button></div>`; }).join('')}</div>`;
+  return h;
+}
+function lineChart(pts, col, goal, id) {
+  const W = 320, H = 170, l = 34, r = 14, t = 18, b = 26;
+  const vs = pts.map(p => p[1]).concat(goal ? [goal] : []);
+  let mn = Math.min(...vs), mx = Math.max(...vs); if (mx - mn < 4) { const m = (mx + mn) / 2; mn = m - 2; mx = m + 2; }
+  const pd = (mx - mn) * .12; mn -= pd; mx += pd;
+  const n = pts.length, x = i => n === 1 ? (l + W - r) / 2 : l + 6 + (W - l - r - 12) * i / (n - 1), y = v => t + (H - t - b) * (1 - (v - mn) / (mx - mn));
+  let s = `<svg viewBox="0 0 ${W} ${H}" class="chart"><defs><linearGradient id="lg${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".25"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>`;
+  for (let i = 0; i <= 3; i++) { const v = mn + (mx - mn) * i / 3; s += `<line x1="${l}" x2="${W - r}" y1="${y(v)}" y2="${y(v)}" stroke="#eee9e0"/><text x="${l - 5}" y="${y(v) + 3}" font-size="9.5" text-anchor="end" fill="#9aa0a8">${v.toFixed(0)}</text>`; }
+  if (goal) s += `<line x1="${l}" x2="${W - r}" y1="${y(goal)}" y2="${y(goal)}" stroke="#22b46b" stroke-dasharray="5 4" stroke-width="1.5"/><text x="${W - r}" y="${y(goal) - 4}" font-size="10" text-anchor="end" fill="#22b46b" font-weight="700">目标 ${goal}</text>`;
+  const path = pts.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p[1]).toFixed(1)}`).join(' ');
+  if (n > 1) s += `<path d="${path} L${x(n - 1)},${H - b} L${x(0)},${H - b}Z" fill="url(#lg${id})"/><path d="${path}" fill="none" stroke="${col}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
+  const step = Math.ceil(n / 6);
+  pts.forEach((p, i) => {
+    s += `<circle cx="${x(i)}" cy="${y(p[1])}" r="4.5" fill="#fff" stroke="${col}" stroke-width="2.5"/>`;
+    if (i === n - 1 || i === 0) s += `<text x="${x(i)}" y="${y(p[1]) - 9}" font-size="11" font-weight="800" text-anchor="middle" fill="#22262d">${p[1]}</text>`;
+    if (i % step === 0 || i === n - 1) { const d = parseKey(p[0]); s += `<text x="${x(i)}" y="${H - 8}" font-size="9.5" text-anchor="middle" fill="#8a8f98">${d.getMonth() + 1}/${d.getDate()}</text>`; }
+  });
+  return s + `</svg>`;
+}
+
+/* —— 设置 —— */
+function renderSettings() {
+  const nd = Object.keys(S.days).length, nw = weightList().length;
+  const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  return `<div class="topbar"><div class="d"><b>设置</b><div>规则 · 备份 · 说明</div></div></div>
+  <div class="card set"><h2>🔥 规则说明</h2>
+    <div class="rule"><b>点亮一天</b>：当天任务完成 ≥80%，<b>或者</b> ★核心任务全部完成（${coreNames()}）。连续点亮的天数就是火苗数；今天还没点亮不会断火，过了今天才算断。</div>
+    <div class="rule"><b>一天的分界</b>：凌晨 ${CONFIG.dayStartHour} 点前还算前一天，所以 1 点多打卡「拉伸」「按时睡觉」都记在当天。</div>
+    <div class="rule"><b>未完成</b>：到点 ${CONFIG.graceMin} 分钟后还没打卡会标成「未完成」，补打照样算。点顶部 ‹ 可以回到前几天补卡。</div>
+    <div class="rule"><b>XP</b>：每项任务有 XP，★核心任务更多；一个分类全部完成 +${CONFIG.xp.catBonus}，点亮一天 +${CONFIG.xp.dayLit}，完美一天再 +${CONFIG.xp.perfect}。</div></div>
+  <div class="card set"><h2>💾 备份数据<small>${nd} 天打卡 · ${nw} 条记录</small></h2>
+    <p>数据只存在这台手机的这个 App 里。建议每周导出一次，发到微信「文件传输助手」或存进「文件」。</p>
+    <div class="btns"><button class="btn pri" style="--c:#4f6fe0;--cs:#4f6fe055;flex:1" data-act="export">⬇️ 导出备份</button><button class="btn ghost" style="flex:1" data-act="copy">📋 复制备份文本</button></div>
+    ${exportText ? `<textarea id="exportBox" readonly>${esc(exportText)}</textarea>` : ''}
+    <p style="margin-top:14px">恢复：选择备份文件，或把备份文本粘贴到下面。</p>
+    <label class="btn ghost full">📂 选择备份文件<input type="file" id="importFile" accept=".json,application/json,text/plain" style="display:none"></label>
+    <textarea id="importBox" placeholder="或者把备份文本粘贴到这里…"></textarea>
+    <button class="btn full" style="margin-top:8px" data-act="importText">⬆️ 从文本恢复</button></div>
+  <div class="card set"><h2>📱 添加到主屏幕</h2>
+    <p>${standalone ? '✅ 已经从主屏幕打开，像 App 一样用就行。' : '用 iPhone 的 Safari 打开本页 → 点底部「分享」按钮 → 选「添加到主屏幕」。之后从桌面图标打开就是全屏 App。'}</p>
+    <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
+  <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复。建议先导出备份。</p>
+    <button class="btn danger full" data-act="reset">清空全部数据</button></div>
+  <div class="foot">每日打卡 v1 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+}
+/* ===================================================================== */
+function render() {
+  $('#app').innerHTML = view === 'today' ? renderToday() : view === 'week' ? renderWeek() : view === 'records' ? renderRecords() : renderSettings();
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === view));
+  justDone = null;
+  const fi = $('#importFile');
+  if (fi) fi.onchange = ev => { const f = ev.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => doImport(rd.result); rd.readAsText(f); };
+}
+function takeSnap() { const k = todayKey(), e = evalDay(k); return { k, cats: Object.fromEntries(Object.entries(e.cats).map(([id, c]) => [id, c.complete])), perfect: e.perfect, lit: e.lit }; }
+function celebrate() {
+  const s = takeSnap(); let delay = 0;
+  if (snap && snap.k === s.k) {
+    if (s.perfect && !snap.perfect) { confetti(240); toast('💯 完美一天！', `全部完成 · 额外 +${CONFIG.xp.perfect} XP`); delay = 2800; }
+    else if (s.lit && !snap.lit) { confetti(170); toast('🔥 今天已点亮！', `火苗 +1 · 额外 +${CONFIG.xp.dayLit} XP`); delay = 2800; }
+    else for (const id in s.cats) if (s.cats[id] && !snap.cats[id]) { confetti(90, CAT[id].color); toast(id === 'piano' ? '🎹 今天练琴达标！' : `${CAT[id].emoji} ${CAT[id].name} 全部完成！`, `分类奖励 +${CONFIG.xp.catBonus} XP`); delay = 2800; break; }
+  }
+  snap = s;
+  const st = totals(), fresh = [];
+  for (const b of CONFIG.badges) if (!S.badges[b.id] && (st[b.stat] || 0) >= b.goal) { S.badges[b.id] = todayKey(); fresh.push(b); }
+  if (fresh.length) { save(); setTimeout(() => { confetti(160, '#f0b23a'); toast(`🏅 解锁徽章：${fresh[0].e} ${fresh[0].name}`, fresh.length > 1 ? `还有 ${fresh.length - 1} 个新徽章，去「本周」看看` : fresh[0].desc); }, delay); }
+}
+function floatXp(el, n) {
+  if (!el || !n) return; const r = el.getBoundingClientRect(), d = document.createElement('div');
+  d.className = 'floatxp'; d.textContent = (n > 0 ? '+' : '') + n + ' XP';
+  if (n < 0) d.style.color = '#9aa0a8';
+  d.style.left = (r.left + r.width / 2) + 'px'; d.style.top = (r.top + 4) + 'px';
+  document.body.appendChild(d); setTimeout(() => d.remove(), 1000);
+}
+let toastT;
+function toast(a, b) { const t = $('#toast'); t.innerHTML = esc(a) + (b ? `<small>${esc(b)}</small>` : ''); t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2600); }
+
+// 彩带
+const fx = $('#fx'), ctx = fx.getContext('2d'); let parts = [], raf = null;
+function sizeFx() { const dpr = devicePixelRatio || 1; fx.width = innerWidth * dpr; fx.height = innerHeight * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+function confetti(n = 120, main) {
+  if (!raf) sizeFx();
+  const cols = main ? [main, main, '#ffd34d', '#ff7a8a', '#8f6bff'] : ['#ff9a5c', '#ff6b88', '#8f6bff', '#22b46b', '#ffd34d', '#4f6fe0'];
+  for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, sp = 4 + Math.random() * 10; parts.push({ x: innerWidth / 2, y: innerHeight * .4, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 6, w: 6 + Math.random() * 6, h: 4 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - .5) * .4, c: cols[i % cols.length], life: 0 }); }
+  if (!raf) raf = requestAnimationFrame(tickFx);
+}
+function tickFx() {
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  parts = parts.filter(p => p.y < innerHeight + 30 && p.life < 200);
+  for (const p of parts) { p.life++; p.vy += .32; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.globalAlpha = Math.max(0, 1 - p.life / 200); ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore(); }
+  if (parts.length) raf = requestAnimationFrame(tickFx); else { ctx.clearRect(0, 0, innerWidth, innerHeight); raf = null; }
+}
+
+// 交互
+function mutate(k, fn, anchorSel) {
+  const before = evalDay(k).xp; fn(); save();
+  const gain = evalDay(k).xp - before; render();
+  if (gain) floatXp(typeof anchorSel === 'string' ? $(anchorSel) : anchorSel, gain);
+  celebrate();
+}
+document.addEventListener('click', ev => {
+  const tab = ev.target.closest('[data-tab]');
+  if (tab) { view = tab.dataset.tab; if (view === 'today') viewDay = todayKey(); if (view === 'week') weekOf = todayKey(); exportText = ''; render(); scrollTo(0, 0); return; }
+  const el = ev.target.closest('[data-act]'); if (!el) return;
+  const a = el.dataset.act, k = viewDay, task = id => tasksFor(k).find(t => t.id === id);
+  switch (a) {
+    case 'day': viewDay = addDays(viewDay, +el.dataset.n); if (viewDay > todayKey()) viewDay = todayKey(); if (viewDay < CONFIG.startDate) viewDay = CONFIG.startDate; render(); break;
+    case 'gotoday': viewDay = todayKey(); render(); break;
+    case 'openday': if (el.dataset.k > todayKey() || el.dataset.k < CONFIG.startDate) return; viewDay = el.dataset.k; view = 'today'; render(); scrollTo(0, 0); break;
+    case 'week': weekOf = addDays(weekOf, +el.dataset.n); render(); break;
+    case 'thisweek': weekOf = todayKey(); render(); break;
+    case 'check': { const t = task(el.dataset.id); mutate(k, () => { const r = dayRec(k); if (r.t[t.id]) delete r.t[t.id]; else { r.t[t.id] = now(); justDone = t.id; } }, `[data-id="${t.id}"]`); break; }
+    case 'slot': { const t = task(el.dataset.id), i = +el.dataset.i; mutate(k, () => { const r = dayRec(k), arr = r.m[t.id] = r.m[t.id] || [], j = arr.indexOf(i); if (j >= 0) arr.splice(j, 1); else { arr.push(i); justDone = t.id + ':' + i; } }, `[data-id="${t.id}"][data-i="${i}"]`); break; }
+    case 'tstart': if (!S.timer) S.timer = { day: todayKey(), accMs: 0, startTs: now() }; else if (!S.timer.startTs) S.timer.startTs = now(); save(); render(); break;
+    case 'tpause': if (S.timer && S.timer.startTs) { S.timer.accMs += now() - S.timer.startTs; S.timer.startTs = null; } save(); render(); break;
+    case 'tstop': stopTimer(); break;
+    case 'padd': { const n = +el.dataset.n; mutate(k, () => { const r = dayRec(k), cur = pianoSec(k); r.piano = Math.max(0, r.piano + Math.max(n * 60, -cur)); if (n > 0) toast(`🎹 +${n} 分钟`, `今天累计 ${Math.floor(pianoSec(k) / 60)} 分钟`); }, `[data-act="padd"][data-n="${n}"]`); break; }
+    case 'wsave': saveWeight(el.dataset.k, $('#wW').value, $('#wWaist').value); break;
+    case 'rsave': saveWeight($('#rDate').value || todayKey(), $('#rW').value, $('#rWaist').value); break;
+    case 'rdel': if (confirm(`删除 ${fmtMD(el.dataset.k)} 的记录？`)) { delete S.weights[el.dataset.k]; save(); render(); } break;
+    case 'export': doExport(); break;
+    case 'copy': copyExport(); break;
+    case 'importText': doImport($('#importBox').value); break;
+    case 'reset': if (confirm('确定清空全部数据？此操作不能恢复。') && prompt('请输入「清空」两个字确认') === '清空') { S = blank(); save(); toast('已清空', '重新开始吧 💪'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap(); } break;
+  }
+});
+function stopTimer() {
+  const t = S.timer; if (!t) return;
+  let ms = timerMs();
+  if (ms > 3 * 3600e3) { const v = prompt(`计时已经 ${Math.round(ms / 60e3)} 分钟，是不是忘了停？\n请输入实际练琴分钟数：`, '60'); if (v === null) return; ms = Math.max(0, +v || 0) * 60e3; }
+  const day = t.day;
+  mutate(day, () => { const r = dayRec(day); S.timer = null; r.piano += ms / 1000; }, '#pRing');
+  if (!$('.toast.show')) toast(`🎹 本次练琴 ${Math.round(ms / 60e3)} 分钟`, `今天累计 ${Math.floor(pianoSec(day) / 60)} 分钟`);
+}
+function saveWeight(k, w, waist) {
+  w = parseFloat(w); waist = parseFloat(waist);
+  const okW = w > 50 && w < 400, okA = waist > 40 && waist < 200;
+  if (!okW && !okA) { toast('请输入体重（斤）或腰围（cm）'); return; }
+  if (!k || k > todayKey()) k = todayKey();
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  const old = S.weights[k] || {};
+  mutate(k, () => { S.weights[k] = { w: okW ? w : old.w, waist: okA ? waist : old.waist }; }, '[data-act="wsave"],[data-act="rsave"]');
+  if (!$('.toast.show')) toast('✅ 已记录', `${fmtMD(k)} ${S.weights[k].w ? S.weights[k].w + ' 斤' : ''} ${S.weights[k].waist ? S.weights[k].waist + ' cm' : ''}`);
+}
+const backupJSON = () => JSON.stringify({ app: 'daily-checkin', version: 1, exportedAt: new Date(now()).toISOString(), data: S });
+async function doExport() {
+  const txt = backupJSON(), name = `每日打卡备份-${todayKey()}.json`;
+  try {
+    const file = new File([txt], name, { type: 'application/json' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: name }); return; }
+  } catch (e) { if (e && e.name === 'AbortError') return; }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], { type: 'application/json' })); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  exportText = txt; render(); toast('已导出', '如果没有下载，可复制下面的文本');
+}
+async function copyExport() {
+  exportText = backupJSON(); render();
+  try { await navigator.clipboard.writeText(exportText); toast('📋 已复制', '粘贴到微信「文件传输助手」保存'); }
+  catch (e) { const b = $('#exportBox'); if (b) { b.focus(); b.select(); } toast('请长按文本框全选复制'); }
+}
+function doImport(txt) {
+  let d;
+  try { const o = JSON.parse(txt); d = o && o.data ? o.data : o; if (!d || typeof d.days !== 'object') throw 0; }
+  catch (e) { toast('❌ 备份格式不对', '请确认是本 App 导出的内容'); return; }
+  if (!confirm(`恢复备份会覆盖当前数据（备份里有 ${Object.keys(d.days).length} 天打卡）。继续？`)) return;
+  S = { ...blank(), ...d }; save(); toast('✅ 恢复成功'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap();
+}
+
+// 定时刷新：计时器每秒走；每分钟刷新「现在 / 未完成」状态；跨天自动切换
+const isTyping = () => { const a = document.activeElement; return a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA'); };
+let lastMin = Math.floor(now() / 60e3), lastDay = todayKey();
+setInterval(() => {
+  const tk = todayKey();
+  if (tk !== lastDay) { if (viewDay === lastDay) viewDay = tk; lastDay = tk; if (!isTyping()) render(); snap = takeSnap(); return; }
+  if (S.timer && S.timer.startTs && view === 'today' && viewDay === S.timer.day) {
+    const lv = $('#pLive'), pm = $('#pMin');
+    if (lv) lv.textContent = '● ' + fmtDur(timerMs());
+    if (pm && +pm.textContent !== Math.floor(pianoSec(viewDay) / 60) && !isTyping()) { render(); celebrate(); }
+  }
+  const mm = Math.floor(now() / 60e3);
+  if (mm !== lastMin) { lastMin = mm; if (!isTyping() && view !== 'settings') render(); }
+}, 1000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden && !isTyping()) { load(); if (todayKey() !== lastDay) { lastDay = todayKey(); viewDay = lastDay; } render(); celebrate(); } });
+addEventListener('resize', () => { if (raf) sizeFx(); });
+
+load(); render(); snap = takeSnap(); celebrate();
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && !clockOffset) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
