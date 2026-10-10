@@ -341,6 +341,107 @@ select.inp{padding-right:30px;background:#fbfaf7 url("data:image/svg+xml,%3Csvg 
 .revempty b{display:block;font-size:17px;margin-bottom:6px}
 .revempty p{font-size:13.5px;color:var(--sub);line-height:1.5}
 
+
+/* —— 结束今天 · 结算仪式 v6 —— */
+.endbar{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#2a2f4a 0%,#3d2a5c 100%);color:#fff;border-radius:16px;padding:12px 14px;margin-bottom:14px;box-shadow:0 4px 16px rgba(45,30,80,.22)}
+.endbar .e{font-size:26px;line-height:1}
+.endbar .sp{flex:1;min-width:0}
+.endbar .k{font-size:11px;font-weight:800;opacity:.8;letter-spacing:.4px}
+.endbar b{font-size:15px;font-weight:800;display:block;margin-top:1px}
+.endbar .btn{height:40px;padding:0 14px;flex-shrink:0;background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.35);font-size:13.5px}
+.endbar.eve{background:linear-gradient(135deg,#1a1f3a 0%,#5a2a6e 55%,#8f4a3c 100%);box-shadow:0 6px 20px rgba(80,40,90,.35)}
+.endbar.eve .btn{background:#fff;color:#3d2a5c;border:0;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.closedban{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#f3f0ff,#fff5f0);border:1.5px solid #e0d4ff;border-radius:14px;padding:11px 14px;margin-bottom:14px;color:#5b4a8a}
+.closedban .e{font-size:24px}
+.closedban b{font-size:14.5px;font-weight:800;display:block;color:#3d2a5c}
+.closedban .sub{font-size:12px;color:#7a808a;margin-top:1px}
+.closedban .btn{height:36px;padding:0 12px;flex-shrink:0;font-size:13px;background:#7a5cf0;color:#fff;box-shadow:0 2px 8px rgba(122,92,240,.3)}
+.diarycard{background:#fff;border-radius:16px;padding:14px;margin-bottom:14px;box-shadow:0 2px 12px rgba(50,40,20,.06);border-left:5px solid #e2549a}
+.diarycard .dh{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.diarycard .mood{font-size:28px;line-height:1}
+.diarycard .dk{font-size:11px;font-weight:800;color:#e2549a;letter-spacing:.4px}
+.diarycard .dt{font-size:14.5px;font-weight:700;line-height:1.5;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+.diarycard .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.diarycard .tagchip{font-size:11.5px;font-weight:700;background:#fff0f5;color:#c43c7a;border-radius:999px;padding:3px 9px}
+.diarycard .dact{margin-top:10px}
+.dlist .ditem{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;border-top:1px solid var(--line);text-align:left;width:100%}
+.dlist .ditem:first-child{border-top:0}
+.dlist .dm{font-size:28px;line-height:1;flex-shrink:0;margin-top:2px}
+.dlist .dd{font-size:13px;font-weight:800}
+.dlist .dg{font-size:11px;font-weight:800;color:#7a5cf0;background:#f3f0ff;border-radius:999px;padding:1px 7px;margin-left:6px}
+.dlist .dp{font-size:13px;color:#5b616b;margin-top:3px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dlist .meta{font-size:11.5px;color:var(--sub);margin-top:3px}
+
+#ritual{position:fixed;inset:0;z-index:70;display:none;align-items:stretch;justify-content:center;background:rgba(18,16,28,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#ritual.show{display:flex;animation:rfade .28s ease}
+@keyframes rfade{from{opacity:0}to{opacity:1}}
+.rpanel{width:100%;max-width:560px;margin:0 auto;background:linear-gradient(180deg,#1e1a2e 0%,#2a2240 40%,#1a1628 100%);color:#fff;display:flex;flex-direction:column;height:100%;height:100dvh;overflow:hidden;position:relative}
+.rpanel:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,154,92,.25),transparent 55%),radial-gradient(ellipse at 80% 100%,rgba(143,107,255,.2),transparent 50%);pointer-events:none}
+.rpanel>*{position:relative;z-index:1}
+.rhead{padding:calc(var(--sat) + 14px) 18px 8px;display:flex;align-items:center;gap:10px}
+.rhead .rt{font-size:12.5px;font-weight:800;letter-spacing:1px;opacity:.75;text-transform:uppercase}
+.rhead .rst{margin-left:auto;font-size:12px;font-weight:700;opacity:.55}
+.rsteps{display:flex;gap:6px;padding:0 18px 12px}
+.rsteps i{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.15)}
+.rsteps i.on{background:linear-gradient(90deg,#ff9a5c,#ff6b88,#8f6bff)}
+.rsteps i.done{background:rgba(255,255,255,.45)}
+.rbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 18px 18px;overscroll-behavior:contain}
+.rfoot{padding:12px 18px calc(var(--sab) + 16px);display:flex;gap:10px;background:linear-gradient(180deg,transparent,rgba(20,16,32,.85) 30%);border-top:1px solid rgba(255,255,255,.08)}
+.rfoot .btn{height:52px;flex:1;font-size:16px;border-radius:16px}
+.rfoot .btn.ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);color:#fff}
+.rfoot .btn.pri{background:linear-gradient(135deg,#ff9a5c,#ff6b88);color:#fff;box-shadow:0 4px 16px rgba(255,107,136,.4);border:0}
+.rfoot .btn.skip{flex:0;min-width:88px;background:transparent;border:0;color:rgba(255,255,255,.55);font-size:14px;height:52px}
+
+.rgrade{text-align:center;padding:8px 0 16px}
+.rgrade .gb{width:110px;height:110px;margin:0 auto 10px;border-radius:28px;background:rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 8px 32px rgba(0,0,0,.25);animation:rpop .5s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes rpop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.rgrade .gb b{font-size:52px;font-weight:900;line-height:1;letter-spacing:-2px}
+.rgrade .gb span{font-size:13px;font-weight:800;opacity:.9;letter-spacing:2px;margin-top:2px}
+.rgrade .stars{letter-spacing:3px;font-size:20px;margin:4px 0 8px}
+.rgrade .litline{font-size:20px;font-weight:900;margin-bottom:4px}
+.rgrade .sub{font-size:13.5px;opacity:.8;line-height:1.4}
+.rstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.rstat{background:rgba(255,255,255,.08);border-radius:14px;padding:10px 6px;text-align:center}
+.rstat b{display:block;font-size:20px;font-weight:900;line-height:1.2}
+.rstat span{font-size:11px;opacity:.7;font-weight:600}
+.renc{background:rgba(255,255,255,.1);border-radius:16px;padding:14px;margin:12px 0;border-left:4px solid #ff9a5c}
+.renc .k{font-size:11px;font-weight:800;opacity:.7;letter-spacing:.5px}
+.renc b{display:block;font-size:15px;font-weight:700;margin-top:4px;line-height:1.45}
+.rcats{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none}
+.rcats::-webkit-scrollbar{display:none}
+.rcatring{flex:0 0 auto;width:72px;text-align:center}
+.rcatring .rw{position:relative;width:56px;height:56px;margin:0 auto 4px}
+.rcatring .rw .c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20px}
+.rcatring .nm{font-size:11px;font-weight:700;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rhl{margin:10px 0}
+.rhl .ht{font-size:12px;font-weight:800;opacity:.7;margin-bottom:8px;letter-spacing:.4px}
+.rhl .hrow{display:flex;flex-wrap:wrap;gap:6px}
+.rhl .hchip{font-size:12.5px;font-weight:700;background:rgba(255,255,255,.1);border-radius:999px;padding:5px 11px}
+.rhl .hchip.miss{opacity:.55;text-decoration:line-through}
+.rtom{font-size:13px;opacity:.8;margin-top:10px;padding:10px 12px;background:rgba(255,255,255,.06);border-radius:12px;line-height:1.4}
+
+.moods{display:flex;justify-content:space-between;gap:6px;margin:8px 0 14px}
+.moods button{flex:1;height:64px;border-radius:16px;background:rgba(255,255,255,.08);font-size:28px;border:2px solid transparent;transition:all .2s}
+.moods button.on{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5);transform:scale(1.06);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.moods button span{display:block;font-size:10px;font-weight:700;opacity:.7;margin-top:2px}
+.rprompt{font-size:13px;opacity:.75;margin-bottom:8px;font-weight:600;line-height:1.4}
+.rdiary{width:100%;min-height:140px;border-radius:16px;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;padding:14px;font-size:15.5px;font-weight:600;line-height:1.5;outline:none;resize:vertical;font-family:inherit}
+.rdiary:focus{border-color:rgba(255,154,92,.7);background:rgba(255,255,255,.12)}
+.rdiary::placeholder{color:rgba(255,255,255,.35)}
+.qtags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.qtags button{height:34px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.08);font-size:13px;font-weight:700;color:rgba(255,255,255,.8);border:1.5px solid transparent}
+.qtags button.on{background:rgba(255,107,136,.25);border-color:rgba(255,107,136,.6);color:#fff}
+.rhint{font-size:12px;opacity:.5;margin-top:8px;text-align:center}
+
+.rstamp{text-align:center;padding:40px 10px 20px}
+.rstamp .seal{width:160px;height:160px;margin:0 auto 18px;border-radius:50%;border:4px solid #ffd34d;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(255,211,77,.25),transparent 70%);animation:rseal .7s cubic-bezier(.2,.9,.3,1.4);box-shadow:0 0 0 8px rgba(255,211,77,.15),0 12px 40px rgba(0,0,0,.3)}
+@keyframes rseal{0%{transform:scale(1.6) rotate(-12deg);opacity:0}60%{transform:scale(.92) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.rstamp .seal b{font-size:28px;font-weight:900;color:#ffd34d;letter-spacing:2px}
+.rstamp .seal span{font-size:13px;opacity:.85;margin-top:4px}
+.rstamp h3{font-size:22px;font-weight:900;margin-bottom:8px}
+.rstamp p{font-size:14.5px;opacity:.8;line-height:1.5}
+.rstamp .xpbonus{display:inline-block;margin-top:14px;background:rgba(255,211,77,.2);color:#ffd34d;font-weight:900;font-size:15px;padding:8px 16px;border-radius:999px}
+
 </style>
 </head>
 <body>
@@ -353,6 +454,7 @@ select.inp{padding-right:30px;background:#fbfaf7 url("data:image/svg+xml,%3Csvg 
 </nav>
 <canvas id="fx"></canvas>
 <div class="sheet" id="sheet"></div>
+<div id="ritual" aria-hidden="true"></div>
 <div class="toast" id="toast"></div>
 <script>
 /* =====================================================================
@@ -416,7 +518,7 @@ const CONFIG = {
     { id: 'piano', cat: 'piano', type: 'piano', title: '练琴', goalMin: 30, bonusMin: 60, xp: 30, bonusXp: 20, core: true },
   ],
 
-  xp: { catBonus: 10, dayLit: 20, perfect: 30 },
+  xp: { catBonus: 10, dayLit: 20, perfect: 30, diary: 10 },
 
   levels: [
     [0, '新手上路'], [300, '起步者'], [900, '自律学徒'], [1800, '习惯养成者'], [3200, '燃脂战士'], [5000, '核心稳定者'],
@@ -440,6 +542,8 @@ const CONFIG = {
     { id: 'waist2',   e: '📏', name: '腰围 −2cm',     desc: '比第一次量少 2cm',      stat: 'waistDrop',  goal: 2 },
     { id: 'weight5',  e: '📉', name: '减重 5 斤',     desc: '比第一次称轻 5 斤',     stat: 'weightDrop', goal: 5 },
     { id: 'goal130',  e: '🏆', name: '目标 130 斤',   desc: '体重到达 130 斤',       stat: 'goal130',    goal: 1 },
+    { id: 'diary1',   e: '📝', name: '第一篇日记',    desc: '写下第一篇每日小结',    stat: 'diaries',    goal: 1 },
+    { id: 'diary7',   e: '📔', name: '日记连续 7 天', desc: '连续 7 天写日记',       stat: 'diaryRun',   goal: 7 },
   ],
 };
 
@@ -602,7 +706,10 @@ function evalDay(k) {
   const lit = (ts.length > 0 && pct >= CONFIG.streakRule.minPct - 1e-9) || (hasCore && coreOk);
   if (lit) xp += CONFIG.xp.dayLit;
   if (perfect) xp += CONFIG.xp.perfect;
-  return { ts, cats, pct, perfect, lit, coreOk, any, xp };
+  const r = peekDay(k);
+  const hasDiary = !!(r.diary && ((r.diary.text || '').trim() || r.diary.mood));
+  if (hasDiary || r.diaryXp) xp += (CONFIG.xp.diary || 10);
+  return { ts, cats, pct, perfect, lit, coreOk, any, xp, hasDiary, closed: !!r.closed };
 }
 function rangeKeys() { const out = [], t = todayKey(); for (let k = CONFIG.startDate; k <= t; k = addDays(k, 1)) out.push(k); return out; }
 // 连续天数：今天还没完成不打断（从昨天往前数）；pred 返回 null = 这天没有这项（跳过）
@@ -629,10 +736,21 @@ function totals() {
   for (const k of Object.keys(S.weights)) if (!S.days[k] && k >= CONFIG.startDate && k <= tk) xp += evalDay(k).xp;
   const ws = weightList(), wv = ws.filter(x => x.w), wa = ws.filter(x => x.waist);
   if (ws.length) checks++;
+  let diaries = 0;
+  for (const k of Object.keys(S.days)) {
+    if (k < CONFIG.startDate || k > tk) continue;
+    const d = S.days[k] && S.days[k].diary;
+    if (d && ((d.text || '').trim() || d.mood)) diaries++;
+  }
+  const diaryPred = k => {
+    const d = S.days[k] && S.days[k].diary;
+    return (d && ((d.text || '').trim() || d.mood)) ? true : false;
+  };
   return {
-    xp, checks, perfect, pianoTotal, pianoMax, weighs: wv.length,
+    xp, checks, perfect, pianoTotal, pianoMax, weighs: wv.length, diaries,
     dayRun: longestRun(k => evalDay(k).lit), sportRun: longestRun(catPred('sport')), backRun: longestRun(taskPred('morning')),
     sleepRun: longestRun(taskPred('sleep')), colaRun: longestRun(taskPred('nocola')),
+    diaryRun: longestRun(diaryPred),
     waistDrop: wa.length > 1 ? wa[0].waist - Math.min(...wa.map(x => x.waist)) : 0,
     weightDrop: wv.length > 1 ? wv[0].w - Math.min(...wv.map(x => x.w)) : 0,
     goal130: wv.some(x => x.w <= 130) ? 1 : 0,
@@ -725,7 +843,10 @@ function renderToday() {
         <div class="hchip"><b>${e.lit ? '已点亮 ✨' : left + ' 项'}</b>${e.lit ? (isToday ? '今天' : '这一天') : '★核心还差'}</div>
       </div>
       <div class="rulehint">🔥 点亮一天：完成 ≥80%，或 ★核心任务（${esc(coreNames(k))}）全部完成</div></div>`;
-    if (isToday) h += nextTask(k, e);
+    if (isToday) {
+      h += nextTask(k, e);
+      if (peekDay(k).closed) h += renderEndControls(k);
+    }
   }
   if (!e.ts.length) h += `<div class="card"><div class="empty"><span class="e">🗂️</span>这一天没有任务<br>${isToday ? '点上面的「✏️ 编辑任务」添加分类和任务' : '这一天没有安排任务'}</div></div>`;
   for (const c of catsFor(k).filter(c => e.cats[c.id])) {
@@ -744,6 +865,7 @@ function renderToday() {
     for (const t of ts) h += renderTask(t, k);
     h += `</div></div>`;
   }
+  if (isToday && !peekDay(k).closed) h += renderEndControls(k);
   if (isToday) h += `<button class="btn ghost full" style="margin-bottom:14px" data-act="edit">✏️ 编辑分类和任务</button>`;
   h += `<div class="foot">数据只保存在这台手机上 · 记得定期在「设置」里备份 · 左右滑动可换天</div>`;
   return h;
@@ -916,6 +1038,13 @@ function renderPastReview(k) {
 
   // Comment
   h += `<div class="comment"><div class="e">💬</div><div class="sp"><div class="k">当日点评</div><b>${esc(dayComment(k, e))}</b></div></div>`;
+
+  // Diary
+  h += renderDiaryBlock(k, true);
+  if (dayClosed(k)) {
+    const by = peekDay(k).closedBy === 'auto' ? '到点自动结算' : '手动结算';
+    h += `<div class="small muted" style="margin:-6px 4px 12px">🌙 ${by}${peekDay(k).closedAt ? ' · ' + fmtCheckTime(peekDay(k).closedAt) : ''}</div>`;
+  }
 
   // Achievements
   const ach = empty ? [] : dayAchievements(k, e);
@@ -1160,7 +1289,11 @@ function renderRecords() {
     <div class="field"><label>腰围（肚脐一圈）</label><input id="rWaist" type="number" inputmode="decimal" step="0.1" placeholder="—" value="${cur.waist ?? ''}"><span>cm</span></div></div>
     <div class="fields"><div class="field"><label>日期</label><input id="rDate" type="date" value="${tk}" max="${tk}" style="padding-right:12px;font-size:16px"></div></div>
     <button class="btn pri full" style="margin-top:10px" data-act="rsave">保存</button></div>`;
-  if (!ws.length) return h + `<div class="card"><div class="empty"><span class="e">📏</span>还没有记录<br>周一早上称完体重、量完腰围记下来，这里就会出现趋势线</div></div>`;
+  if (!ws.length) {
+    h += `<div class="card"><div class="empty"><span class="e">📏</span>还没有记录<br>周一早上称完体重、量完腰围记下来，这里就会出现趋势线</div></div>`;
+    h += renderDiaryList();
+    return h;
+  }
   const block = (list, f, unit, title, sub, col, goal) => {
     if (!list.length) return '';
     const first = list[0][f], last = list[list.length - 1][f], d = +(last - first).toFixed(1);
@@ -1171,6 +1304,7 @@ function renderRecords() {
   h += block(ws.filter(x => x.waist), 'waist', 'cm', '📏 腰围', '减肚子主要看这个', '#f08a3c', null);
   h += `<div class="card"><h2>🗂️ 历史</h2>${ws.slice().reverse().map((x, i, arr) => { const p = arr[i + 1], dl = p && x.w && p.w ? +(x.w - p.w).toFixed(1) : null;
     return `<div class="rec"><div class="dt">${fmtMD(x.k)}<div class="small muted">${WD[wdOf(x.k)]}</div></div><div class="v">${x.w ? x.w + ' <small>斤</small>' : '—'}${dl ? `<span class="delta ${dl < 0 ? 'down' : 'up'}">${dl > 0 ? '↑' : '↓'}${Math.abs(dl)}</span>` : ''}</div><div class="v">${x.waist ? x.waist + ' <small>cm</small>' : '—'}</div><button class="del" data-act="rdel" data-k="${x.k}">✕</button></div>`; }).join('')}</div>`;
+  h += renderDiaryList();
   return h;
 }
 function lineChart(pts, col, goal, id) {
@@ -1219,7 +1353,7 @@ function renderSettings() {
     <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
   <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复（自定义的分类和任务会保留）。建议先导出备份。</p>
     <button class="btn danger full" data-act="reset">清空全部数据</button></div>
-  <div class="foot">每日打卡 v5 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+  <div class="foot">每日打卡 v6 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
 }
 /* =====================================================================
  *  编辑分类和任务（底部弹出表单）
@@ -1468,6 +1602,374 @@ document.addEventListener('click', ev => {
       render(); toast('↩️ 已恢复默认任务'); break;
   }
 });
+/* =====================================================================
+ *  结束今天 · 结算仪式 + 日记（v6）
+ * ===================================================================== */
+const MOODS = [
+  { id: 'great', e: '😄', label: '很棒' },
+  { id: 'good', e: '🙂', label: '不错' },
+  { id: 'ok', e: '😐', label: '还行' },
+  { id: 'tired', e: '😮‍💨', label: '有点累' },
+  { id: 'rough', e: '😞', label: '不太顺' },
+];
+const QTAGS = ['累', '开心', '应酬', '出差', '加班', '自律', '偷懒了一点', '腰舒服点了', '膝盖还行'];
+const DIARY_PROMPTS = [
+  '今天最有成就感的一件事？',
+  '明天想改进什么？',
+  '身体今天怎么样？腰和膝盖还好吗？',
+  '哪一项坚持下来最不容易？',
+  '想对自己说一句鼓励的话？',
+  '今天吃得怎么样？有没有管住嘴？',
+  '练琴 / 运动里哪一下最开心？',
+];
+let ritual = null; // { day, step, mood, text, tags, by, from }
+let ritualSnoozed = {}; // session-only: dayKey -> true after 「稍后」
+let lastCalDay = null; // calendar YYYY-MM-DD for midnight detection
+
+function calKey(ts) {
+  const d = new Date(ts == null ? now() : ts);
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+function isEvening() {
+  const d = new Date(now());
+  const h = d.getHours();
+  return h >= 21 || h < CONFIG.dayStartHour;
+}
+function dayClosed(k) { return !!(peekDay(k).closed); }
+function dayDiary(k) { return peekDay(k).diary || null; }
+function hasDayActivity(k) {
+  const e = evalDay(k);
+  return e.any || e.pct > 0 || !!(S.weights[k]);
+}
+function findUnclosedRitualDay() {
+  const tk = todayKey();
+  // Prefer previous logical day, then up to 3 recent past days with activity
+  for (let i = 1; i <= 3; i++) {
+    const k = addDays(tk, -i);
+    if (k < CONFIG.startDate) break;
+    if (dayClosed(k) || ritualSnoozed[k]) continue;
+    if (hasDayActivity(k) || i === 1) return k;
+  }
+  return null;
+}
+function encourage(k, e) {
+  const gr = gradeOf(e);
+  const fl = streakAt(k);
+  const prev = addDays(k, -1);
+  const prevLit = prev >= CONFIG.startDate && evalDay(prev).lit;
+  const miss = e.ts.filter(t => frac(t, k) < 1).map(t => t.type === 'piano' ? t.title : (t.id === 'morning' ? '晨间护腰' : t.id === 'nocola' ? '零可乐' : t.title));
+  const doneCore = e.ts.filter(t => t.core && frac(t, k) >= 1).length;
+  const pool = [];
+  if (e.perfect) {
+    pool.push('满分收工！今天把自己照顾得很好，这份扎实值得骄傲。');
+    pool.push('全部勾上了——像打通了一关。好好睡，明天接着漂亮。');
+    pool.push('完美一天！腰、肚子、琴，一样都没落下，给自己鼓个掌。');
+  } else if (e.lit && e.pct >= 0.9) {
+    pool.push('几乎满分，点亮了。差的那一点点，明天随手补上也行。');
+    pool.push('火苗保住了，而且完成度很高——这就是在变强的感觉。');
+  } else if (e.lit) {
+    pool.push(`今天点亮了${fl > 1 ? `，连续第 ${fl} 天` : ''}。不求完美，求不断火。`);
+    pool.push('核心都稳住了，火苗还在。够了，明天再往上顶一格。');
+    if (miss.length && miss.length <= 2) pool.push(`点亮了。就差「${miss[0]}」${miss[1] ? '和「' + miss[1] + '」' : ''}，明天顺手带上。`);
+  } else if (e.pct >= 0.65) {
+    const need = Math.max(1, Math.ceil(e.ts.length * CONFIG.streakRule.minPct) - Math.round(e.pct * e.ts.length));
+    pool.push(`差一点点就点亮了（大约再 ${need} 项）。明天优先 ★核心，火苗就不断。`);
+    pool.push('完成超过六成了，离点亮只差一步。别泄气，差的是运气不是态度。');
+  } else if (e.any) {
+    pool.push('今天动起来了，这比完美计划更重要。从 ★核心里挑一两项，明天先做掉。');
+    pool.push(`做了 ${doneCore} 项核心，有开始就有下次。身体记得你今天的努力。`);
+  } else {
+    pool.push('空白的一天也没关系。计划还在，明天从早餐和护腰开始就行。');
+    pool.push('允许自己偶尔空一格。回来的那一下，才是真正的自律。');
+  }
+  if (fl === 3 || fl === 7 || fl === 14 || fl === 21) pool.push(`连续点亮 ${fl} 天！这已经不是运气，是习惯在长肌肉。`);
+  if (!prevLit && e.lit && fl === 1) pool.push('断了一下又接上了——回来的人最了不起。');
+  if (e.ts.some(t => t.type === 'piano' && taskSec(k, t.id) / 60 >= (t.goalMin || 30))) {
+    pool.push('琴也练了，脑子和手指都在线。艺术和健康可以一起长大。');
+  }
+  if (e.ts.some(t => t.id === 'nocola' && frac(t, k) >= 1)) {
+    pool.push('今天没喝普通可乐，小决定叠起来就是大腰围变化。');
+  }
+  // pick stably by day+pct so same day doesn't flicker wildly within a session
+  const idx = (diffDays(CONFIG.startDate, k) * 7 + Math.round(e.pct * 10) + (e.lit ? 3 : 0)) % pool.length;
+  return pool[idx] || pool[0];
+}
+function tomorrowTeaser(k) {
+  const nx = addDays(k, 1);
+  if (isFutureDay(nx) && nx > maxFutureKey()) return '';
+  const ts = tasksFor(nx);
+  const sport = ts.find(t => t.cat === 'sport' || t.id === 'sport');
+  const sleep = ts.find(t => t.type === 'sleep');
+  const bits = [];
+  if (sport) bits.push(`运动：${sport.icon ? sport.icon + ' ' : ''}${sport.title}`);
+  if (sleep && sleep.time) bits.push(`睡觉目标 ${sleep.time} 前`);
+  if (!bits.length) return '';
+  return `明天预告 · ${bits.join(' · ')}`;
+}
+function ritualHighlights(k, e) {
+  const hi = [], miss = [];
+  for (const b of CONFIG.badges) if (S.badges[b.id] === k) hi.push(`${b.e} ${b.name}`);
+  if (e.perfect) hi.push('💯 完美一天');
+  const pm = Math.floor(pianoSec(k) / 60);
+  if (pm >= 30) hi.push(`🎹 练琴 ${pm} 分钟`);
+  if (e.cats.sport && e.cats.sport.complete) hi.push('🏃 运动完成');
+  if (e.ts.some(t => t.id === 'nocola' && frac(t, k) >= 1)) hi.push('🥤 零可乐');
+  for (const c of catsFor(k)) if (e.cats[c.id] && e.cats[c.id].complete) {
+    if (!hi.some(h => h.includes(c.name))) hi.push(`${c.emoji} ${c.name}全勤`);
+  }
+  for (const t of e.ts) {
+    if (frac(t, k) < 1) {
+      const name = t.type === 'piano' ? t.title : (t.id === 'morning' ? '晨间护腰' : t.title);
+      miss.push(name);
+    }
+  }
+  return { hi: hi.slice(0, 8), miss: miss.slice(0, 5) };
+}
+
+function openRitual(day, by) {
+  if (ritual) return;
+  const r = peekDay(day);
+  const draft = r.diaryDraft || {};
+  const existing = r.diary || {};
+  ritual = {
+    day,
+    step: 1,
+    by: by || 'manual',
+    mood: existing.mood || draft.mood || '',
+    text: existing.text || draft.text || '',
+    tags: existing.tags ? [...existing.tags] : (draft.tags ? [...draft.tags] : []),
+    prompt: DIARY_PROMPTS[diffDays(CONFIG.startDate, day) % DIARY_PROMPTS.length],
+  };
+  renderRitual();
+  const el = $('#ritual');
+  el.classList.add('show');
+  el.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('noscroll');
+  const e = evalDay(day);
+  if (e.lit || e.perfect) setTimeout(() => confetti(e.perfect ? 220 : 140), 200);
+}
+function closeRitual(snooze) {
+  if (!ritual) return;
+  if (snooze) ritualSnoozed[ritual.day] = true;
+  ritual = null;
+  const el = $('#ritual');
+  el.classList.remove('show');
+  el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '';
+  document.body.classList.remove('noscroll');
+}
+function saveDiaryDraft() {
+  if (!ritual) return;
+  const r = dayRec(ritual.day);
+  r.diaryDraft = { text: ritual.text, mood: ritual.mood, tags: [...ritual.tags], savedAt: now() };
+  save();
+}
+function finalizeRitual(withDiary) {
+  if (!ritual) return;
+  const day = ritual.day;
+  const r = dayRec(day);
+  const wrote = !!(withDiary && (ritual.text.trim() || ritual.mood));
+  if (ritual.editOnly && !wrote) { closeRitual(false); render(); return; }
+  if (!r.closed) {
+    r.closed = true;
+    r.closedAt = now();
+    r.closedBy = ritual.by;
+  } else if (!r.closedAt) {
+    r.closedAt = now();
+  }
+  let diaryXpNew = false;
+  if (wrote) {
+    r.diary = { text: ritual.text.trim(), mood: ritual.mood || '', tags: [...ritual.tags], savedAt: now() };
+    delete r.diaryDraft;
+    if (!r.diaryXp) { r.diaryXp = true; diaryXpNew = true; }
+  }
+  save();
+  ritual.step = 3;
+  ritual._diaryXpNew = diaryXpNew;
+  ritual._wrote = wrote;
+  renderRitual();
+  if (ritual._wrote) confetti(160, '#ffd34d');
+  celebrate();
+}
+function finishRitual() {
+  const day = ritual ? ritual.day : null;
+  closeRitual(false);
+  if (day) {
+    // If closed day is still "today" (before 4am), stay; else show its 回顾
+    if (day === todayKey()) { view = 'today'; viewDay = day; pastEdit = false; }
+    else { view = 'today'; viewDay = day; pastEdit = false; }
+  }
+  render();
+  scrollTo(0, 0);
+}
+
+function renderRitual() {
+  if (!ritual) return;
+  const k = ritual.day, e = evalDay(k), gr = gradeOf(e);
+  const fl = streakAt(k), xpEnd = xpUpTo(k), L = levelOf(xpEnd);
+  const xpPrev = k > CONFIG.startDate ? xpUpTo(addDays(k, -1)) : 0;
+  const leveled = levelOf(xpPrev).lv < L.lv;
+  const stars = '★'.repeat(gr.stars) + '☆'.repeat(Math.max(0, 3 - gr.stars));
+  const { hi, miss } = ritualHighlights(k, e);
+  const enc = encourage(k, e);
+  const teaser = tomorrowTeaser(k);
+  let resultBig, resultSub;
+  if (!e.any && e.pct < 0.01) { resultBig = '没有记录'; resultSub = '空白也没关系，日记可以写一句'; }
+  else if (e.lit) { resultBig = `🔥 已点亮`; resultSub = fl > 1 ? `连续第 ${fl} 天` : '火苗点燃'; }
+  else {
+    const needN = Math.max(1, Math.ceil(e.ts.length * CONFIG.streakRule.minPct) - Math.round(e.pct * e.ts.length));
+    resultBig = '未点亮';
+    resultSub = `完成 ${Math.round(e.pct * 100)}% · 差 ${needN} 项`;
+  }
+  const step = ritual.step;
+  let body = '';
+  if (step === 1) {
+    body = `<div class="rgrade"><div class="gb"><b>${gr.g}</b><span>${esc(gr.label)}</span></div>
+      <div class="stars">${stars}</div>
+      <div class="litline">${resultBig}</div>
+      <div class="sub">${resultSub}${leveled ? ` · 🎉 升级到 Lv.${L.lv}` : ''}</div></div>
+      <div class="rstats">
+        <div class="rstat"><b>${Math.round(e.pct * 100)}%</b><span>完成度</span></div>
+        <div class="rstat"><b>+${e.xp}</b><span>当日 XP</span></div>
+        <div class="rstat"><b>Lv.${L.lv}</b><span>${esc(L.name)}</span></div>
+      </div>
+      <div class="rcats">${catsFor(k).filter(c => e.cats[c.id]).map(c => {
+        const ce = e.cats[c.id];
+        return `<div class="rcatring"><div class="rw">${ring(56, 5, ce.frac, c.color, 'rgba(255,255,255,.12)')}<div class="c">${esc(c.emoji)}</div></div><div class="nm">${esc(c.name)}</div></div>`;
+      }).join('')}</div>
+      <div class="renc"><div class="k">今日寄语</div><b>${esc(enc)}</b></div>`;
+    if (hi.length || miss.length) {
+      body += `<div class="rhl">`;
+      if (hi.length) body += `<div class="ht">亮点</div><div class="hrow">${hi.map(x => `<span class="hchip">${esc(x)}</span>`).join('')}</div>`;
+      if (miss.length) body += `<div class="ht" style="margin-top:10px">轻轻放下的</div><div class="hrow">${miss.map(x => `<span class="hchip miss">${esc(x)}</span>`).join('')}</div>`;
+      body += `</div>`;
+    }
+    if (teaser) body += `<div class="rtom">📅 ${esc(teaser)}</div>`;
+  } else if (step === 2) {
+    body = `<div style="text-align:center;padding:6px 0 4px"><div style="font-size:40px;margin-bottom:6px">📝</div>
+      <div style="font-size:20px;font-weight:900;margin-bottom:4px">写点什么</div>
+      <div style="font-size:13px;opacity:.7;margin-bottom:12px">一两句就好 · 也可以跳过</div></div>
+      <div class="k" style="font-size:12px;font-weight:800;opacity:.7;margin-bottom:6px">今天心情</div>
+      <div class="moods">${MOODS.map(m => `<button type="button" class="${ritual.mood === m.id ? 'on' : ''}" data-act="rit-mood" data-v="${m.id}">${m.e}<span>${m.label}</span></button>`).join('')}</div>
+      <div class="rprompt">💭 ${esc(ritual.prompt)}</div>
+      <textarea class="rdiary" id="ritDiary" placeholder="今天想记下来的事…">${esc(ritual.text)}</textarea>
+      <div class="qtags">${QTAGS.map(t => `<button type="button" class="${ritual.tags.includes(t) ? 'on' : ''}" data-act="rit-tag" data-v="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+      <div class="rhint">输入时会自动保存草稿 · 写日记 +${CONFIG.xp.diary || 10} XP（每天一次）</div>`;
+  } else {
+    const wrote = ritual._wrote;
+    body = `<div class="rstamp"><div class="seal"><b>今日完成</b><span>${fmtMD(k)}</span></div>
+      <h3>${wrote ? '日记已收好' : '今天结算完毕'}</h3>
+      <p>${wrote ? '你的小结会留在「当日回顾」和「记录」里，随时可以改。' : '没有写日记也没关系，结算已经记下了。明天想写再补也行。'}</p>
+      ${ritual._diaryXpNew ? `<div class="xpbonus">📝 日记 +${CONFIG.xp.diary || 10} XP</div>` : (wrote ? `<div class="xpbonus" style="opacity:.7">日记奖励今天已经拿过啦</div>` : '')}
+      <p style="margin-top:16px;font-size:13px;opacity:.65">${e.lit ? '🔥 火苗还在，好好睡一觉' : '明天优先 ★核心，火苗就能接上'}</p>
+    </div>`;
+  }
+  const foot = step === 1
+    ? `<button type="button" class="btn skip" data-act="rit-later">稍后</button><button type="button" class="btn pri" data-act="rit-next">写下小结 ›</button>`
+    : step === 2
+      ? `<button type="button" class="btn ghost" data-act="rit-skip">跳过</button><button type="button" class="btn pri" data-act="rit-save">保存并完成</button>`
+      : `<button type="button" class="btn pri" data-act="rit-done" style="flex:1">好的</button>`;
+  const titles = ['今日结算', '写点什么', '今日完成'];
+  $('#ritual').innerHTML = `<div class="rpanel">
+    <div class="rhead"><div class="rt">🌙 结束今天</div><div class="rst">${fmtMD(k)} · ${titles[step - 1]}</div></div>
+    <div class="rsteps"><i class="${step >= 1 ? (step > 1 ? 'done' : 'on') : ''}"></i><i class="${step >= 2 ? (step > 2 ? 'done' : 'on') : ''}"></i><i class="${step >= 3 ? 'on' : ''}"></i></div>
+    <div class="rbody">${body}</div>
+    <div class="rfoot">${foot}</div>
+  </div>`;
+  if (step === 2) {
+    const ta = $('#ritDiary');
+    if (ta) {
+      ta.focus();
+      ta.addEventListener('input', () => { ritual.text = ta.value; saveDiaryDraft(); });
+    }
+  }
+}
+
+function renderEndControls(k) {
+  if (k !== todayKey()) return '';
+  const r = peekDay(k);
+  if (r.closed) {
+    const diary = r.diary;
+    const mood = MOODS.find(m => m.id === (diary && diary.mood));
+    return `<div class="closedban"><span class="e">${mood ? mood.e : '🌙'}</span><div class="sp"><b>今天已结束</b><div class="sub">${diary && diary.text ? '已写小结 · 可查看或编辑' : '结算完成 · 还可以补打卡，总结会重算'}</div></div>
+      <button type="button" class="btn" data-act="rit-view" data-k="${k}">查看结算</button></div>`;
+  }
+  const eve = isEvening();
+  return `<div class="endbar ${eve ? 'eve' : ''}"><span class="e">🌙</span><div class="sp"><div class="k">${eve ? '夜晚仪式' : '结束今天'}</div><b>${eve ? '准备收工？来做个今日结算' : '也可以提前结算，睡前还能补卡'}</b></div>
+    <button type="button" class="btn" data-act="rit-end">结束今天</button></div>`;
+}
+function renderDiaryBlock(k, editable) {
+  const d = dayDiary(k);
+  if (!d || (!(d.text || '').trim() && !d.mood)) {
+    if (!editable) return '';
+    return `<div class="diarycard"><div class="dh"><span class="mood">📝</span><div class="sp"><div class="dk">当日日记</div><b style="font-size:14px;font-weight:700;color:var(--sub)">还没有写</b></div></div>
+      <div class="dact"><button type="button" class="btn ghost" data-act="rit-editdiary" data-k="${k}" style="height:40px">＋ 补写日记</button></div></div>`;
+  }
+  const mood = MOODS.find(m => m.id === d.mood);
+  const tags = (d.tags || []).map(t => `<span class="tagchip">${esc(t)}</span>`).join('');
+  return `<div class="diarycard"><div class="dh"><span class="mood">${mood ? mood.e : '📝'}</span><div class="sp"><div class="dk">当日日记${mood ? ' · ' + mood.label : ''}</div></div>
+    ${editable ? `<button type="button" class="btn ghost sm" data-act="rit-editdiary" data-k="${k}" style="flex:0;min-width:64px;height:36px">编辑</button>` : ''}</div>
+    ${d.text ? `<div class="dt">${esc(d.text)}</div>` : '<div class="dt muted">（只选了心情）</div>'}
+    ${tags ? `<div class="tags">${tags}</div>` : ''}
+  </div>`;
+}
+function renderDiaryList() {
+  const keys = Object.keys(S.days).filter(k => {
+    const d = S.days[k] && S.days[k].diary;
+    return d && ((d.text || '').trim() || d.mood) && k >= CONFIG.startDate;
+  }).sort().reverse();
+  if (!keys.length) return `<div class="card"><h2>📔 日记</h2><div class="empty"><span class="e">📝</span>还没有日记<br>每天结束时写一两句，会集中在这里</div></div>`;
+  let h = `<div class="card"><h2>📔 日记<small>${keys.length} 篇</small></h2><div class="dlist">`;
+  for (const k of keys) {
+    const d = S.days[k].diary, e = evalDay(k), gr = gradeOf(e);
+    const mood = MOODS.find(m => m.id === d.mood);
+    const preview = (d.text || '').trim() || (d.tags || []).join(' · ') || '（只选了心情）';
+    h += `<button type="button" class="ditem" data-act="openday" data-k="${k}">
+      <div class="dm">${mood ? mood.e : '📝'}</div>
+      <div class="sp"><div class="dd">${fmtMD(k)} ${WD[wdOf(k)]}<span class="dg">${gr.g}</span>${e.lit ? ' 🔥' : ''}</div>
+      <div class="dp">${esc(preview)}</div>
+      <div class="meta">${mood ? mood.label + ' · ' : ''}${d.savedAt ? fmtCheckTime(d.savedAt) : ''}</div></div>
+    </button>`;
+  }
+  return h + `</div></div>`;
+}
+
+function maybeAutoRitual() {
+  if (ritual || sheetOpen()) return;
+  // Midnight crossing while app open: calendar day changed
+  const ck = calKey();
+  if (lastCalDay && ck !== lastCalDay) {
+    // The logical day that was active just before midnight is still todayKey() until 4am
+    const day = todayKey();
+    if (!dayClosed(day) && !ritualSnoozed[day]) {
+      lastCalDay = ck;
+      openRitual(day, 'auto');
+      return;
+    }
+  }
+  lastCalDay = ck;
+  // On open / resume: catch unclosed recent days
+  const u = findUnclosedRitualDay();
+  if (u) openRitual(u, 'auto');
+}
+
+function editDiaryOnly(k) {
+  const r = peekDay(k);
+  const existing = r.diary || r.diaryDraft || {};
+  ritual = {
+    day: k, step: 2, by: r.closedBy || 'manual',
+    mood: existing.mood || '', text: existing.text || '',
+    tags: existing.tags ? [...existing.tags] : [],
+    prompt: DIARY_PROMPTS[diffDays(CONFIG.startDate, k) % DIARY_PROMPTS.length],
+    editOnly: true,
+  };
+  // Ensure day marked closed if editing after the fact
+  renderRitual();
+  const el = $('#ritual');
+  el.classList.add('show');
+  el.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('noscroll');
+}
 /* ===================================================================== */
 function render() {
   $('#app').innerHTML = view === 'today' ? renderToday() : view === 'week' ? renderWeek() : view === 'records' ? renderRecords() : view === 'edit' ? renderEdit() : renderSettings();
@@ -1573,12 +2075,46 @@ document.addEventListener('click', ev => {
     case 'copy': copyExport(); break;
     case 'importText': doImport($('#importBox').value); break;
     case 'reset': if (confirm('确定清空全部数据？此操作不能恢复。') && prompt('请输入「清空」两个字确认') === '清空') { S = blank(); save(); toast('已清空', '重新开始吧 💪'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap(); } break;
+    case 'rit-end': openRitual(todayKey(), 'manual'); break;
+    case 'rit-view': {
+      const dk = el.dataset.k || todayKey();
+      openRitual(dk, peekDay(dk).closedBy || 'manual');
+      // jump straight to step 1 summary for already-closed days; allow re-save diary via step 2
+      break;
+    }
+    case 'rit-editdiary': editDiaryOnly(el.dataset.k || viewDay); break;
+    case 'rit-next': if (ritual) { ritual.step = 2; renderRitual(); } break;
+    case 'rit-later': closeRitual(true); render(); break;
+    case 'rit-skip': finalizeRitual(false); break;
+    case 'rit-save': {
+      if (!ritual) break;
+      const ta = $('#ritDiary'); if (ta) ritual.text = ta.value;
+      finalizeRitual(true);
+      break;
+    }
+    case 'rit-done': finishRitual(); break;
+    case 'rit-mood': {
+      if (!ritual) break;
+      ritual.mood = el.dataset.v;
+      saveDiaryDraft();
+      renderRitual();
+      break;
+    }
+    case 'rit-tag': {
+      if (!ritual) break;
+      const v = el.dataset.v;
+      const i = ritual.tags.indexOf(v);
+      if (i >= 0) ritual.tags.splice(i, 1); else ritual.tags.push(v);
+      saveDiaryDraft();
+      renderRitual();
+      break;
+    }
   }
 });
 // 左右滑动换天（今天页）
 let swipeX0 = null, swipeY0 = null, swipeT0 = 0;
 document.addEventListener('touchstart', ev => {
-  if (view !== 'today' || sheetOpen() || isTyping()) { swipeX0 = null; return; }
+  if (view !== 'today' || sheetOpen() || ritual || isTyping()) { swipeX0 = null; return; }
   if (ev.target.closest('input,textarea,button,.slot,.piano,.sheet')) { swipeX0 = null; return; }
   const t = ev.changedTouches[0]; swipeX0 = t.clientX; swipeY0 = t.clientY; swipeT0 = Date.now();
 }, { passive: true });
@@ -1639,8 +2175,16 @@ function doImport(txt) {
 const isTyping = () => { const a = document.activeElement; return a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.tagName === 'SELECT'); };
 let lastMin = Math.floor(now() / 60e3), lastDay = todayKey();
 setInterval(() => {
+  if (ritual) {
+    // still detect midnight while ritual open so lastCalDay stays current
+    lastCalDay = calKey();
+    return;
+  }
+  const ck = calKey();
+  if (lastCalDay && ck !== lastCalDay) { maybeAutoRitual(); }
+  else lastCalDay = ck;
   const tk = todayKey();
-  if (tk !== lastDay) { if (viewDay === lastDay) viewDay = tk; lastDay = tk; cfgChanged(); if (!isTyping()) render(); snap = takeSnap(); return; }
+  if (tk !== lastDay) { if (viewDay === lastDay) viewDay = tk; lastDay = tk; cfgChanged(); if (!isTyping()) render(); snap = takeSnap(); maybeAutoRitual(); return; }
   if (S.timer && S.timer.startTs && view === 'today' && viewDay === S.timer.day) {
     const lv = $('#pLive'), pm = $('#pMin');
     if (lv) lv.textContent = '● ' + fmtDur(timerMs());
@@ -1649,10 +2193,11 @@ setInterval(() => {
   const mm = Math.floor(now() / 60e3);
   if (mm !== lastMin) { lastMin = mm; if (!isTyping() && view !== 'settings' && view !== 'edit') render(); }
 }, 1000);
-document.addEventListener('visibilitychange', () => { if (!document.hidden && !isTyping() && !sheetOpen()) { load(); loadCfg(); if (todayKey() !== lastDay) { lastDay = todayKey(); viewDay = lastDay; } render(); celebrate(); } });
+document.addEventListener('visibilitychange', () => { if (!document.hidden && !isTyping() && !sheetOpen() && !ritual) { load(); loadCfg(); if (todayKey() !== lastDay) { lastDay = todayKey(); viewDay = lastDay; } render(); celebrate(); maybeAutoRitual(); } });
 addEventListener('resize', () => { if (raf) sizeFx(); });
 
-load(); loadCfg(); render(); snap = takeSnap(); celebrate();
+load(); loadCfg(); lastCalDay = calKey(); render(); snap = takeSnap(); celebrate();
+setTimeout(() => maybeAutoRitual(), 400);
 if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && !clockOffset) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>
 </body>
