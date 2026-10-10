@@ -342,7 +342,11 @@ select.inp{padding-right:30px;background:#fbfaf7 url("data:image/svg+xml,%3Csvg 
 .revempty p{font-size:13.5px;color:var(--sub);line-height:1.5}
 
 
-/* —— 结束今天 · 结算仪式 v6 —— */
+/* —— 结束今天 · 结算仪式 v7 —— */
+.hero .endcta{margin-top:12px;position:relative;z-index:1}
+.hero .endcta .btn{width:100%;height:44px;background:rgba(255,255,255,.22);color:#fff;border:1.5px solid rgba(255,255,255,.45);font-size:15px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.12);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.hero .endcta .btn:active{transform:scale(.98)}
+.hero .endcta .btn.closed{background:rgba(255,255,255,.95);color:#5b4a8a;border:0;box-shadow:0 4px 14px rgba(80,50,120,.2)}
 .endbar{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#2a2f4a 0%,#3d2a5c 100%);color:#fff;border-radius:16px;padding:12px 14px;margin-bottom:14px;box-shadow:0 4px 16px rgba(45,30,80,.22)}
 .endbar .e{font-size:26px;line-height:1}
 .endbar .sp{flex:1;min-width:0}
@@ -842,7 +846,8 @@ function renderToday() {
         <div class="hchip"><b>+${e.xp}</b>${isToday ? '今日' : '当日'} XP</div>
         <div class="hchip"><b>${e.lit ? '已点亮 ✨' : left + ' 项'}</b>${e.lit ? (isToday ? '今天' : '这一天') : '★核心还差'}</div>
       </div>
-      <div class="rulehint">🔥 点亮一天：完成 ≥80%，或 ★核心任务（${esc(coreNames(k))}）全部完成</div></div>`;
+      <div class="rulehint">🔥 点亮一天：完成 ≥80%，或 ★核心任务（${esc(coreNames(k))}）全部完成</div>
+      ${isToday ? renderHeroEndCta(k) : ''}</div>`;
     if (isToday) {
       h += nextTask(k, e);
       if (peekDay(k).closed) h += renderEndControls(k);
@@ -1353,7 +1358,7 @@ function renderSettings() {
     <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
   <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复（自定义的分类和任务会保留）。建议先导出备份。</p>
     <button class="btn danger full" data-act="reset">清空全部数据</button></div>
-  <div class="foot">每日打卡 v6 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+  <div class="foot">每日打卡 v7 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
 }
 /* =====================================================================
  *  编辑分类和任务（底部弹出表单）
@@ -1603,7 +1608,7 @@ document.addEventListener('click', ev => {
   }
 });
 /* =====================================================================
- *  结束今天 · 结算仪式 + 日记（v6）
+ *  结束今天 · 结算仪式 + 日记（v7）
  * ===================================================================== */
 const MOODS = [
   { id: 'great', e: '😄', label: '很棒' },
@@ -1885,6 +1890,25 @@ function renderRitual() {
   }
 }
 
+function renderHeroEndCta(k) {
+  if (k !== todayKey()) return '';
+  if (dayClosed(k)) {
+    return `<div class="endcta"><button type="button" class="btn closed" data-act="rit-view" data-k="${k}">🌙 查看结算 / 编辑日记</button></div>`;
+  }
+  const eve = isEvening();
+  return `<div class="endcta"><button type="button" class="btn" data-act="rit-end">${eve ? '🌙 结束今天 · 夜晚仪式' : '🌙 结束今天'}</button></div>`;
+}
+function pendingEndConfirm(k) {
+  /* Before 21:00, ask a light confirm. Returns true if should proceed. */
+  if (isEvening() || dayClosed(k)) return true;
+  const e = evalDay(k);
+  const left = e.ts.filter(t => frac(t, k) < 1).length;
+  const msg = left > 0
+    ? `现在就结束今天吗？还有 ${left} 项未完成。结束后仍可补卡，总结会重算。`
+    : '现在就结束今天吗？全部任务已完成，来做个结算吧。';
+  return confirm(msg);
+}
+
 function renderEndControls(k) {
   if (k !== todayKey()) return '';
   const r = peekDay(k);
@@ -1892,7 +1916,7 @@ function renderEndControls(k) {
     const diary = r.diary;
     const mood = MOODS.find(m => m.id === (diary && diary.mood));
     return `<div class="closedban"><span class="e">${mood ? mood.e : '🌙'}</span><div class="sp"><b>今天已结束</b><div class="sub">${diary && diary.text ? '已写小结 · 可查看或编辑' : '结算完成 · 还可以补打卡，总结会重算'}</div></div>
-      <button type="button" class="btn" data-act="rit-view" data-k="${k}">查看结算</button></div>`;
+      <button type="button" class="btn" data-act="rit-view" data-k="${k}">查看结算 / 编辑日记</button></div>`;
   }
   const eve = isEvening();
   return `<div class="endbar ${eve ? 'eve' : ''}"><span class="e">🌙</span><div class="sp"><div class="k">${eve ? '夜晚仪式' : '结束今天'}</div><b>${eve ? '准备收工？来做个今日结算' : '也可以提前结算，睡前还能补卡'}</b></div>
@@ -2075,7 +2099,12 @@ document.addEventListener('click', ev => {
     case 'copy': copyExport(); break;
     case 'importText': doImport($('#importBox').value); break;
     case 'reset': if (confirm('确定清空全部数据？此操作不能恢复。') && prompt('请输入「清空」两个字确认') === '清空') { S = blank(); save(); toast('已清空', '重新开始吧 💪'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap(); } break;
-    case 'rit-end': openRitual(todayKey(), 'manual'); break;
+    case 'rit-end': {
+      const tk = todayKey();
+      if (!pendingEndConfirm(tk)) break;
+      openRitual(tk, 'manual');
+      break;
+    }
     case 'rit-view': {
       const dk = el.dataset.k || todayKey();
       openRitual(dk, peekDay(dk).closedBy || 'manual');
