@@ -30,9 +30,16 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 .topbar .d{flex:1;text-align:center}
 .topbar .d b{font-size:19px;font-weight:800}
 .topbar .d div{font-size:12px;color:var(--sub)}
-.navbtn{width:44px;height:44px;border-radius:14px;background:#fff;font-size:20px;font-weight:700;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.navbtn{width:44px;height:44px;border-radius:14px;background:#fff;font-size:20px;font-weight:700;box-shadow:0 1px 6px rgba(0,0,0,.05);touch-action:manipulation;-webkit-user-select:none;user-select:none}
 .navbtn:disabled{opacity:.3}
 .todaybtn{font-size:12px;font-weight:700;color:#ff6b6b;background:#fff0ee;border-radius:999px;padding:3px 10px;margin-top:3px;display:inline-block}
+.previewbanner{display:flex;align-items:center;gap:10px;background:#eef3ff;border:1px solid #d5e0ff;border-radius:14px;padding:10px 14px;margin-bottom:14px;color:#3a56b0;font-size:13.5px;font-weight:700}
+.previewbanner .e{font-size:22px}
+.task.preview,.slot.preview,.toggle.preview{opacity:.72;pointer-events:none;cursor:default}
+.task.preview:active{background:transparent}
+.weigh.preview .fields,.piano.preview .btns,.piano.preview .pctl .btns{opacity:.55;pointer-events:none}
+.hintchip{font-size:11px;font-weight:800;color:#3a56b0;background:#e8eeff;border-radius:999px;padding:2px 8px;margin-top:3px;display:inline-block}
+.topbar .d .subrow{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:2px}
 .hero{background:linear-gradient(135deg,#ff9a5c 0%,#ff6b88 55%,#8f6bff 100%);color:#fff;padding:16px 16px 14px;position:relative;overflow:hidden}
 .hero:after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08);pointer-events:none}
 .hero .top{display:flex;align-items:center;gap:14px}
@@ -394,6 +401,20 @@ const min2hm = m => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
 const fmtMD = k => { const d = parseKey(k); return `${d.getMonth() + 1}月${d.getDate()}日`; };
 function at(k, hm) { const d = parseKey(k); let m = hm2min(hm); if (m < CONFIG.dayStartHour * 60) m += 1440; return d.getTime() + m * 60e3; }
 const weekMonday = k => addDays(k, -((wdOf(k) + 6) % 7));
+const MAX_FUTURE = 14; // 最多预览未来几天
+const maxFutureKey = () => addDays(todayKey(), MAX_FUTURE);
+function relDayLabel(k) {
+  const d = diffDays(todayKey(), k);
+  if (d === 0) return '今天';
+  if (d === -1) return '昨天';
+  if (d === -2) return '前天';
+  if (d === 1) return '明天';
+  if (d === 2) return '后天';
+  if (d < 0) return `${-d} 天前`;
+  return `${d} 天后`;
+}
+const isFutureDay = k => k > todayKey();
+const isPastDay = k => k < todayKey();
 
 // 存储
 const blank = () => ({ v: 1, days: {}, weights: {}, timer: null, badges: {}, created: todayKey() });
@@ -576,41 +597,100 @@ const coreNames = k => { const n = cfgFor(k || todayKey()).tasks.filter(t => t.c
 
 // 每个任务都是每周一次的分类（如每周一称重）→ 连胜按「周」算
 function catUnit(c) { const ts = cfgFor(todayKey()).tasks.filter(t => t.cat === c.id); return ts.length && ts.every(t => !t.byWeekday && t.days && t.days.length === 1) ? '周' : '天'; }
+function daySubline(k, isToday, isFuture) {
+  const rel = relDayLabel(k), week = Math.floor(diffDays(CONFIG.startDate, k) / 7) + 1;
+  const back = `<span class="todaybtn" data-act="gotoday">回到今天</span>`;
+  if (isToday) return `<div class="subrow">${rel} · 计划第 ${week} 周 <span class="editbtn" data-act="edit">✏️ 编辑任务</span></div>`;
+  if (isFuture) return `<div class="subrow">${rel} · 预览 · 第 ${week} 周 ${back}</div>`;
+  return `<div class="subrow">${rel} · 补卡 · 第 ${week} 周 ${back}</div>`;
+}
+function potentialXp(e) {
+  let xp = 0;
+  for (const t of e.ts) {
+    if (t.type === 'multi') xp += (t.xpEach || 0) * t.slots.length + (t.xpAll || 0);
+    else if (t.type === 'piano') xp += (t.xp || 0) + (t.bonusXp || 0);
+    else xp += t.xp || 0;
+  }
+  if (e.ts.length) xp += CONFIG.xp.catBonus * new Set(e.ts.map(t => t.cat)).size + CONFIG.xp.dayLit + CONFIG.xp.perfect;
+  return xp;
+}
 function renderToday() {
   const k = viewDay, tk = todayKey(), e = evalDay(k), tot = totals(), L = levelOf(tot.xp);
-  const fl = streak(x => evalDay(x).lit), isToday = k === tk, d = parseKey(k);
+  const fl = streak(x => evalDay(x).lit), isToday = k === tk, isFuture = isFutureDay(k), d = parseKey(k);
   const left = e.ts.filter(t => t.core && frac(t, k) < 1).length;
+  const maxF = maxFutureKey();
   let h = `<div class="topbar">
-    <button class="navbtn" data-act="day" data-n="-1" ${k <= CONFIG.startDate ? 'disabled' : ''}>‹</button>
-    <div class="d"><b>${fmtMD(k)} ${WD[d.getDay()]}</b><div>${isToday ? '今天 · 计划第 ' + (Math.floor(diffDays(CONFIG.startDate, k) / 7) + 1) + ' 周 <span class="editbtn" data-act="edit">✏️ 编辑任务</span>' : `<span class="todaybtn" data-act="gotoday">补卡中 · 回到今天 ›</span>`}</div></div>
-    <button class="navbtn" data-act="day" data-n="1" ${k >= tk ? 'disabled' : ''}>›</button></div>`;
-  h += `<div class="card hero"><div class="top">
-    <div class="ringwrap">${ring(92, 10, e.pct, '#fff', 'rgba(255,255,255,.28)')}<div class="c"><b>${Math.round(e.pct * 100)}%</b><span>${isToday ? '今日完成' : '当日完成'}</span></div></div>
-    <div class="sp"><div class="rank">Lv.${L.lv}<b>${L.name}</b></div>
-      <div class="xpbar"><i style="width:${(L.p * 100).toFixed(1)}%"></i></div>
-      <div class="small" style="opacity:.92">${tot.xp} XP${L.nxt ? ` · 距「${CONFIG.levels[L.lv][1]}」还差 ${L.nxt - tot.xp}` : ' · 满级'}</div></div></div>
-    <div class="chips">
-      <div class="hchip"><b><span class="flame ${fl ? 'on' : ''}">🔥</span> ${fl}</b>连续点亮天数</div>
-      <div class="hchip"><b>+${e.xp}</b>${isToday ? '今日' : '当日'} XP</div>
-      <div class="hchip"><b>${e.lit ? '已点亮 ✨' : left + ' 项'}</b>${e.lit ? (isToday ? '今天' : '这一天') : '★核心还差'}</div>
-    </div>
-    <div class="rulehint">🔥 点亮一天：完成 ≥80%，或 ★核心任务（${esc(coreNames(k))}）全部完成</div></div>`;
-  if (isToday) h += nextTask(k, e);
-  if (!e.ts.length) h += `<div class="card"><div class="empty"><span class="e">🗂️</span>这一天没有任务<br>点上面的「✏️ 编辑任务」添加分类和任务</div></div>`;
+    <button type="button" class="navbtn" data-act="day" data-n="-1" ${k <= CONFIG.startDate ? 'disabled' : ''} aria-label="前一天">‹</button>
+    <div class="d"><b>${fmtMD(k)} ${WD[d.getDay()]}</b>${daySubline(k, isToday, isFuture)}</div>
+    <button type="button" class="navbtn" data-act="day" data-n="1" ${k >= maxF ? 'disabled' : ''} aria-label="后一天">›</button></div>`;
+  if (isFuture) {
+    const pot = potentialXp(e);
+    h += `<div class="previewbanner"><span class="e">👀</span><div class="sp">${esc(relDayLabel(k))}的日程预览 · 共 ${e.ts.length} 项任务，全部完成约 +${pot} XP<br><span class="small" style="font-weight:600;opacity:.85">到当天再打卡，现在只看安排</span></div></div>`;
+    h += `<div class="card hero"><div class="top">
+      <div class="ringwrap">${ring(92, 10, 0, '#fff', 'rgba(255,255,255,.28)')}<div class="c"><b>${e.ts.length}</b><span>项任务</span></div></div>
+      <div class="sp"><div class="rank">${esc(relDayLabel(k))}<b>预览</b></div>
+        <div class="xpbar"><i style="width:0%"></i></div>
+        <div class="small" style="opacity:.92">全部完成约 +${pot} XP · 第 ${Math.floor(diffDays(CONFIG.startDate, k) / 7) + 1} 周</div></div></div>
+      <div class="chips">
+        <div class="hchip"><b>${e.ts.filter(t => t.core).length}</b>★核心任务</div>
+        <div class="hchip"><b>+${pot}</b>可得 XP</div>
+        <div class="hchip"><b>${WD[d.getDay()]}</b>这一天</div>
+      </div>
+      <div class="rulehint">📅 按星期排的任务（运动、久坐、称重、睡觉目标）已按这一天算好</div></div>`;
+    h += nextTaskPreview(k, e);
+  } else {
+    h += `<div class="card hero"><div class="top">
+      <div class="ringwrap">${ring(92, 10, e.pct, '#fff', 'rgba(255,255,255,.28)')}<div class="c"><b>${Math.round(e.pct * 100)}%</b><span>${isToday ? '今日完成' : '当日完成'}</span></div></div>
+      <div class="sp"><div class="rank">Lv.${L.lv}<b>${L.name}</b></div>
+        <div class="xpbar"><i style="width:${(L.p * 100).toFixed(1)}%"></i></div>
+        <div class="small" style="opacity:.92">${tot.xp} XP${L.nxt ? ` · 距「${CONFIG.levels[L.lv][1]}」还差 ${L.nxt - tot.xp}` : ' · 满级'}</div></div></div>
+      <div class="chips">
+        <div class="hchip"><b><span class="flame ${fl ? 'on' : ''}">🔥</span> ${fl}</b>连续点亮天数</div>
+        <div class="hchip"><b>+${e.xp}</b>${isToday ? '今日' : '当日'} XP</div>
+        <div class="hchip"><b>${e.lit ? '已点亮 ✨' : left + ' 项'}</b>${e.lit ? (isToday ? '今天' : '这一天') : '★核心还差'}</div>
+      </div>
+      <div class="rulehint">🔥 点亮一天：完成 ≥80%，或 ★核心任务（${esc(coreNames(k))}）全部完成</div></div>`;
+    if (isToday) h += nextTask(k, e);
+  }
+  if (!e.ts.length) h += `<div class="card"><div class="empty"><span class="e">🗂️</span>这一天没有任务<br>${isToday ? '点上面的「✏️ 编辑任务」添加分类和任务' : '这一天没有安排任务'}</div></div>`;
   for (const c of catsFor(k).filter(c => e.cats[c.id])) {
     const cid = c.id, ce = e.cats[cid], ts = e.ts.filter(t => t.cat === cid);
-    const done = ts.filter(t => frac(t, k) >= 1).length, cst = streak(catPred(cid));
-    const sub = [esc(c.sub || ''), cst ? `🔥 连续 ${cst} ${catUnit(c)}` : ''].filter(Boolean).join(' · ') || ('完成全部 +' + CONFIG.xp.catBonus + ' XP');
-    h += `<div class="card cat ${ce.complete ? 'complete' : ''}" style="${catStyle(c)}">
-      <div class="cathead"><div class="ce">${esc(c.emoji)}</div><div class="sp"><h3>${esc(c.name)}</h3><div class="cs">${sub}</div></div><div class="cnt">${ce.complete ? '✓ 全部完成' : `<b>${done}</b>/${ts.length} 已完成`}</div></div>
-      <div class="catbar"><i style="width:${(ce.frac * 100).toFixed(1)}%"></i></div>
+    const done = ts.filter(t => frac(t, k) >= 1).length, cst = isFuture ? 0 : streak(catPred(cid));
+    const sub = isFuture
+      ? (esc(c.sub || '') || `${ts.length} 项 · 到当天再打卡`)
+      : ([esc(c.sub || ''), cst ? `🔥 连续 ${cst} ${catUnit(c)}` : ''].filter(Boolean).join(' · ') || ('完成全部 +' + CONFIG.xp.catBonus + ' XP'));
+    const cnt = isFuture
+      ? `<b>${ts.length}</b> 项`
+      : (ce.complete ? '✓ 全部完成' : `<b>${done}</b>/${ts.length} 已完成`);
+    h += `<div class="card cat ${!isFuture && ce.complete ? 'complete' : ''}" style="${catStyle(c)}">
+      <div class="cathead"><div class="ce">${esc(c.emoji)}</div><div class="sp"><h3>${esc(c.name)}</h3><div class="cs">${sub}</div></div><div class="cnt">${cnt}</div></div>
+      <div class="catbar"><i style="width:${isFuture ? 0 : (ce.frac * 100).toFixed(1)}%"></i></div>
       <div class="catbody">`;
     for (const t of ts) h += renderTask(t, k);
     h += `</div></div>`;
   }
   if (isToday) h += `<button class="btn ghost full" style="margin-bottom:14px" data-act="edit">✏️ 编辑分类和任务</button>`;
-  h += `<div class="foot">数据只保存在这台手机上 · 记得定期在「设置」里备份</div>`;
+  h += `<div class="foot">数据只保存在这台手机上 · 记得定期在「设置」里备份 · 左右滑动可换天</div>`;
   return h;
+}
+function nextTaskPreview(k, e) {
+  let best = null;
+  const consider = (t, hm, label) => {
+    const s = at(k, hm);
+    if (!best || s < best.s) best = { t, hm, label, s };
+  };
+  for (const t of e.ts) {
+    if (t.type === 'piano') continue;
+    if (t.type === 'multi' && t.slots && t.slots[0]) consider(t, t.slots[0], `${t.title} · ${t.slots[0]}`);
+    else if (t.time) consider(t, t.time, t.type === 'sleep' ? `${t.title}（${t.time} 前）` : t.title);
+  }
+  if (!best) {
+    const p = e.ts.find(t => t.type === 'piano');
+    if (p) { const pc = catOf(p.cat, k); return `<div class="next" style="${catStyle(pc)}"><div class="e">${esc(p.icon || pc.emoji)}</div><div class="sp"><div class="k">这一天 · 随时</div><b>${esc(p.title)} ${p.goalMin} 分钟</b></div></div>`; }
+    return '';
+  }
+  const c = catOf(best.t.cat, k);
+  return `<div class="next" style="${catStyle(c)}"><div class="e">${esc(best.t.icon || c.emoji)}</div><div class="sp"><div class="k">这一天第一项 · ${best.hm}</div><b>${esc(best.label)}</b></div><div class="small muted">预览</div></div>`;
 }
 function nextTask(k, e) {
   const n = now(); let best = null;
@@ -640,53 +720,69 @@ function timeCol(t, k, st, done) {
   return `<div class="tm">${tm}<br>${tag}</div>`;
 }
 function renderTask(t, k) {
+  const fut = isFutureDay(k);
   if (t.type === 'multi') {
     const dn = slotDone(t, k), sit = t.id === 'sit';
-    return `<div class="multi"><div class="row"><div class="sp"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)} <span class="muted small">${dn.length}/${t.slots.length}</span></div><div class="small muted">${esc(t.desc)}</div></div><span class="tag xp">每次 +${t.xpEach || 0}</span></div>
-      <div class="slots">${t.slots.map((s, i) => { const d = dn.includes(i), st = d ? 'done' : statusOf(k, s), lb = s || `第 ${i + 1} 次`; return `<button class="slot ${st === 'done' || st === 'missed' || st === 'now' ? st : ''} ${justDone === t.id + ':' + i ? 'pop' : ''}" data-act="slot" data-id="${t.id}" data-i="${i}">${d ? '✓ ' + lb : lb}<small>${d ? (sit ? '已起身' : '已完成') : st === 'missed' ? '未完成' : st === 'now' ? '现在' : (sit ? '起身' : '打卡')}</small></button>`; }).join('')}</div></div>`;
+    return `<div class="multi"><div class="row"><div class="sp"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)} <span class="muted small">${fut ? t.slots.length + ' 次' : dn.length + '/' + t.slots.length}</span></div><div class="small muted">${esc(t.desc)}</div></div>${fut ? '<span class="hintchip">到当天再打卡</span>' : `<span class="tag xp">每次 +${t.xpEach || 0}</span>`}</div>
+      <div class="slots">${t.slots.map((s, i) => { const d = dn.includes(i), st = d ? 'done' : statusOf(k, s), lb = s || `第 ${i + 1} 次`;
+        if (fut) return `<button type="button" class="slot preview" disabled>${lb}<small>预览</small></button>`;
+        return `<button type="button" class="slot ${st === 'done' || st === 'missed' || st === 'now' ? st : ''} ${justDone === t.id + ':' + i ? 'pop' : ''}" data-act="slot" data-id="${t.id}" data-i="${i}">${d ? '✓ ' + lb : lb}<small>${d ? (sit ? '已起身' : '已完成') : st === 'missed' ? '未完成' : st === 'now' ? '现在' : (sit ? '起身' : '打卡')}</small></button>`; }).join('')}</div></div>`;
   }
   if (t.type === 'piano') return renderPiano(t, k);
   if (t.type === 'weigh') return renderWeigh(t, k);
   if (t.type === 'number') return renderNumber(t, k);
   const done = frac(t, k) >= 1, st = done ? 'done' : statusOf(k, t.time, t.end);
   if (t.type === 'toggle') {
-    return `<button class="task toggle ${done ? 'done' : ''} ${st === 'missed' ? 'missed' : ''} ${justDone === t.id ? 'pop' : ''}" data-act="check" data-id="${t.id}"><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div><div class="td">${esc(t.desc)} · ${done ? `<b style="color:var(--ok)">+${t.xp} XP</b>` : '全天有效，喝了就别打开'}</div></div><div class="sw"></div></button>`;
+    if (fut) return `<div class="task toggle preview"><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div><div class="td">${esc(t.desc)} · 到当天再打卡</div></div><div class="sw"></div></div>`;
+    return `<button type="button" class="task toggle ${done ? 'done' : ''} ${st === 'missed' ? 'missed' : ''} ${justDone === t.id ? 'pop' : ''}" data-act="check" data-id="${t.id}"><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div><div class="td">${esc(t.desc)} · ${done ? `<b style="color:var(--ok)">+${t.xp} XP</b>` : '全天有效，喝了就别打开'}</div></div><div class="sw"></div></button>`;
+  }
+  if (fut) {
+    const tm = t.type === 'sleep' ? `${t.time} 前` : !t.time ? '随时' : t.end ? `${t.time}–${t.end}` : t.time;
+    return `<div class="task preview"><div class="chk"></div><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div>${t.desc ? `<div class="td">${esc(t.desc)}</div>` : ''}</div><div class="tm">${tm}<br><span class="hintchip">到当天再打卡</span></div></div>`;
   }
   const cls = `${done ? 'done' : st === 'missed' ? 'missed' : st === 'now' ? 'nowing' : ''} ${justDone === t.id ? 'pop' : ''}`;
-  return `<button class="task ${cls}" data-act="check" data-id="${t.id}"><div class="chk">${CHK}</div><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div>${t.desc ? `<div class="td">${esc(t.desc)}</div>` : ''}</div>${timeCol(t, k, st, done)}</button>`;
+  return `<button type="button" class="task ${cls}" data-act="check" data-id="${t.id}"><div class="chk">${CHK}</div><div class="tx"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div>${t.desc ? `<div class="td">${esc(t.desc)}</div>` : ''}</div>${timeCol(t, k, st, done)}</button>`;
 }
 function fmtDur(ms) { const s = Math.floor(ms / 1000), hh = Math.floor(s / 3600); return `${hh ? hh + ':' : ''}${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`; }
 function renderPiano(t, k) {
-  const m = Math.floor(taskSec(k, t.id) / 60), isToday = k === todayKey(), col = catOf(t.cat, k).color, id = t.id;
+  const m = Math.floor(taskSec(k, t.id) / 60), isToday = k === todayKey(), fut = isFutureDay(k), col = catOf(t.cat, k).color, id = t.id;
   const tm = S.timer && S.timer.day === k && timerId() === id ? S.timer : null, running = !!(tm && tm.startTs);
   const hasBonus = t.bonusMin > t.goalMin, p1 = m / t.goalMin, p2 = hasBonus ? Math.max(m - t.goalMin, 0) / (t.bonusMin - t.goalMin) : 0;
   let stat = hasBonus && m >= t.bonusMin ? `⭐ 超额完成！今天 ${m} 分钟` : m >= t.goalMin ? (hasBonus ? `🎉 已达标！再练 ${t.bonusMin - m} 分钟奖励 +${t.bonusXp || 0}` : `🎉 已达标！今天 ${m} 分钟`) : `还差 <b style="color:var(--c)">${t.goalMin - m}</b> 分钟达标（+${t.xp} XP）`;
-  if (!isToday && m < t.goalMin) stat = `这天做了 ${m} 分钟，可以补记`;
-  const live = tm ? `<span class="live" id="pLive">${running ? '● ' : '⏸ '}${fmtDur(timerMs())}</span>` : `<span>${m >= t.goalMin ? '分钟 ✓' : '/ ' + t.goalMin + ' 分钟'}</span>`;
+  if (fut) stat = `目标 ${t.goalMin} 分钟达标${hasBonus ? ` · ${t.bonusMin} 分钟有奖励` : ''} · 到当天再练`;
+  else if (!isToday && m < t.goalMin) stat = `这天做了 ${m} 分钟，可以补记`;
+  const live = fut ? `<span>/ ${t.goalMin} 分钟</span>` : tm ? `<span class="live" id="pLive">${running ? '● ' : '⏸ '}${fmtDur(timerMs())}</span>` : `<span>${m >= t.goalMin ? '分钟 ✓' : '/ ' + t.goalMin + ' 分钟'}</span>`;
   const ttl = (t.core ? '<span style="color:#f0b23a">★</span> ' : '') + (t.icon ? esc(t.icon) + ' ' : '') + esc(t.title);
-  const btnN = n => `<button class="btn sm" data-act="padd" data-id="${id}" data-n="${n}"${n < 0 ? ' style="color:#9aa0a8"' : ''}>${n > 0 ? '+' + n : '−' + -n}</button>`;
-  return `${catOf(t.cat, k).name !== t.title ? `<div class="tt" style="padding:6px 4px 0">${ttl}</div>` : ''}<div class="piano">
-    <div class="pring" id="pRing_${id}">${ring(118, 11, p1, col, hexA(col, .14))}${p2 > 0 ? `<div style="position:absolute;inset:15px">${ring(88, 8, p2, '#f0b23a', '#fbefd2')}</div>` : ''}<div class="c"><b ${tm ? 'id="pMin"' : ''}>${m}</b>${live}</div></div>
+  const btnN = n => `<button type="button" class="btn sm" data-act="padd" data-id="${id}" data-n="${n}"${n < 0 ? ' style="color:#9aa0a8"' : ''}>${n > 0 ? '+' + n : '−' + -n}</button>`;
+  return `${catOf(t.cat, k).name !== t.title ? `<div class="tt" style="padding:6px 4px 0">${ttl}</div>` : ''}<div class="piano ${fut ? 'preview' : ''}">
+    <div class="pring" id="pRing_${id}">${ring(118, 11, fut ? 0 : p1, col, hexA(col, .14))}${!fut && p2 > 0 ? `<div style="position:absolute;inset:15px">${ring(88, 8, p2, '#f0b23a', '#fbefd2')}</div>` : ''}<div class="c"><b ${!fut && tm ? 'id="pMin"' : ''}>${fut ? 0 : m}</b>${live}</div></div>
     <div class="pctl"><div class="pstat">${stat}</div>
-      ${isToday ? `<div class="btns" style="margin-bottom:7px">${running ? `<button class="btn pri" data-act="tpause" data-id="${id}" style="flex:1">⏸ 暂停</button>` : `<button class="btn pri" data-act="tstart" data-id="${id}" style="flex:1">▶ ${tm ? '继续' : '开始计时'}</button>`}${tm ? `<button class="btn ghost" data-act="tstop" data-id="${id}">⏹ 结束</button>` : ''}</div>` : ''}
-      <div class="btns">${btnN(10)}${btnN(15)}${btnN(30)}${btnN(-10)}</div>
-    </div></div><div class="small muted" style="padding:0 16px 14px;margin-top:-4px">${t.desc ? esc(t.desc) + ' · ' : '什么时候做都行 · '}每天 ${t.goalMin} 分钟达标${hasBonus ? `、${t.bonusMin} 分钟有奖励` : ''} · 计时中关掉 App 也不会停</div>`;
+      ${isToday ? `<div class="btns" style="margin-bottom:7px">${running ? `<button type="button" class="btn pri" data-act="tpause" data-id="${id}" style="flex:1">⏸ 暂停</button>` : `<button type="button" class="btn pri" data-act="tstart" data-id="${id}" style="flex:1">▶ ${tm ? '继续' : '开始计时'}</button>`}${tm ? `<button type="button" class="btn ghost" data-act="tstop" data-id="${id}">⏹ 结束</button>` : ''}</div>` : ''}
+      ${fut ? '<div class="small muted" style="padding:4px 0">到当天再打卡</div>' : `<div class="btns">${btnN(10)}${btnN(15)}${btnN(30)}${btnN(-10)}</div>`}
+    </div></div><div class="small muted" style="padding:0 16px 14px;margin-top:-4px">${t.desc ? esc(t.desc) + ' · ' : '什么时候做都行 · '}每天 ${t.goalMin} 分钟达标${hasBonus ? `、${t.bonusMin} 分钟有奖励` : ''}${fut ? '' : ' · 计时中关掉 App 也不会停'}</div>`;
 }
 function renderNumber(t, k) {
-  const r = peekDay(k), v = r.n && r.n[t.id], done = v != null, st = done ? 'done' : statusOf(k, t.time);
+  const r = peekDay(k), v = r.n && r.n[t.id], done = v != null, st = done ? 'done' : statusOf(k, t.time), fut = isFutureDay(k);
+  if (fut) return `<div class="weigh preview">
+    <div class="row"><div class="sp"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div>${t.desc ? `<div class="small muted">${esc(t.desc)}</div>` : ''}</div><span class="hintchip">到当天再打卡</span></div>
+    <div class="fields"><div class="field"><input type="number" disabled placeholder="—" value=""><span>${esc(t.unit || '')}</span></div></div></div>`;
   return `<div class="weigh ${st === 'missed' ? 'missed' : ''}">
     <div class="row"><div class="sp"><div class="tt">${done ? '✅ ' : ''}${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div>${t.desc ? `<div class="small muted">${esc(t.desc)}</div>` : ''}</div>${done ? `<span class="tag xp">+${t.xp} XP</span>` : st === 'missed' ? '<span class="tag miss">未完成</span>' : st === 'now' ? '<span class="tag now">现在</span>' : `<span class="tag xp">${t.time || '随时'}</span>`}</div>
     <div class="fields"><div class="field"><input id="num_${t.id}" type="number" inputmode="decimal" step="any" placeholder="输入数值" value="${done ? v : ''}"><span>${esc(t.unit || '')}</span></div>
-    <button class="btn pri" style="height:50px;min-width:88px" data-act="nsave" data-id="${t.id}">${done ? '更新' : '记录'}</button></div></div>`;
+    <button type="button" class="btn pri" style="height:50px;min-width:88px" data-act="nsave" data-id="${t.id}">${done ? '更新' : '记录'}</button></div></div>`;
 }
 function renderWeigh(t, k) {
   const w = S.weights[k] || {}, prev = weightList().filter(x => x.k < k), last = prev[prev.length - 1];
-  const done = frac(t, k) >= 1, st = done ? 'done' : statusOf(k, t.time);
+  const done = frac(t, k) >= 1, st = done ? 'done' : statusOf(k, t.time), fut = isFutureDay(k);
+  if (fut) return `<div class="weigh preview">
+    <div class="row"><div class="sp"><div class="tt">${esc(t.title)}</div><div class="small muted">${esc(t.desc)}${last ? ` · 上次 ${last.w ? last.w + ' 斤' : ''}${last.waist ? ' / ' + last.waist + ' cm' : ''}` : ' · 第一次记录就是起点'}</div></div><span class="hintchip">到当天再打卡</span></div>
+    <div class="fields"><div class="field"><label>体重</label><input type="number" disabled placeholder="—" value=""><span>斤</span></div>
+      <div class="field"><label>腰围</label><input type="number" disabled placeholder="—" value=""><span>cm</span></div></div></div>`;
   return `<div class="weigh ${st === 'missed' ? 'missed' : ''}">
     <div class="row"><div class="sp"><div class="tt">${done ? '✅ ' : ''}${esc(t.title)}</div><div class="small muted">${esc(t.desc)}${last ? ` · 上次 ${last.w ? last.w + ' 斤' : ''}${last.waist ? ' / ' + last.waist + ' cm' : ''}` : ' · 第一次记录就是起点'}</div></div>${done ? `<span class="tag xp">+${t.xp} XP</span>` : st === 'missed' ? '<span class="tag miss">未完成</span>' : st === 'now' ? '<span class="tag now">现在</span>' : `<span class="tag xp">${t.time || '随时'}</span>`}</div>
     <div class="fields"><div class="field"><label>体重</label><input id="wW" type="number" inputmode="decimal" step="0.1" placeholder="145" value="${w.w ?? ''}"><span>斤</span></div>
       <div class="field"><label>腰围</label><input id="wWaist" type="number" inputmode="decimal" step="0.1" placeholder="—" value="${w.waist ?? ''}"><span>cm</span></div></div>
-    <button class="btn pri full" style="margin-top:10px" data-act="wsave" data-k="${k}">${done ? '更新记录' : '保存记录'}</button></div>`;
+    <button type="button" class="btn pri full" style="margin-top:10px" data-act="wsave" data-k="${k}">${done ? '更新记录' : '保存记录'}</button></div>`;
 }
 
 /* —— 本周 —— */
@@ -795,7 +891,7 @@ function renderSettings() {
   <div class="card set"><h2>🔥 规则说明</h2>
     <div class="rule"><b>点亮一天</b>：当天任务完成 ≥80%，<b>或者</b> ★核心任务全部完成（${esc(coreNames())}）。连续点亮的天数就是火苗数；今天还没点亮不会断火，过了今天才算断。</div>
     <div class="rule"><b>一天的分界</b>：凌晨 ${CONFIG.dayStartHour} 点前还算前一天，所以 1 点多打卡「拉伸」「按时睡觉」都记在当天。</div>
-    <div class="rule"><b>未完成</b>：到点 ${CONFIG.graceMin} 分钟后还没打卡会标成「未完成」，补打照样算。点顶部 ‹ 可以回到前几天补卡。</div>
+    <div class="rule"><b>未完成</b>：到点 ${CONFIG.graceMin} 分钟后还没打卡会标成「未完成」，补打照样算。点顶部 ‹ › 可看前后几天：过去可补卡，未来可预览（最多 14 天）。左右滑动也能换天。</div>
     <div class="rule"><b>XP</b>：每项任务有 XP，★核心任务更多；一个分类全部完成 +${CONFIG.xp.catBonus}，点亮一天 +${CONFIG.xp.dayLit}，完美一天再 +${CONFIG.xp.perfect}。</div></div>
   <div class="card set"><h2>💾 备份数据<small>${nd} 天打卡 · ${nw} 条记录</small></h2>
     <p>数据只存在这台手机的这个 App 里。建议每周导出一次，发到微信「文件传输助手」或存进「文件」。</p>
@@ -1113,19 +1209,34 @@ function mutate(k, fn, anchorSel) {
   if (gain) floatXp(typeof anchorSel === 'string' ? $(anchorSel) : anchorSel, gain);
   celebrate();
 }
+function clampViewDay(k) {
+  if (k < CONFIG.startDate) return CONFIG.startDate;
+  const max = maxFutureKey();
+  return k > max ? max : k;
+}
+function shiftDay(n) { viewDay = clampViewDay(addDays(viewDay, n)); render(); scrollTo(0, 0); }
+function guardWritable(k) {
+  if (isFutureDay(k)) { toast('👀 这是预览', '到当天再打卡'); return false; }
+  return true;
+}
 document.addEventListener('click', ev => {
   const tab = ev.target.closest('[data-tab]');
   if (tab) { view = tab.dataset.tab; if (view === 'today') viewDay = todayKey(); if (view === 'week') weekOf = todayKey(); exportText = ''; render(); scrollTo(0, 0); return; }
   const el = ev.target.closest('[data-act]'); if (!el) return;
+  if (el.disabled || el.getAttribute('aria-disabled') === 'true') return;
   const a = el.dataset.act, k = viewDay, task = id => tasksFor(k).find(t => t.id === id);
   switch (a) {
-    case 'day': viewDay = addDays(viewDay, +el.dataset.n); if (viewDay > todayKey()) viewDay = todayKey(); if (viewDay < CONFIG.startDate) viewDay = CONFIG.startDate; render(); break;
-    case 'gotoday': viewDay = todayKey(); render(); break;
-    case 'openday': if (el.dataset.k > todayKey() || el.dataset.k < CONFIG.startDate) return; viewDay = el.dataset.k; view = 'today'; render(); scrollTo(0, 0); break;
+    case 'day': shiftDay(+el.dataset.n); break;
+    case 'gotoday': viewDay = todayKey(); render(); scrollTo(0, 0); break;
+    case 'openday': {
+      const dk = el.dataset.k;
+      if (dk < CONFIG.startDate || dk > maxFutureKey()) return;
+      viewDay = dk; view = 'today'; render(); scrollTo(0, 0); break;
+    }
     case 'week': weekOf = addDays(weekOf, +el.dataset.n); render(); break;
     case 'thisweek': weekOf = todayKey(); render(); break;
-    case 'check': { const t = task(el.dataset.id); mutate(k, () => { const r = dayRec(k); if (r.t[t.id]) delete r.t[t.id]; else { r.t[t.id] = now(); justDone = t.id; } }, `[data-id="${t.id}"]`); break; }
-    case 'slot': { const t = task(el.dataset.id), i = +el.dataset.i; mutate(k, () => { const r = dayRec(k), arr = r.m[t.id] = r.m[t.id] || [], j = arr.indexOf(i); if (j >= 0) arr.splice(j, 1); else { arr.push(i); justDone = t.id + ':' + i; } }, `[data-id="${t.id}"][data-i="${i}"]`); break; }
+    case 'check': { if (!guardWritable(k)) break; const t = task(el.dataset.id); if (!t) break; mutate(k, () => { const r = dayRec(k); if (r.t[t.id]) delete r.t[t.id]; else { r.t[t.id] = now(); justDone = t.id; } }, `[data-id="${t.id}"]`); break; }
+    case 'slot': { if (!guardWritable(k)) break; const t = task(el.dataset.id), i = +el.dataset.i; if (!t) break; mutate(k, () => { const r = dayRec(k), arr = r.m[t.id] = r.m[t.id] || [], j = arr.indexOf(i); if (j >= 0) arr.splice(j, 1); else { arr.push(i); justDone = t.id + ':' + i; } }, `[data-id="${t.id}"][data-i="${i}"]`); break; }
     case 'tstart': {
       const id = el.dataset.id || 'piano';
       if (S.timer && timerId() !== id) { const ot = tasksFor(S.timer.day).find(t => t.id === timerId()); toast(`先结束「${ot ? ot.title : '上一个'}」的计时`, '同一时间只能计一项'); break; }
@@ -1133,8 +1244,8 @@ document.addEventListener('click', ev => {
     }
     case 'tpause': if (S.timer && S.timer.startTs) { S.timer.accMs += now() - S.timer.startTs; S.timer.startTs = null; } save(); render(); break;
     case 'tstop': stopTimer(); break;
-    case 'padd': { const n = +el.dataset.n, id = el.dataset.id || 'piano', t = task(id); if (!t) break; mutate(k, () => { const r = dayRec(k), cur = taskSec(k, id); addSec(r, id, Math.max(n * 60, -cur)); if (n > 0) toast(`${t.icon || '⏱️'} ${t.title} +${n} 分钟`, `今天累计 ${Math.floor(taskSec(k, id) / 60)} 分钟`); }, `[data-act="padd"][data-id="${id}"][data-n="${n}"]`); break; }
-    case 'nsave': { const id = el.dataset.id, t = task(id), inp = $('#num_' + id); if (!t || !inp) break; const raw = inp.value.trim(), v = parseFloat(raw);
+    case 'padd': { if (!guardWritable(k)) break; const n = +el.dataset.n, id = el.dataset.id || 'piano', t = task(id); if (!t) break; mutate(k, () => { const r = dayRec(k), cur = taskSec(k, id); addSec(r, id, Math.max(n * 60, -cur)); if (n > 0) toast(`${t.icon || '⏱️'} ${t.title} +${n} 分钟`, `今天累计 ${Math.floor(taskSec(k, id) / 60)} 分钟`); }, `[data-act="padd"][data-id="${id}"][data-n="${n}"]`); break; }
+    case 'nsave': { if (!guardWritable(k)) break; const id = el.dataset.id, t = task(id), inp = $('#num_' + id); if (!t || !inp) break; const raw = inp.value.trim(), v = parseFloat(raw);
       if (raw && isNaN(v)) { toast('请输入数字'); break; } inp.blur();
       mutate(k, () => { const r = dayRec(k); r.n = r.n || {}; if (raw === '') delete r.n[id]; else { r.n[id] = v; justDone = id; } }, `[data-act="nsave"][data-id="${id}"]`);
       if (raw !== '' && !$('.toast.show')) toast('✅ 已记录', `${t.title} ${v} ${t.unit || ''}`); break; }
@@ -1149,6 +1260,21 @@ document.addEventListener('click', ev => {
     case 'reset': if (confirm('确定清空全部数据？此操作不能恢复。') && prompt('请输入「清空」两个字确认') === '清空') { S = blank(); save(); toast('已清空', '重新开始吧 💪'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap(); } break;
   }
 });
+// 左右滑动换天（今天页）
+let swipeX0 = null, swipeY0 = null, swipeT0 = 0;
+document.addEventListener('touchstart', ev => {
+  if (view !== 'today' || sheetOpen() || isTyping()) { swipeX0 = null; return; }
+  if (ev.target.closest('input,textarea,button,.slot,.piano,.sheet')) { swipeX0 = null; return; }
+  const t = ev.changedTouches[0]; swipeX0 = t.clientX; swipeY0 = t.clientY; swipeT0 = Date.now();
+}, { passive: true });
+document.addEventListener('touchend', ev => {
+  if (swipeX0 == null || view !== 'today') return;
+  const t = ev.changedTouches[0], dx = t.clientX - swipeX0, dy = t.clientY - swipeY0, dt = Date.now() - swipeT0;
+  swipeX0 = null;
+  if (dt > 600 || Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+  shiftDay(dx < 0 ? 1 : -1);
+}, { passive: true });
+
 function stopTimer() {
   const t = S.timer; if (!t) return;
   let ms = timerMs();
@@ -1162,7 +1288,7 @@ function saveWeight(k, w, waist) {
   w = parseFloat(w); waist = parseFloat(waist);
   const okW = w > 50 && w < 400, okA = waist > 40 && waist < 200;
   if (!okW && !okA) { toast('请输入体重（斤）或腰围（cm）'); return; }
-  if (!k || k > todayKey()) k = todayKey();
+  if (!k || isFutureDay(k)) { toast('👀 这是预览', '到当天再记录'); return; }
   if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
   const old = S.weights[k] || {};
   mutate(k, () => { S.weights[k] = { w: okW ? w : old.w, waist: okA ? waist : old.waist }; }, '[data-act="wsave"],[data-act="rsave"]');
