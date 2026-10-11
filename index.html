@@ -740,6 +740,58 @@ h2 small{font-size:var(--fs-meta);font-weight:var(--fw-r);color:var(--sub)}
 .rkwin input{flex:1;min-width:0;height:46px;border-radius:12px;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff;padding:0 12px;font-size:18px;font-family:var(--font-num);outline:none}
 .rkwin input::placeholder{color:rgba(255,255,255,.35)}
 .rkwin .btn{height:46px;background:#fff;color:#3d2a5c;padding:0 16px}
+/* —— v10 热量卡里的三餐 —— */
+.kmhead{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:var(--fs-meta);font-weight:var(--fw-sb);color:var(--ink2)}
+.kmtpl{height:30px;padding:0 10px;border-radius:999px;background:#f6f4f0;font-size:12px;font-weight:var(--fw-m);color:var(--ink2)}
+.kmhead+.kmeals{margin-top:6px}
+.kml{border-bottom:1px solid var(--line);border-radius:0;transition:background .2s}
+.kml .kmeal{border-bottom:0}
+.kmeal .me{position:relative}
+.kok{position:absolute;right:-3px;bottom:-2px;width:16px;height:16px;border-radius:50%;background:var(--ok);color:#fff;font-size:10px;font-style:normal;font-weight:var(--fw-b);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
+.kmeal .mt{font-family:var(--font-num);font-size:12px;font-weight:var(--fw-r);color:var(--sub);margin-left:6px;font-variant-numeric:tabular-nums}
+.kxp{font-size:10.5px;font-weight:var(--fw-sb);color:var(--ok);background:#e8f7ee;border-radius:999px;padding:1px 6px;margin-left:6px;vertical-align:1px}
+.kstar{color:#f0b23a;margin-right:3px}
+.kmeal .tag{margin:0 0 0 6px;vertical-align:1px}
+.kml.ok .mi{color:var(--ink2)}
+.kml.plan .kmeal .me,.kml.none .kmeal .me,.kml.skip .kmeal .me{filter:grayscale(.35);opacity:.8}
+.kml.plan .mi{color:var(--sub2)}
+.kmeal .mk.plan{color:var(--sub2);font-weight:var(--fw-m);text-align:right;line-height:1.05;border:1.5px dashed #e3ddd2;border-radius:10px;padding:3px 7px}
+.kmeal .mk.plan small{display:block;font-family:var(--font);font-size:10px;font-weight:var(--fw-r);color:var(--sub2)}
+.kmact{display:flex;gap:6px;padding:0 0 10px 40px;flex-wrap:wrap}
+.kpok{height:36px;padding:0 14px;border-radius:999px;background:var(--c);color:#fff;font-size:var(--fs-meta);font-weight:var(--fw-sb);box-shadow:0 3px 8px var(--cs)}
+.kpok:active{transform:scale(.97)}
+.kpok.soft{background:#fff1e7;color:#e0621f;box-shadow:none}
+.kghost{opacity:.75}
+.kmini{height:32px;padding:0 11px;border-radius:999px;background:#f4f2ee;color:var(--ink2);font-size:12.5px;font-weight:var(--fw-m);flex-shrink:0}
+.kmact .kmini{height:36px}
+.kml.late{background:linear-gradient(90deg,var(--miss),rgba(255,244,230,0))}
+.kml.nowing{background:linear-gradient(90deg,var(--cl),rgba(255,255,255,0))}
+.kml.skip .mi{color:var(--sub2)}
+.kml.skip .mn{color:var(--sub)}
+.kml.pop .kok{animation:pop .5s cubic-bezier(.2,.9,.3,1.4)}
+.kcola{margin-top:12px;gap:10px}
+.kcola .me{font-size:22px;width:30px;text-align:center;flex-shrink:0}
+.kcola b{font-size:15px;font-weight:var(--fw-m)}
+.kcola .kdet{margin:1px 0 0}
+.kcola .kxpok{font-size:11.5px;color:var(--ok);font-weight:var(--fw-sb)}
+.kcola.on{background:#f3f7f4}
+.kring .c .kplanc{margin-top:3px;font-size:10.5px;font-weight:var(--fw-m);color:#d2581a;background:#fff3ea;border-radius:999px;padding:0 6px}
+.kprev .kchead{margin-bottom:6px}
+.kptot{text-align:right;line-height:1.1}
+.kptot b{display:block;font-family:var(--font-num);font-size:20px;font-weight:var(--fw-b);color:var(--ink)}
+.kptot span{font-size:11px;color:var(--sub)}
+.kpv{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.kpv .me{font-size:20px;width:30px;text-align:center;opacity:.8}
+.kpv .mn{font-size:14px;font-weight:var(--fw-m)}
+.kpv .mt{font-size:12px;color:var(--sub);margin-left:6px;font-variant-numeric:tabular-nums}
+.kpv .mi{font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpv .mk{font-family:var(--font-num);font-size:15px;color:var(--sub);font-variant-numeric:tabular-nums}
+.fpban{font-size:12px;color:#a2531e;background:#fff5ec;border-radius:10px;padding:6px 10px;margin-top:6px;line-height:1.4}
+.fpban.tpl{color:#3a56b0;background:#eef3ff}
+.fpchip.pl{background:#fff;color:var(--sub);border:1.5px dashed #e0d8cc}
+.fpacts{display:flex;gap:6px;margin-top:6px}
+.fpacts button{height:30px;padding:0 11px;border-radius:999px;background:#f4f2ee;font-size:12.5px;font-weight:var(--fw-m);color:var(--ink2)}
+.tplrow .kplus{font-size:15px}
 </style>
 </head>
 <body>
@@ -910,6 +962,7 @@ function seedConfig() {
     const o = clone(t);
     if (t.type === 'sport') { o.type = 'check'; o.title = '运动'; o.icon = ''; o.byWeekday = clone(ph.byWeekday); }
     if (t.id === 'nocola') o.icon = '🥤';
+    if (KCAL_MAP[t.id]) o.inKcal = KCAL_MAP[t.id];
     return o;
   });
   return { categories, tasks };
@@ -919,10 +972,37 @@ function saveCfg() { try { localStorage.setItem(CFG_KEY, JSON.stringify(CFG)); }
 const validCfg = c => c && Array.isArray(c.versions) && c.versions.length && c.versions.every(v => v && v.from && Array.isArray(v.categories) && Array.isArray(v.tasks));
 function loadCfg() {
   let c = null; try { c = JSON.parse(localStorage.getItem(CFG_KEY)); } catch (e) {}
-  if (!validCfg(c)) { CFG = { v: 1, versions: [{ from: CONFIG.startDate, ...seedConfig() }] }; saveCfg(); }
+  if (!validCfg(c)) { CFG = { v: 1, versions: [{ from: CONFIG.startDate, ...seedConfig() }], mealv: 1, mealFrom: CONFIG.startDate }; saveCfg(); }
   else CFG = c;
   CFG.versions.sort((a, b) => a.from < b.from ? -1 : a.from > b.from ? 1 : 0);
   cfgChanged();
+  migrateMeals();
+}
+/* v10：「饮食」分类并进热量卡。
+ * 早餐/午餐/晚餐/水果/可乐 这几项任务保持原来的 id、分类、XP、★核心，只加一个 inKcal 标记 → 不再单独显示成分类卡片，改在热量卡里打卡。
+ * 用「今天起生效」的新版本来加标记：过去的日子继续用旧版本，完成度、XP、连胜都不变。 */
+const KCAL_MAP = { breakfast: 'breakfast', lunch: 'lunch', dinner: 'dinner', fruit: 'snack', nocola: 'cola' };
+const kcalTypeOk = (t, m) => m === 'cola' ? (t.type === 'toggle' || t.type === 'check') : (t.type === 'check' || !t.type);
+function migrateMeals() {
+  if (CFG.mealv >= 1) return false;
+  const tk = todayKey(), cur = cfgFor(tk);
+  const need = cur.tasks.some(t => KCAL_MAP[t.id] && !t.inKcal && kcalTypeOk(t, KCAL_MAP[t.id]));
+  if (need) {
+    const v = editVer();
+    for (const t of v.tasks) { const m = KCAL_MAP[t.id]; if (m && !t.inKcal && kcalTypeOk(t, m)) t.inKcal = m; }
+  }
+  CFG.mealv = 1; CFG.mealFrom = CFG.mealFrom || tk;
+  saveCfg(); cfgChanged();
+  // 今天已经记过的饮食算「已确认」：对应的打卡也勾上（v9 默认就会自动勾，这里只补漏）
+  try {
+    const r = S.days[tk], items = r && r.kc && r.kc.items;
+    if (items && items.length) {
+      let ch = false;
+      for (const t of tasksFor(tk)) if (t.inKcal && t.inKcal !== 'cola' && !r.t[t.id] && items.some(i => i.meal === t.inKcal)) { r.t[t.id] = items.find(i => i.meal === t.inKcal).ts || now(); ch = true; }
+      if (ch) save();
+    }
+  } catch (e) {}
+  return true;
 }
 function cfgFor(k) { let v = CFG.versions[0]; for (const x of CFG.versions) if (x.from <= k) v = x; return v; }
 const catsFor = k => cfgFor(k).categories;
@@ -1148,11 +1228,15 @@ function renderToday() {
       if (peekDay(k).closed) h += renderEndControls(k);
     }
   }
-  if (!isFuture) h += renderKcalCard(k);
+  if (!isFuture) h += renderKcalCard(k); else h += renderKcalPreview(k);
   if (!e.ts.length) h += `<div class="card"><div class="empty"><span class="e">🗂️</span>这一天没有任务<br>${isToday ? '点上面的「✏️ 编辑任务」添加分类和任务' : '这一天没有安排任务'}</div></div>`;
   for (const c of catsFor(k).filter(c => e.cats[c.id])) {
-    const cid = c.id, ce = e.cats[cid], ts = e.ts.filter(t => t.cat === cid);
-    const done = ts.filter(t => frac(t, k) >= 1).length, cst = isFuture ? 0 : streak(catPred(cid));
+    // v10：放进热量卡里的餐食任务（inKcal）不再在分类卡片里显示；分类只剩它们时整个分类卡片不显示
+    const cid = c.id, ts = e.ts.filter(t => t.cat === cid && !t.inKcal);
+    if (!ts.length) continue;
+    const allIn = ts.length === e.cats[cid].n, vf = ts.reduce((a, t) => a + frac(t, k), 0) / ts.length;
+    const ce = allIn ? e.cats[cid] : { frac: vf, complete: vf >= 0.999 };
+    const done = ts.filter(t => frac(t, k) >= 1).length, cst = isFuture || !allIn ? 0 : streak(catPred(cid));
     const sub = isFuture
       ? (esc(c.sub || '') || `${ts.length} 项 · 到当天再打卡`)
       : ([esc(c.sub || ''), cst ? `🔥 连续 ${cst} ${catUnit(c)}` : ''].filter(Boolean).join(' · ') || ('完成全部 +' + CONFIG.xp.catBonus + ' XP'));
@@ -1446,6 +1530,8 @@ function nextTask(k, e) {
   };
   for (const t of e.ts) {
     if (frac(t, k) >= 1) continue;
+    if (t.inKcal && mealState(k, t.inKcal) === 'skip') continue;
+    if (t.inKcal && t.inKcal !== 'cola' && t.time) { const pl = planItems(k, t.inKcal); cand(t, t.time, pl.length ? `${t.title} · ${itemNames(pl)}` : t.title); continue; }
     if (t.type === 'multi') { const dn = peekDay(k).m[t.id] || []; t.slots.forEach((s, i) => { if (s && !dn.includes(i)) cand(t, s, `${t.title} · ${s}`); }); }
     else if (t.time) cand(t, t.time, t.type === 'sleep' ? `${t.title}（${t.time} 前）` : t.title);
   }
@@ -1454,8 +1540,8 @@ function nextTask(k, e) {
     if (p) { const pc = catOf(p.cat, k); return `<div class="next" style="${catStyle(pc)}"><div class="e">${esc(p.icon || pc.emoji)}</div><div class="sp"><div class="k">别忘了${esc(p.title)}</div><b>今天还差 ${Math.ceil(p.goalMin - taskSec(k, p.id) / 60)} 分钟达标</b></div></div>`; }
     return '';
   }
-  const c = catOf(best.t.cat, k);
-  return `<div class="next" style="${catStyle(c)}"><div class="e">${esc(best.t.icon || c.emoji)}</div><div class="sp"><div class="k">${best.live ? '● 现在该做' : '下一项 · ' + best.hm}</div><b>${esc(best.label)}</b></div><div class="small muted">${best.live ? '' : untilText(best.s - n)}</div></div>`;
+  const c = catOf(best.t.cat, k), ic = best.t.inKcal ? mealOf(best.t.inKcal).e : (best.t.icon || c.emoji);
+  return `<div class="next" style="${catStyle(c)}"><div class="e">${esc(ic)}</div><div class="sp"><div class="k">${best.live ? '● 现在该做' : '下一项 · ' + best.hm}</div><b>${esc(best.label)}</b></div><div class="small muted">${best.live ? '' : untilText(best.s - n)}</div></div>`;
 }
 function untilText(ms) { const m = Math.round(ms / 60e3); return m < 60 ? `${m} 分钟后` : `${Math.floor(m / 60)} 小时 ${m % 60} 分后`; }
 function timeCol(t, k, st, done) {
@@ -1658,7 +1744,7 @@ function renderSettings() {
     <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
   <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复（自定义的分类和任务会保留）。建议先导出备份。</p>
     <button class="btn danger full" data-act="reset">清空全部数据</button></div>
-  <div class="foot">每日打卡 v9 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+  <div class="foot">每日打卡 v10 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
 }
 /* =====================================================================
  *  编辑分类和任务（底部弹出表单）
@@ -1705,10 +1791,22 @@ function renderEdit() {
   const v = cfgFor(todayKey());
   let h = `<div class="topbar"><button class="navbtn" data-act="editdone">‹</button><div class="d"><b>编辑分类和任务</b><div>修改从今天起生效 · 以前的记录不变</div></div><button class="navbtn donebtn" data-act="editdone">完成</button></div>`;
   h += `<div class="card set" style="padding:12px 14px"><div class="rule" style="margin:0">👆 点任务可以改名称、时间、哪几天做、XP 和 ★核心；用 ↑ ↓ 调整顺序；点分类右边的 ✎ 改分类名称、图标和颜色。删掉的任务，以前打过的卡会保留在历史里。</div></div>`;
-  v.categories.forEach((c, ci) => {
-    const ts = v.tasks.filter(t => t.cat === c.id);
+  // v10：热量卡里的餐食（早餐/午餐/晚餐/加餐水果/零可乐），可以改名称、时间、XP、★核心
+  const kts = v.tasks.filter(t => t.inKcal && v.categories.some(c => c.id === t.cat));
+  if (kts.length) {
+    h += `<div class="card cat ecat" style="--c:#ff7a45;--cl:#ff7a451f;--cs:#ff7a4555"><div class="cathead"><div class="ce">🔥</div><div class="sp" style="min-width:0"><h3>热量卡里的餐食</h3><div class="cs">${kts.length} 项 · 在「今天」页的热量卡里打卡</div></div></div><div class="catbody">`;
+    for (const t of kts) {
+      const mi = t.inKcal === 'cola' ? '🥤' : mealOf(t.inKcal).e;
+      h += `<div class="erow"><button class="einfo" data-act="e-task" data-id="${t.id}"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${mi} ${esc(t.title)}</div><div class="td">${t.inKcal === 'cola' ? '热量卡底部的开关' : '确认这顿 = 完成'} · ${esc(timeText(t))}<br>${esc(daysText(t))} · ${xpText(t)}</div></button></div>`;
+    }
+    h += `<div class="small muted" style="padding:6px 4px 2px">每顿默认吃什么，在「设置 → 🍱 三餐模板」里改</div></div></div>`;
+  }
+  const isHiddenCat = c => { const ts = v.tasks.filter(t => t.cat === c.id); return ts.length > 0 && ts.every(t => t.inKcal); };
+  const vcats = v.categories.filter(c => !isHiddenCat(c));
+  vcats.forEach((c, ci) => {
+    const ts = v.tasks.filter(t => t.cat === c.id && !t.inKcal);
     h += `<div class="card cat ecat" style="${catStyle(c)}"><div class="cathead"><div class="ce">${esc(c.emoji)}</div><div class="sp" style="min-width:0"><h3>${esc(c.name)}</h3><div class="cs">${ts.length} 项任务${c.sub ? ' · ' + esc(c.sub) : ''}</div></div>
-      <div class="ebtns"><button class="ib" data-act="e-cmove" data-id="${c.id}" data-n="-1" ${ci === 0 ? 'disabled' : ''} aria-label="上移">↑</button><button class="ib" data-act="e-cmove" data-id="${c.id}" data-n="1" ${ci === v.categories.length - 1 ? 'disabled' : ''} aria-label="下移">↓</button><button class="ib" data-act="e-cat" data-id="${c.id}" aria-label="编辑分类">✎</button></div></div>
+      <div class="ebtns"><button class="ib" data-act="e-cmove" data-id="${c.id}" data-n="-1" ${ci === 0 ? 'disabled' : ''} aria-label="上移">↑</button><button class="ib" data-act="e-cmove" data-id="${c.id}" data-n="1" ${ci === vcats.length - 1 ? 'disabled' : ''} aria-label="下移">↓</button><button class="ib" data-act="e-cat" data-id="${c.id}" aria-label="编辑分类">✎</button></div></div>
       <div class="catbody">`;
     ts.forEach((t, ti) => {
       h += `<div class="erow"><button class="einfo" data-act="e-task" data-id="${t.id}"><div class="tt">${t.core ? '<span style="color:#f0b23a">★</span> ' : ''}${t.icon ? esc(t.icon) + ' ' : ''}${esc(t.title)}</div><div class="td">${TYPE_NAMES[t.type] || t.type} · ${esc(timeText(t))}<br>${esc(daysText(t))} · ${xpText(t)}</div></button>
@@ -1773,8 +1871,22 @@ function taskDraft(t, cat) {
   if (!d.time) d.time = '';
   return d;
 }
+function kcalTaskForm() {
+  const d = draft, isCola = d.inKcal === 'cola';
+  let h = `<div class="shead"><h2 style="margin:0">编辑${isCola ? '' : '餐食'}任务</h2><button class="ib" data-act="e-close" style="margin-left:auto">✕</button></div>
+    <div class="rule" style="margin:0 0 4px">🔥 这一项在热量卡里打卡：${isCola ? '热量卡底部的开关' : '确认这顿（照计划吃了 / 改过一次）就算完成'}</div>
+    <label class="fl">名称</label><input class="inp" data-f="title" maxlength="24" value="${val(d.title)}">
+    <label class="fl">说明（可不填）</label><input class="inp" data-f="desc" maxlength="60" value="${val(d.desc)}">`;
+  if (!isCola) h += `<label class="fl">时间</label>${seg('timed', [['true', '⏰ 定时'], ['false', '不限时间']], d.timed)}${d.timed ? `<div class="row" style="margin-top:8px"><div class="sp"><input class="inp" type="time" data-f="time" value="${val(d.time || '12:00')}"></div></div><div class="hint">到点后 ${CONFIG.graceMin} 分钟还没确认会标「未完成」</div>` : ''}`;
+  h += `<label class="fl">哪几天做</label>${seg('preset', [['all', '每天'], ['work', '工作日'], ['weekend', '周末']], d.sel.length === 7 ? 'all' : [...d.sel].sort().join() === '1,2,3,4,5' ? 'work' : [...d.sel].sort().join() === '0,6' ? 'weekend' : '')}
+    <div class="wdays" style="margin-top:8px">${WD_ORDER.map(x => `<button class="${d.sel.includes(x) ? 'on' : ''}" data-act="e-day" data-v="${x}">${WCH[(x + 6) % 7]}</button>`).join('')}</div>
+    <div class="row" style="gap:10px"><div class="sp"><label class="fl">完成得 XP</label><input class="inp" type="number" inputmode="numeric" data-f="xp" value="${val(d.xp)}"></div><div class="sp"></div></div>
+    <div style="margin-top:12px">${tgl('core', d.core, '★ 核心任务', '★核心任务全部完成，就算没到 80% 也能点亮这一天')}</div>`;
+  return h + actions(!d.isNew);
+}
 function taskForm() {
   const d = draft, v = cfgFor(todayKey());
+  if (d.inKcal) return kcalTaskForm();
   const types = ['check', 'toggle', 'multi', 'piano', 'number'];
   if (['weigh', 'sleep'].includes(d.origType)) types.push(d.origType);
   const canVary = ['check', 'toggle', 'number'].includes(d.type);
@@ -1782,7 +1894,7 @@ function taskForm() {
     <label class="fl">任务名称</label><input class="inp" data-f="title" maxlength="24" placeholder="比如：喝 8 杯水" value="${val(d.title)}">
     <label class="fl">说明（可不填）</label><input class="inp" data-f="desc" maxlength="60" placeholder="做什么、注意什么" value="${val(d.desc)}">
     <div class="row" style="gap:10px"><div style="width:96px"><label class="fl">图标</label><input class="inp" data-f="icon" maxlength="4" style="text-align:center;font-size:20px" placeholder="可不填" value="${val(d.icon)}"></div>
-      <div class="sp"><label class="fl">所属分类</label><select class="inp" data-f="cat">${v.categories.map(c => `<option value="${c.id}" ${c.id === d.cat ? 'selected' : ''}>${esc(c.emoji)} ${esc(c.name)}</option>`).join('')}</select></div></div>
+      <div class="sp"><label class="fl">所属分类</label><select class="inp" data-f="cat">${v.categories.filter(c => c.id === d.cat || !v.tasks.filter(t => t.cat === c.id).every(t => t.inKcal) || !v.tasks.some(t => t.cat === c.id)).map(c => `<option value="${c.id}" ${c.id === d.cat ? 'selected' : ''}>${esc(c.emoji)} ${esc(c.name)}</option>`).join('')}</select></div></div>
     <label class="fl">打卡方式</label>${seg('type', types.map(x => [x, TYPE_NAMES[x]]), d.type)}<div class="hint">${TYPE_HINT[d.type]}</div>`;
   // 时间
   if (['check', 'number', 'weigh'].includes(d.type)) {
@@ -1818,6 +1930,7 @@ function taskForm() {
 }
 function buildTask(d) {
   const t = { id: d.id, cat: d.cat, type: d.type, title: (d.title || '').trim(), desc: (d.desc || '').trim(), icon: (d.icon || '').trim(), core: !!d.core };
+  if (d.inKcal) { t.inKcal = d.inKcal; d.vary = false; }
   if (!t.title) return '请填写任务名称';
   if (!d.sel.length) return '至少选一天';
   if (['check', 'number', 'weigh'].includes(t.type) && d.timed && d.time) { t.time = d.time; if (t.type === 'check' && d.end && d.end !== d.time) t.end = d.end; }
@@ -1895,7 +2008,12 @@ document.addEventListener('click', ev => {
       }
       closeSheet(); render(); toast('🗑 已删除'); break;
     }
-    case 'e-cmove': editCfg(v => { const i = v.categories.findIndex(c => c.id === id), j = i + +el.dataset.n; if (i < 0 || j < 0 || j >= v.categories.length) return; [v.categories[i], v.categories[j]] = [v.categories[j], v.categories[i]]; }); render(); break;
+    case 'e-cmove': editCfg(v => {
+      // 只在显示出来的分类之间换位置（只剩热量卡餐食的分类是隐藏的）
+      const vis = v.categories.map((c, n) => { const ts = v.tasks.filter(t => t.cat === c.id); return ts.length && ts.every(t => t.inKcal) ? -1 : n; }).filter(n => n >= 0);
+      const i = v.categories.findIndex(c => c.id === id), p = vis.indexOf(i), j = vis[p + +el.dataset.n];
+      if (i < 0 || j == null) return; [v.categories[i], v.categories[j]] = [v.categories[j], v.categories[i]];
+    }); render(); break;
     case 'e-tmove': editCfg(v => {
       const i = v.tasks.findIndex(t => t.id === id); if (i < 0) return;
       const same = v.tasks.map((t, n) => t.cat === v.tasks[i].cat ? n : -1).filter(n => n >= 0), p = same.indexOf(i), j = same[p + +el.dataset.n];
@@ -2304,10 +2422,10 @@ function editDiaryOnly(k) {
  * ===================================================================== */
 const FOOD_KEY = 'hc_food_v1';
 const MEALS = [
-  { id: 'breakfast', name: '早餐', e: '🍳', def: 'bk' },
-  { id: 'lunch', name: '午餐', e: '🍱', def: 'meat' },
-  { id: 'dinner', name: '晚餐', e: '🍲', def: 'meat' },
-  { id: 'snack', name: '加餐零食', s: '加餐', e: '🍎', def: 'fruit' },
+  { id: 'breakfast', name: '早餐', e: '🍳', def: 'bk', t: '08:30' },
+  { id: 'lunch', name: '午餐', e: '🍱', def: 'meat', t: '12:30' },
+  { id: 'dinner', name: '晚餐', e: '🍲', def: 'meat', t: '19:30' },
+  { id: 'snack', name: '加餐零食', s: '加餐', e: '🍎', def: 'fruit', t: '15:30' },
   { id: 'drink', name: '饮料', e: '🥤', def: 'drink' },
   { id: 'alcohol', name: '酒', e: '🍺', def: 'wine' },
 ];
@@ -2367,6 +2485,7 @@ function normFood(f) {
   if (!f || typeof f !== 'object') f = {};
   f.v = 1; f.custom = Array.isArray(f.custom) ? f.custom.filter(x => x && x.id && x.n) : [];
   f.usage = f.usage && typeof f.usage === 'object' ? f.usage : {};
+  f.tpl = normTpl(f.tpl);
   return f;
 }
 function loadFood() { let f = null; try { f = JSON.parse(localStorage.getItem(FOOD_KEY)); } catch (e) {} FOOD = normFood(f); }
@@ -2380,10 +2499,11 @@ const fmtQ = q => q === 0.5 ? '½' : q === 1.5 ? '1½' : String(r1(q));
 /* —— 计算 —— */
 const kcOf = k => peekDay(k).kc || null;
 function kcRec(k) { const r = dayRec(k); r.kc = r.kc || { items: [] }; r.kc.items = r.kc.items || []; return r.kc; }
-function kcIntake(k) {
+function kcIntake(k, withPl) {
   const kc = kcOf(k), meals = {}; let kcal = 0, p = 0, n = 0;
   for (const m of MEALS) meals[m.id] = { kcal: 0, p: 0, items: [] };
   if (kc && kc.items) for (const it of kc.items) {
+    if (it.pl && !withPl) continue; // 「计划」草稿（弹层里还没确认）不算
     const q = it.q || 1, a = (+it.k || 0) * q, b = (+it.p || 0) * q, mm = meals[it.meal] || meals.snack;
     mm.kcal += a; mm.p += b; mm.items.push(it); kcal += a; p += b; n++;
   }
@@ -2479,34 +2599,44 @@ function kcInfoBox() {
     · 缺口 = 消耗 − 摄入。300–600 大卡最适合减脂；约 3850 大卡缺口 ≈ 减 1 斤<br>
     · 食物热量是常见份量的估算，看一周趋势比看单天准</div>`;
 }
+function kRing(size, stroke, pe, pp, col, ghost, bg) {
+  const r = (size - stroke) / 2, C = 2 * Math.PI * r, c = size / 2;
+  const arc = (p, color, extra) => `<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${C.toFixed(2)}" stroke-dashoffset="${(C * (1 - Math.min(p, 1))).toFixed(2)}" style="transition:stroke-dashoffset .6s;${p <= 0 ? 'opacity:0' : ''}"${extra || ''}/>`;
+  return `<svg width="${size}" height="${size}"><circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${bg}" stroke-width="${stroke}"/>${arc(pe + pp, ghost, ' class="kghost"')}${arc(pe, col)}</svg>`;
+}
 function renderKcalCard(k) {
   if (isFutureDay(k) || k < CONFIG.startDate) return '';
   const x = kcSum(k), { I, B, def, st, s } = x, over = I.kcal > s.target, left = s.target - I.kcal;
+  const mm = mealMode(k), P = mm ? kcPlan(k) : { kcal: 0, n: 0 };
   const pp = Math.min(I.p / Math.max(s.protein, 1), 1);
   let h = `<div class="card kcal" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f">
     <div class="kchead"><div class="ce">🔥</div><div class="sp"><h3>热量</h3><div class="cs">目标摄入 ${s.target} 大卡 · 蛋白质 ${s.protein}g</div></div>
       <button type="button" class="kinfo ${kcInfo ? 'on' : ''}" data-act="k-info" aria-label="说明">ℹ️</button></div>
     ${kcInfo ? kcInfoBox() : ''}
-    <div class="kmain"><div class="kring">${ring(112, 11, I.kcal / s.target, over ? '#ff7a2f' : '#ff9a5c', '#fff0e6')}<div class="c"><span>已吃</span><b>${I.kcal}</b><span>/ ${s.target} 大卡</span></div></div>
+    <div class="kmain"><div class="kring">${kRing(112, 11, I.kcal / s.target, P.kcal / s.target, over ? '#ff7a2f' : '#ff9a5c', '#ffc9a3', '#fff3eb')}<div class="c"><span>已吃</span><b>${I.kcal}</b><span>/ ${s.target} 大卡</span>${P.kcal ? `<span class="kplanc">计划 +${P.kcal}</span>` : ''}</div></div>
       <div class="kside">
         <div class="kline"><span>消耗${B.src === 'est' ? ' <i class="kest">估算</i>' : ' <i class="kest w">⌚ 手表</i>'}</span><b>${B.total}</b></div>
         <div class="kdet">${burnDetail(B)}</div>
         <div class="kline"><span>${left >= 0 ? '离目标还能吃' : '超出目标'}</span><b style="color:${left >= 0 ? 'var(--ink)' : '#e0603c'}">${Math.abs(left)}</b></div>
+        ${P.kcal ? `<div class="kdet">按计划吃完 ≈ ${I.kcal + P.kcal} 大卡${s.target - I.kcal - P.kcal >= 0 ? `，还剩 ${s.target - I.kcal - P.kcal}` : `，超 ${I.kcal + P.kcal - s.target}`}</div>` : ''}
         ${I.kcal ? `<div class="kgap ${st.c}" id="kGap"><span class="sp">${defText(def)}</span></div><div class="kgapt ${st.c}">${esc(st.t)}</div>`
-          : `<div class="kgap n" id="kGap"><span class="sp">还没记录饮食<br><span style="font-size:12px;color:var(--sub)">点下面的餐次，几秒记一顿</span></span></div>`}
+          : `<div class="kgap n" id="kGap"><span class="sp">${P.kcal ? '还没确认饮食' : '还没记录饮食'}<br><span style="font-size:12px;color:var(--sub)">${P.kcal ? '吃完点「✓ 照计划吃了」' : '点下面的餐次，几秒记一顿'}</span></span></div>`}
       </div></div>
-    <div class="kprot"><div class="row"><span>🥚 蛋白质</span><span class="sp"></span><b>${I.p}</b><span class="muted">/ ${s.protein} g</span></div><div class="kbar"><i style="width:${(pp * 100).toFixed(1)}%;background:${pp >= 1 ? 'var(--ok)' : '#ffb27a'}"></i></div></div>
-    <div class="kmeals">`;
-  const extra = [];
-  for (const m of MEALS) {
-    const mm = I.meals[m.id];
-    if (!mm.items.length && !['breakfast', 'lunch', 'dinner'].includes(m.id)) { extra.push(m); continue; }
-    const names = mm.items.map(it => `${it.n}${it.q !== 1 ? '×' + fmtQ(it.q) : ''}`).join('、');
-    h += `<div class="kmeal" role="button" data-act="k-open" data-meal="${m.id}"><span class="me">${m.e}</span><div class="sp" style="min-width:0"><div class="mn">${m.name}</div><div class="mi">${names ? esc(names) : '还没记录 · 点一下快速添加'}</div></div>
-      <span class="mk ${mm.kcal ? '' : 'zero'}">${mm.kcal || '—'}</span><span class="kplus">＋</span></div>`;
+    <div class="kprot"><div class="row"><span>🥚 蛋白质</span><span class="sp"></span><b>${I.p}</b><span class="muted">/ ${s.protein} g</span></div><div class="kbar"><i style="width:${(pp * 100).toFixed(1)}%;background:${pp >= 1 ? 'var(--ok)' : '#ffb27a'}"></i></div></div>`;
+  if (mm) h += mealRowsHtml(k, I);
+  else {
+    h += `<div class="kmeals">`;
+    const extra = [];
+    for (const m of MEALS) {
+      const mi = I.meals[m.id];
+      if (!mi.items.length && !['breakfast', 'lunch', 'dinner'].includes(m.id)) { extra.push(m); continue; }
+      const names = itemNames(mi.items);
+      h += `<div class="kmeal" role="button" data-act="k-open" data-meal="${m.id}"><span class="me">${m.e}</span><div class="sp" style="min-width:0"><div class="mn">${m.name}</div><div class="mi">${names ? esc(names) : '还没记录 · 点一下快速添加'}</div></div>
+        <span class="mk ${mi.kcal ? '' : 'zero'}">${mi.kcal || '—'}</span><span class="kplus">＋</span></div>`;
+    }
+    h += `</div>`;
+    if (extra.length) h += `<div class="kextra">${extra.map(m => `<button type="button" data-act="k-open" data-meal="${m.id}">＋ ${m.e} ${m.s || m.name}</button>`).join('')}</div>`;
   }
-  h += `</div>`;
-  if (extra.length) h += `<div class="kextra">${extra.map(m => `<button type="button" data-act="k-open" data-meal="${m.id}">＋ ${m.e} ${m.s || m.name}</button>`).join('')}</div>`;
   // 手表
   const kc = kcOf(k), hasW = kc && kc.watch != null && kc.watch !== '';
   if (hasW && !kcWatchEdit) {
@@ -2516,7 +2646,7 @@ function renderKcalCard(k) {
       <div class="kwin"><div class="field"><input id="kcWatch" type="number" inputmode="numeric" placeholder="比如 450" value="${hasW ? Math.round(kc.watch) : ''}"><span>大卡</span></div>
       <button type="button" class="btn pri" data-act="k-wsave" data-k="${k}">${hasW ? '更新' : '记录'}</button>${hasW ? `<button type="button" class="btn ghost" data-act="k-wclear" data-k="${k}">清除</button>` : ''}</div></div></div>`;
   }
-  h += `<div class="knote">热量都是估算值 · 看一周趋势更准</div></div>`;
+  h += `<div class="knote">热量都是估算值 · 灰色「计划」不算进摄入 · 看一周趋势更准</div></div>`;
   return h;
 }
 
@@ -2538,6 +2668,7 @@ function renderKcalReview(k) {
     const mm = I.meals[m.id]; if (!mm.items.length) continue;
     h += `<div class="ritem ok"><div class="mk">${m.e}</div><div class="nm">${m.name} · ${esc(mm.items.map(it => `${it.n}${it.q !== 1 ? '×' + fmtQ(it.q) : ''}`).join('、'))}</div><div class="tm">${mm.kcal}</div></div>`;
   }
+  if (mealMode(k)) for (const id of PLAN_MEALS) if (mealSt(k, id) === 'skip') h += `<div class="ritem miss"><div class="mk">${mealOf(id).e}</div><div class="nm">${mealName(id)} · 没吃</div></div>`;
   h += `</div><div class="kdet" style="margin-top:6px">消耗：${burnDetail(B)}</div></div>`;
   return h;
 }
@@ -2612,12 +2743,12 @@ function renderKcalSettings() {
     <label class="fl">性别</label><div class="seg">${[['m', '男'], ['f', '女']].map(([v, l]) => `<button type="button" class="${s.sex === v ? 'on' : ''}" data-act="k-sex" data-v="${v}">${l}</button>`).join('')}</div>
     <div class="row" style="gap:10px;align-items:flex-end">${fld('factor', '日常活动系数（没填手表时用）', '×', s.factor, 'step="0.05"')}</div>
     <div class="hint">久坐 1.2–1.25 · 有点走动 1.3 · 经常站着走动 1.4</div>
-    <div style="margin-top:10px">${tgl2('k-tick', s.autoTick, '记了饮食自动勾选餐食任务', '记早餐 / 午餐 / 晚餐时，顺手把对应的打卡勾上')}</div>
     <div class="rule" style="margin-top:12px"><b>你的基础代谢 ≈ ${bmr} 大卡</b>（${wi.jin} 斤${wi.k ? `，${fmtMD(wi.k)} 称重` : '，还没称重先按 145 斤'} · ${ageAt(tk, s.birth)} 岁）<br>
       没填手表：消耗 ≈ ${bmr} × ${s.factor} = <b>${Math.round(bmr * s.factor)}</b> + 运动估算<br>
       填了手表：消耗 = ${bmr} + 消化 ${Math.round(bmr * WATCH_TEF)} + 手表活动卡路里<br>
       <span class="muted">手表的「活动卡路里」已经包含日常走动，所以填了就不再乘活动系数，避免重复算。每次称重后基础代谢会自动更新。</span></div></div>`;
-  h += `<div class="card set"><h2>🍱 我的食物库<small>自定义 ${FOOD.custom.length} 样 · 预置 ${FOOD_PRESET.length} 样</small></h2>`;
+  h += renderTplSettings();
+  h += `<div class="card set"><h2>🥫 我的食物库<small>自定义 ${FOOD.custom.length} 样 · 预置 ${FOOD_PRESET.length} 样</small></h2>`;
   if (FOOD.custom.length) {
     h += FOOD.custom.map(f => `<div class="rec"><div class="v" style="min-width:0">${esc(f.n)} <small>${esc(f.u || '')} · ${esc(fcatName(f.c))}</small><div class="small muted">${f.k} 大卡 · 蛋白 ${r1(+f.p || 0)}g</div></div>
       <button class="del" style="color:var(--ink2)" data-act="k-fedit" data-id="${esc(f.id)}" aria-label="编辑">✎</button><button class="del" data-act="k-fdel" data-id="${esc(f.id)}" aria-label="删除">✕</button></div>`).join('');
@@ -2642,22 +2773,31 @@ function kcChanged(k, ticked) {
   save(); saveFood(); render();
   if (ticked) { toast(`✅ 已顺手勾选「${ticked.title}」`, `+${ticked.xp || 0} XP`); celebrate(); }
 }
+// 改了某一顿：v10 起（mealMode）任何修改都算确认这顿 → 勾上对应任务；更早的日子沿用 v9 的自动勾选
+function kcEdited(k, meal) {
+  const t = mealMode(k) && !isFutureDay(k) && meal !== 'drink' && meal !== 'alcohol' ? markMealOk(k, meal) : autoTickMeal(k, meal);
+  kcChanged(k, t);
+}
 function kcAddFood(k, meal, f) {
+  if (fp && fp.tpl) { tplAdd(meal, f); bumpUsage(f.id, meal); saveFood(); return; }
   const kc = kcRec(k);
   let it = f.id ? kc.items.find(x => x.meal === meal && x.fid === f.id) : null;
   if (it) it.q = it.q < 1 ? 1 : Math.min(20, it.q + 1);
   else { it = { id: newId('i'), meal, fid: f.id || null, n: f.n, u: f.u || '', k: Math.round(+f.k || 0), p: r1(+f.p || 0), q: 1, ts: now() }; kc.items.push(it); }
   bumpUsage(f.id, meal);
-  kcChanged(k, autoTickMeal(k, meal));
+  kcEdited(k, meal);
 }
 function kcItem(k, id) { const kc = kcOf(k); return kc && kc.items ? kc.items.find(x => x.id === id) : null; }
 function kcSetQ(k, id, dir) {
   const kc = kcRec(k), it = kc.items.find(x => x.id === id); if (!it) return;
   if (dir > 0) it.q = it.q < 1 ? 1 : Math.min(20, it.q + 1);
   else if (it.q > 1) it.q = it.q - 1; else if (it.q === 1) it.q = 0.5; else kc.items = kc.items.filter(x => x.id !== id);
-  kcChanged(k);
+  if (mealMode(k) && (it.pl || mealState(k, it.meal) !== 'ok') && it.meal !== 'drink' && it.meal !== 'alcohol') kcEdited(k, it.meal); else kcChanged(k);
 }
-function kcRemove(k, id) { const kc = kcRec(k); kc.items = kc.items.filter(x => x.id !== id); kcChanged(k); }
+function kcRemove(k, id) {
+  const kc = kcRec(k), it = kc.items.find(x => x.id === id); kc.items = kc.items.filter(x => x.id !== id);
+  if (it && it.pl && mealMode(k)) kcEdited(k, it.meal); else kcChanged(k);
+}
 function kcSaveWatch(k, raw) {
   raw = String(raw ?? '').trim();
   if (raw === '') { const kc = kcRec(k); delete kc.watch; save(); return true; }
@@ -2685,15 +2825,30 @@ function favList(meal) {
   }
   return out.sort((a, b) => b.sc - a.sc).slice(0, 24).map(x => x.f);
 }
+// 打开还没确认、有模板的一顿时，先把模板菜放进去当「计划」草稿（pl:1，不算摄入）；改了就算确认，没改直接关掉就撤回
+function fpSeed() {
+  if (!fp || fp.tpl || !fp.k || fp.mode !== 'list') return;
+  const k = fp.k, meal = fp.meal;
+  if (!mealMode(k) || isFutureDay(k) || mealState(k, meal) !== 'plan' || realItems(k, meal).length) return;
+  if (kcIntake(k, true).meals[meal].items.some(i => i.pl)) return;
+  const kc = kcRec(k);
+  for (const it of planItems(k, meal)) kc.items.push({ id: newId('i'), meal, fid: it.fid || null, n: it.n, u: it.u || '', k: it.k, p: it.p, q: it.q || 1, ts: now(), pl: 1 });
+  fp.seeded = fp.seeded || {}; fp.seeded[meal] = true; save();
+}
+const fpPending = () => !!(fp && !fp.tpl && fp.k && kcIntake(fp.k, true).meals[fp.meal].items.some(i => i.pl));
 function openFP(k, meal, mode, extra) {
-  fp = { k, meal: meal || defaultMeal(k), tab: null, q: '', mode: mode || 'list', form: null, standalone: !k, ...(extra || {}) };
+  if (k && purgePl(k)) save();
+  fp = { k, meal: meal || defaultMeal(k), tab: null, q: '', mode: mode || 'list', form: null, standalone: !k && !(extra && extra.tpl), ...(extra || {}) };
   fp.tab = defTab(fp.meal);
+  fpSeed();
   if (fp.mode !== 'list' && !fp.form) fp.form = { n: '', u: '', k: '', p: '', c: mealOf(fp.meal).def };
   renderFP(); document.body.classList.add('noscroll');
   requestAnimationFrame(() => requestAnimationFrame(() => $('#fsheet').classList.add('show')));
 }
 function closeFP() {
-  if (!fp) return; fp = null; const sh = $('#fsheet'); sh.classList.remove('show');
+  if (!fp) return;
+  if (fp.k && purgePl(fp.k)) save();
+  fp = null; const sh = $('#fsheet'); sh.classList.remove('show');
   if (!sheetOpen()) document.body.classList.remove('noscroll');
   setTimeout(() => { if (!fp) sh.innerHTML = ''; }, 300); render();
 }
@@ -2706,7 +2861,7 @@ function renderFP() {
         <div class="fpsearch"><input class="inp" id="fpQ" type="search" enterkeyhint="search" autocomplete="off" placeholder="🔍 搜索：小面、鸡蛋、奶茶…" value="${esc(fp.q)}"></div>
         <div class="fpcats" id="fpCats"></div></div>
       <div class="fplist" id="fpList"></div>
-      <div class="fpbot"><button type="button" class="btn ghost" data-act="k-custom">＋ 自定义</button><button type="button" class="btn ghost" data-act="k-quick">直接填热量</button><button type="button" class="btn pri" style="flex:1" data-act="k-done">完成</button></div></div>`;
+      <div class="fpbot"><button type="button" class="btn ghost" data-act="k-custom">＋ 自定义</button><button type="button" class="btn ghost" data-act="k-quick">直接填热量</button><button type="button" class="btn pri" style="flex:1" id="fpDone" data-act="k-done">完成</button></div></div>`;
     $('#fpQ').addEventListener('input', ev => { fp.q = ev.target.value.trim(); fpRefresh(true); });
     fpRefresh(true);
     return;
@@ -2726,11 +2881,30 @@ function renderFP() {
     <div class="fpbot"><button type="button" class="btn ghost" data-act="${fp.standalone ? 'k-close' : 'k-back'}">取消</button><button type="button" class="btn pri" style="flex:1" data-act="${isC ? 'k-csave' : 'k-qsave'}">${isC ? (fp.standalone ? '保存' : '保存并添加') : '添加'}</button></div></div>`;
 }
 function readFPForm() { document.querySelectorAll('#fsheet [data-ff]').forEach(el => { fp.form[el.dataset.ff] = el.value; }); }
+function fpSrc() {
+  if (fp.tpl) {
+    const T = FOOD.tpl, set = fp.tpl.key === 'all' ? T.all : (T.wd[fp.tpl.key] || T.all), meals = {}; let total = 0;
+    for (const m of MEALS) { const items = (set[m.id] || []).map(resolveTpl), s = sumItems(items); meals[m.id] = { items, kcal: Math.round(s.kcal), p: Math.round(s.p) }; total += s.kcal; }
+    return { meals, kcal: Math.round(total) };
+  }
+  return kcIntake(fp.k, true);
+}
 function fpRefresh(resetScroll) {
-  const k = fp.k, I = kcIntake(k), mm = I.meals[fp.meal], m = mealOf(fp.meal);
-  $('#fpMeals').innerHTML = MEALS.map(x => { const c = I.meals[x.id].kcal; return `<button type="button" class="${x.id === fp.meal ? 'on' : ''}" data-act="k-meal" data-v="${x.id}">${x.e} ${x.s || x.name}${c ? `<small>${c}</small>` : ''}</button>`; }).join('');
-  $('#fpSum').innerHTML = `<div class="fpsum"><span><b>${m.name}</b> · ${mm.items.length} 样 · <b class="num">${mm.kcal}</b> 大卡 · 蛋白 ${mm.p}g</span><span class="sp"></span><span class="muted">全天 ${I.kcal}</span></div>
-    <div class="fpchips">${mm.items.length ? mm.items.map(it => `<button type="button" class="fpchip" data-act="k-rm" data-id="${it.id}">${esc(it.n)}${it.q !== 1 ? ' ×' + fmtQ(it.q) : ''} <i>✕</i></button>`).join('') : '<span class="fpempty">点下面的食物添加，再点一次就是 ×2</span>'}</div>`;
+  const I = fpSrc(), mm = I.meals[fp.meal], m = mealOf(fp.meal), k = fp.k;
+  const tabMeals = fp.tpl ? MEALS.filter(x => TPL_MEALS.includes(x.id)) : MEALS;
+  $('#fpMeals').innerHTML = tabMeals.map(x => { const c = I.meals[x.id].kcal; return `<button type="button" class="${x.id === fp.meal ? 'on' : ''}" data-act="k-meal" data-v="${x.id}">${x.e} ${fp.tpl ? mealName(x.id) : (x.s || x.name)}${c ? `<small>${c}</small>` : ''}</button>`; }).join('');
+  const pend = fpPending();
+  let banner = '', acts = '';
+  if (fp.tpl) banner = `<div class="fpban tpl">🍱 编辑模板 · ${fp.tpl.key === 'all' ? '每天一样' : WD[fp.tpl.key]}的${mealName(fp.meal)} · 改完自动保存</div>`;
+  else if (pend) banner = `<div class="fpban">灰色是模板带出的计划 · 改一下或点下面「✓ 照计划吃了」就算这顿吃了</div>`;
+  else if (k && mealMode(k) && TPL_MEALS.includes(fp.meal)) {
+    const st = mealState(k, fp.meal);
+    if (st === 'ok') acts = `<div class="fpacts">${realItems(k, fp.meal).length ? `<button type="button" data-act="k-savetpl">⭐ 存为${FOOD.tpl.perWd ? WD[wdOf(k)] : ''}模板</button>` : ''}<button type="button" data-act="k-undo">↩︎ 撤销这顿</button></div>`;
+    else if (st === 'skip') banner = `<div class="fpban">这顿标了「没吃」· 加上食物就改成已吃</div>`;
+  }
+  $('#fpSum').innerHTML = `<div class="fpsum"><span><b>${fp.tpl ? mealName(fp.meal) : m.name}</b> · ${mm.items.length} 样 · <b class="num">${mm.kcal}</b> 大卡 · 蛋白 ${mm.p}g</span><span class="sp"></span><span class="muted">${fp.tpl ? '模板合计' : '全天'} ${fp.tpl ? I.kcal : kcIntake(k).kcal}</span></div>
+    ${banner}<div class="fpchips">${mm.items.length ? mm.items.map(it => `<button type="button" class="fpchip ${it.pl ? 'pl' : ''}" data-act="k-rm" data-id="${it.id}">${esc(it.n)}${it.q !== 1 ? ' ×' + fmtQ(it.q) : ''} <i>✕</i></button>`).join('') : '<span class="fpempty">点下面的食物添加，再点一次就是 ×2</span>'}</div>${acts}`;
+  const db = $('#fpDone'); if (db) db.textContent = pend ? '✓ 照计划吃了' : '完成';
   const tabs = [];
   if (hasUsage()) tabs.push(['_fav', '⭐ 常用']);
   if (FOOD.custom.length) tabs.push(['_mine', '我的']);
@@ -2779,12 +2953,35 @@ document.addEventListener('click', ev => {
     }
     // 弹层
     case 'k-close': closeFP(); break;
-    case 'k-done': { const n = fp ? kcIntake(fp.k).kcal : 0; closeFP(); if (n) toast('🔥 已记录', `今天已吃 ${n} 大卡`); break; }
-    case 'k-meal': fp.meal = el.dataset.v; fp.q = ''; const qi = $('#fpQ'); if (qi) qi.value = ''; fp.tab = defTab(fp.meal); fpRefresh(true); break;
+    case 'k-done': {
+      if (!fp) break;
+      if (fp.tpl) { closeFP(); toast('✅ 模板已保存', '以后每天自动带出'); break; }
+      const k = fp.k, meal = fp.meal;
+      if (fpPending()) {
+        const t = markMealOk(k, meal); save(); closeFP();
+        toast(`✅ ${mealName(meal)}照计划吃了`, t ? `+${t.xp || 0} XP · 今天已吃 ${kcIntake(k).kcal} 大卡` : `今天已吃 ${kcIntake(k).kcal} 大卡`); celebrate(); break;
+      }
+      const n = kcIntake(k).kcal; closeFP(); if (n) toast('🔥 已记录', `今天已吃 ${n} 大卡`); break;
+    }
+    case 'k-meal': fp.meal = el.dataset.v; fp.q = ''; const qi = $('#fpQ'); if (qi) qi.value = ''; fp.tab = defTab(fp.meal); fpSeed(); fpRefresh(true); break;
     case 'k-tab': fp.tab = el.dataset.v; fp.q = ''; { const q = $('#fpQ'); if (q) q.value = ''; } fpRefresh(true); break;
     case 'k-add': { const f = foodById(el.dataset.fid); if (!f || !fp) break; kcAddFood(fp.k, fp.meal, f); fpRefresh(false); break; }
-    case 'k-inc': case 'k-dec': if (!fp) break; kcSetQ(fp.k, el.dataset.id, a === 'k-inc' ? 1 : -1); fpRefresh(false); break;
-    case 'k-rm': if (!fp) break; kcRemove(fp.k, el.dataset.id); fpRefresh(false); break;
+    case 'k-inc': case 'k-dec': if (!fp) break; if (fp.tpl) tplSetQ(fp.meal, el.dataset.id, a === 'k-inc' ? 1 : -1); else kcSetQ(fp.k, el.dataset.id, a === 'k-inc' ? 1 : -1); fpRefresh(false); break;
+    case 'k-rm': if (!fp) break; if (fp.tpl) tplRm(fp.meal, el.dataset.id); else kcRemove(fp.k, el.dataset.id); fpRefresh(false); break;
+    // v10 餐食打卡
+    case 'k-pok': mealPlanOk(viewDay, el.dataset.meal, `.kmeal[data-meal="${el.dataset.meal}"]`); break;
+    case 'k-skip': mealSkip(viewDay, el.dataset.meal); break;
+    case 'k-unskip': mealUnskip(viewDay, el.dataset.meal); break;
+    case 'k-undo': { if (!fp) break; const k = fp.k, meal = fp.meal; if (mealUndo(k, meal)) { closeFP(); toast(`↩︎ 已撤销${mealName(meal)}`, '改回计划状态'); } break; }
+    case 'k-savetpl': if (fp && fp.k) saveMealAsTpl(fp.k, fp.meal); break;
+    case 'k-gotpl': view = 'settings'; render(); setTimeout(() => { const c = $('#tplCard'); if (c) c.scrollIntoView({ block: 'start' }); }, 30); break;
+    case 'k-tpl': { const key = el.dataset.key === 'all' ? 'all' : +el.dataset.key; openFP(null, el.dataset.meal, 'list', { tpl: { key } }); break; }
+    case 'k-tplwd': tplWd = +el.dataset.v; render(); break;
+    case 'k-tplper': {
+      const T = FOOD.tpl; T.perWd = !T.perWd;
+      if (T.perWd) for (let d = 0; d < 7; d++) if (!T.wd[d]) T.wd[d] = copySet(T.all);
+      saveFood(); render(); toast(T.perWd ? '📅 已改成按星期分别设置' : '已改回每天一样', T.perWd ? '先复制了一份到周一到周日，点星期几分别改' : '用「每天一样」那份模板'); break;
+    }
     case 'k-custom': fp.mode = 'custom'; fp.editId = null; fp.form = { n: fp.q || '', u: '', k: '', p: '', c: fp.tab && fp.tab[0] !== '_' ? fp.tab : mealOf(fp.meal).def }; renderFP(); break;
     case 'k-quick': fp.mode = 'quick'; fp.form = { n: fp.q || '', u: '', k: '', p: '', c: '' }; renderFP(); break;
     case 'k-back': fp.mode = 'list'; renderFP(); break;
@@ -2825,6 +3022,224 @@ document.addEventListener('change', ev => {
   }
   S.kcal = { ...(S.kcal || {}), [f]: v }; save(); render(); toast('✅ 已保存');
 });
+/* =====================================================================
+ *  v10：三餐模板 + 热量卡里的餐食打卡（原「饮食」分类并进热量卡）
+ *  模板：FOOD.tpl = { perWd, all:{breakfast:[…],lunch,dinner,snack}, wd:{0..6:{…}} }（随食物库一起存 hc_food_v1，导出备份里也有）
+ *  每顿状态：S.days[k].kc.st[meal] = 'ok'（已确认）| 'skip'（没吃）；没有 = 看有没有记录 / 计划
+ *  计划只显示、不计入摄入；点「✓ 照计划吃了」或改过一次才变成正式记录，并勾上原来的 早餐/午餐/晚餐/水果 任务
+ * ===================================================================== */
+const PLAN_MEALS = ['breakfast', 'lunch', 'snack', 'dinner'];   // 热量卡里按时间排
+const TPL_MEALS = ['breakfast', 'lunch', 'dinner', 'snack'];    // 模板设置里的顺序
+const TPL_SEED = { breakfast: [['egg', 2], ['soy0', 1], ['corn', 1]], lunch: [['tomb', 1], ['veg', 1], ['rice_h', 1]], dinner: [['fish_s', 1], ['veg', 1], ['rice_h', 1]], snack: [['apple', 1]] };
+const mealName = id => { const m = mealOf(id); return id === 'snack' ? '加餐' : m.name; };
+function tplItem(f, q) { return { id: newId('p'), fid: f.id || f.fid || null, n: f.n, u: f.u || '', k: Math.round(+f.k || 0), p: r1(+f.p || 0), q: q || 1 }; }
+function seedTpl() {
+  const all = {};
+  for (const m of TPL_MEALS) all[m] = (TPL_SEED[m] || []).map(([id, q]) => { const f = FOOD_PRESET.find(x => x.id === id); return f ? tplItem(f, q) : null; }).filter(Boolean);
+  return { perWd: false, all, wd: {} };
+}
+function normTpl(t) {
+  if (!t || typeof t !== 'object' || !t.all || typeof t.all !== 'object') return seedTpl();
+  const fixList = a => Array.isArray(a) ? a.filter(x => x && x.n).map(x => ({ id: x.id || newId('p'), fid: x.fid || null, n: String(x.n), u: x.u || '', k: Math.round(+x.k || 0), p: r1(+x.p || 0), q: +x.q > 0 ? Math.min(20, +x.q) : 1 })) : [];
+  const fixSet = o => { const r = {}; for (const m of TPL_MEALS) r[m] = fixList(o && o[m]); return r; };
+  const out = { perWd: !!t.perWd, all: fixSet(t.all), wd: {} };
+  if (t.wd && typeof t.wd === 'object') for (let d = 0; d < 7; d++) if (t.wd[d]) out.wd[d] = fixSet(t.wd[d]);
+  return out;
+}
+const copySet = o => { const r = {}; for (const m of TPL_MEALS) r[m] = (o[m] || []).map(x => ({ ...x })); return r; };
+// key = 'all' 或 星期几（0=周日）
+function tplSet(key) {
+  const T = FOOD.tpl;
+  if (key === 'all' || key == null) return T.all;
+  if (!T.wd[key]) T.wd[key] = copySet(T.all);
+  return T.wd[key];
+}
+const tplKeyFor = k => FOOD.tpl.perWd ? wdOf(k) : 'all';
+function tplRaw(k, meal) { const T = FOOD.tpl; const set = T.perWd ? (T.wd[wdOf(k)] || T.all) : T.all; return set[meal] || []; }
+function resolveTpl(it) { const f = it.fid && foodById(it.fid); return f ? { ...it, n: f.n, u: f.u || '', k: Math.round(+f.k || 0), p: r1(+f.p || 0) } : { ...it }; }
+const sumItems = a => a.reduce((s, it) => { s.kcal += (+it.k || 0) * (it.q || 1); s.p += (+it.p || 0) * (it.q || 1); return s; }, { kcal: 0, p: 0 });
+// 同名的预置食物（米饭 半碗/一碗、小面 一两/二两…）在名字后面带上份量，免得看不出是哪一种
+const DUP_NAMES = (() => { const c = {}; for (const f of FOOD_PRESET) c[f.n] = (c[f.n] || 0) + 1; return new Set(Object.keys(c).filter(n => c[n] > 1)); })();
+const itemLabel = it => DUP_NAMES.has(it.n) && it.u ? `${it.n}${it.u}` : it.n;
+const itemNames = a => a.map(it => `${itemLabel(it)}${(it.q || 1) !== 1 ? '×' + fmtQ(it.q) : ''}`).join('、');
+
+/* —— 每天的餐食状态 —— */
+const mealMode = k => !!(CFG && CFG.mealFrom && k >= CFG.mealFrom);
+const mealTask = (k, meal) => tasksFor(k).find(t => t.inKcal === meal) || null;
+const mealTime = (k, meal) => { const t = mealTask(k, meal); return (t && t.time) || mealOf(meal).t || ''; };
+const realItems = (k, meal) => { const kc = kcOf(k); return kc && kc.items ? kc.items.filter(i => i.meal === meal && !i.pl) : []; };
+const mealSt = (k, meal) => { const kc = kcOf(k); return kc && kc.st ? kc.st[meal] : undefined; };
+function planItems(k, meal) { return mealMode(k) && TPL_MEALS.includes(meal) ? tplRaw(k, meal).map(resolveTpl) : []; }
+function mealState(k, meal) {
+  const st = mealSt(k, meal);
+  if (st === 'skip') return 'skip';
+  const t = mealTask(k, meal);
+  if (st === 'ok' || realItems(k, meal).length || (t && frac(t, k) >= 1)) return 'ok';
+  return planItems(k, meal).length ? 'plan' : 'none';
+}
+function kcPlan(k) {
+  const out = { kcal: 0, p: 0, n: 0, meals: {} };
+  if (!mealMode(k)) return out;
+  for (const m of PLAN_MEALS) {
+    if (mealState(k, m) !== 'plan') continue;
+    const items = planItems(k, m), s = sumItems(items);
+    out.meals[m] = { items, kcal: Math.round(s.kcal), p: Math.round(s.p) };
+    out.kcal += s.kcal; out.p += s.p; out.n++;
+  }
+  out.kcal = Math.round(out.kcal); out.p = Math.round(out.p);
+  return out;
+}
+// 确认一顿：去掉「计划」草稿标记，记 st=ok，并勾上对应的打卡任务（返回新勾上的任务）
+function markMealOk(k, meal) {
+  const kc = kcRec(k); kc.st = kc.st || {}; kc.st[meal] = 'ok';
+  for (const it of kc.items) if (it.meal === meal && it.pl) delete it.pl;
+  const t = mealTask(k, meal), r = dayRec(k);
+  if (t && t.type !== 'toggle' && !r.t[t.id]) { r.t[t.id] = now(); return t; }
+  return null;
+}
+function untickMeal(k, meal) { const t = mealTask(k, meal), r = dayRec(k); if (t && r.t[t.id]) delete r.t[t.id]; }
+function purgePl(k, meal) { const kc = kcOf(k); if (!kc || !kc.items) return false; const n = kc.items.length; kc.items = kc.items.filter(i => !(i.pl && (!meal || i.meal === meal))); return kc.items.length !== n; }
+
+function mealPlanOk(k, meal, anchor) {
+  if (!guardWritable(k)) return;
+  const items = planItems(k, meal); if (!items.length) return;
+  mutate(k, () => {
+    const kc = kcRec(k); purgePl(k, meal);
+    for (const it of items) { kc.items.push({ id: newId('i'), meal, fid: it.fid || null, n: it.n, u: it.u || '', k: it.k, p: it.p, q: it.q || 1, ts: now() }); bumpUsage(it.fid, meal); }
+    markMealOk(k, meal); saveFood();
+    justDone = 'meal:' + meal;
+  }, anchor);
+  const s = sumItems(items);
+  if (!$('.toast.show')) toast(`✅ ${mealName(meal)}照计划吃了`, `记入 ${Math.round(s.kcal)} 大卡`);
+}
+function mealSkip(k, meal, anchor) {
+  if (!guardWritable(k)) return;
+  const n = realItems(k, meal).length;
+  if (n && !confirm(`${mealName(meal)}已经记了 ${n} 样，标成「没吃」会清掉这些记录。继续？`)) return;
+  mutate(k, () => { const kc = kcRec(k); kc.items = kc.items.filter(i => i.meal !== meal); kc.st = kc.st || {}; kc.st[meal] = 'skip'; untickMeal(k, meal); }, anchor);
+  toast(`${mealOf(meal).e} ${mealName(meal)}：这顿没吃`, '计划的热量不算进今天');
+}
+function mealUnskip(k, meal) { mutate(k, () => { const kc = kcRec(k); if (kc.st) delete kc.st[meal]; }); }
+function mealUndo(k, meal) {
+  if (!confirm(`撤销${mealName(meal)}的记录？\n已记的食物会清掉，打卡取消，改回「计划」状态。`)) return false;
+  mutate(k, () => { const kc = kcRec(k); kc.items = kc.items.filter(i => i.meal !== meal); if (kc.st) delete kc.st[meal]; untickMeal(k, meal); });
+  return true;
+}
+function saveMealAsTpl(k, meal) {
+  const items = realItems(k, meal); if (!items.length) { toast('这顿还没有记录食物'); return; }
+  const key = tplKeyFor(k), where = key === 'all' ? '每天' : WD[key];
+  if (!confirm(`把这顿（${itemNames(items)}）存成「${where}」的${mealName(meal)}模板？`)) return;
+  tplSet(key)[meal] = items.map(it => tplItem({ id: it.fid, n: it.n, u: it.u, k: it.k, p: it.p }, it.q || 1));
+  saveFood(); toast('⭐ 已存为模板', `${where}的${mealName(meal)}以后默认带出这些`);
+  if (fp) fpRefresh(false); else render();
+}
+
+/* —— 热量卡：餐食行 —— */
+function mealRowsHtml(k, I) {
+  let h = `<div class="kmhead"><span>三餐打卡</span><span class="sp"></span><button type="button" class="kmtpl" data-act="k-gotpl">🍱 三餐模板</button></div><div class="kmeals">`;
+  for (const id of PLAN_MEALS) {
+    const m = mealOf(id), st = mealState(k, id), t = mealTask(k, id), tm = mealTime(k, id), mm = I.meals[id];
+    if (id === 'snack' && st === 'none' && !t) continue; // 没有加餐任务、也没设模板 → 收进下面的「＋加餐」
+    const star = t && t.core ? '<span class="kstar">★</span>' : '';
+    const nm = `${star}${mealName(id)}${tm ? `<span class="mt">${tm}</span>` : ''}`;
+    const jd = justDone === 'meal:' + id ? ' pop' : '';
+    if (st === 'ok') {
+      const names = itemNames(mm.items);
+      h += `<div class="kml ok${jd}"><div class="kmeal" role="button" data-act="k-open" data-meal="${id}"><span class="me">${m.e}<i class="kok">✓</i></span>
+        <div class="sp" style="min-width:0"><div class="mn">${nm}${t ? `<span class="kxp">+${t.xp || 0} XP</span>` : ''}</div><div class="mi">${names ? esc(names) : '已打卡 · 没记具体吃了什么，点开补记'}</div></div>
+        <span class="mk ${mm.kcal ? '' : 'zero'}">${mm.kcal || '—'}</span></div></div>`;
+    } else if (st === 'skip') {
+      h += `<div class="kml skip"><div class="kmeal" role="button" data-act="k-open" data-meal="${id}"><span class="me">${m.e}</span>
+        <div class="sp" style="min-width:0"><div class="mn">${nm}</div><div class="mi">这顿没吃 · 计划不算进摄入</div></div>
+        <button type="button" class="kmini" data-act="k-unskip" data-meal="${id}">撤销</button></div></div>`;
+    } else {
+      const due = statusOf(k, tm || null), late = due === 'missed', nowing = due === 'now';
+      const tag = late ? '<span class="tag miss">未完成</span>' : nowing ? '<span class="tag now">现在</span>' : '';
+      if (st === 'plan') {
+        const items = planItems(k, id), s = sumItems(items);
+        h += `<div class="kml plan${late ? ' late' : ''}${nowing ? ' nowing' : ''}"><div class="kmeal" role="button" data-act="k-open" data-meal="${id}"><span class="me">${m.e}</span>
+          <div class="sp" style="min-width:0"><div class="mn">${nm}${tag}</div><div class="mi">计划：${esc(itemNames(items))}</div></div>
+          <span class="mk plan"><small>计划</small>${Math.round(s.kcal)}</span></div>
+          <div class="kmact"><button type="button" class="kpok${late || nowing ? '' : ' soft'}" data-act="k-pok" data-meal="${id}">✓ 照计划吃了</button><button type="button" class="kmini" data-act="k-open" data-meal="${id}">改一改</button><button type="button" class="kmini" data-act="k-skip" data-meal="${id}">没吃</button></div></div>`;
+      } else {
+        h += `<div class="kml none${late ? ' late' : ''}${nowing ? ' nowing' : ''}"><div class="kmeal" role="button" data-act="k-open" data-meal="${id}"><span class="me">${m.e}</span>
+          <div class="sp" style="min-width:0"><div class="mn">${nm}${tag}</div><div class="mi">还没记录 · 点一下添加</div></div>
+          <button type="button" class="kmini" data-act="k-skip" data-meal="${id}">没吃</button><span class="kplus">＋</span></div></div>`;
+      }
+    }
+  }
+  // 饮料、酒（有记录才单独一行）
+  for (const id of ['drink', 'alcohol']) {
+    const m = mealOf(id), mm = I.meals[id]; if (!mm.items.length) continue;
+    h += `<div class="kml ok"><div class="kmeal" role="button" data-act="k-open" data-meal="${id}"><span class="me">${m.e}</span><div class="sp" style="min-width:0"><div class="mn">${m.name}</div><div class="mi">${esc(itemNames(mm.items))}</div></div><span class="mk">${mm.kcal}</span></div></div>`;
+  }
+  h += `</div>`;
+  const extra = [];
+  if (mealState(k, 'snack') === 'none' && !mealTask(k, 'snack')) extra.push('snack');
+  for (const id of ['drink', 'alcohol']) if (!I.meals[id].items.length) extra.push(id);
+  if (extra.length) h += `<div class="kextra">${extra.map(id => { const m = mealOf(id); return `<button type="button" data-act="k-open" data-meal="${id}">＋ ${m.e} ${m.s || m.name}</button>`; }).join('')}</div>`;
+  // 零可乐开关
+  const ct = mealTask(k, 'cola');
+  if (ct) {
+    const done = frac(ct, k) >= 1;
+    h += `<button type="button" class="tgl kcola ${done ? 'on' : ''} ${justDone === ct.id ? 'pop' : ''}" data-act="check" data-id="${ct.id}"><span class="me">${esc(ct.icon || '🥤')}</span><div class="sp" style="min-width:0"><b>${ct.core ? '<span class="kstar">★</span>' : ''}${esc(ct.title)}</b>
+      <div class="kdet">${ct.desc ? esc(ct.desc) + ' · ' : ''}${done ? `<b class="kxpok">+${ct.xp || 0} XP</b>` : '全天有效，喝了就别打开'}</div></div><div class="sw"></div></button>`;
+  }
+  return h;
+}
+
+/* —— 未来预览：只读的三餐计划 —— */
+function renderKcalPreview(k) {
+  if (!mealMode(k)) return '';
+  let tot = 0, rows = '';
+  for (const id of PLAN_MEALS) {
+    const items = planItems(k, id); if (!items.length) continue;
+    const s = sumItems(items); tot += s.kcal;
+    rows += `<div class="kpv"><span class="me">${mealOf(id).e}</span><div class="sp" style="min-width:0"><div class="mn">${mealName(id)}<span class="mt">${mealTime(k, id)}</span></div><div class="mi">${esc(itemNames(items))}</div></div><span class="mk plan">${Math.round(s.kcal)}</span></div>`;
+  }
+  if (!rows) return '';
+  const s = kset();
+  return `<div class="card kcal kprev" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f"><div class="kchead"><div class="ce">🔥</div><div class="sp"><h3>三餐计划</h3><div class="cs">按模板带出 · 到当天吃完再确认</div></div><div class="kptot"><b>${Math.round(tot)}</b><span>/ ${s.target}</span></div></div>${rows}</div>`;
+}
+
+/* —— 设置：三餐模板 —— */
+let tplWd = null;
+function renderTplSettings() {
+  const T = FOOD.tpl, tk = todayKey();
+  if (tplWd == null) tplWd = wdOf(tk);
+  const key = T.perWd ? tplWd : 'all', set = T.perWd ? (T.wd[tplWd] || T.all) : T.all;
+  let tot = { kcal: 0, p: 0 };
+  let h = `<div class="card set" id="tplCard" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f"><h2>🍱 三餐模板<small>每天自动带出</small></h2>
+    <p>设好平时吃什么，热量卡里每顿会先显示成灰色「计划」，不算进摄入；吃完点「✓ 照计划吃了」才记上，吃得不一样就点开改。</p>
+    ${tgl2('k-tplper', T.perWd, '按周一到周日分别设置', T.perWd ? '每天的模板分开设；没单独设的那天沿用「每天一样」那份' : '关掉 = 每天一样')}`;
+  if (T.perWd) h += `<div class="wdays tplwd" style="margin-top:10px">${WD_ORDER.map(x => `<button type="button" class="${x === tplWd ? 'on' : ''} ${T.wd[x] ? 'set' : ''}" data-act="k-tplwd" data-v="${x}">${WCH[(x + 6) % 7]}</button>`).join('')}</div>
+    <div class="hint">正在编辑：<b>${WD[tplWd]}</b>${T.wd[tplWd] ? '' : '（还没单独设，先显示「每天一样」那份，一改就单独存）'}</div>`;
+  h += `<div class="kmeals" style="margin-top:8px">`;
+  for (const id of TPL_MEALS) {
+    const items = (set[id] || []).map(resolveTpl), s = sumItems(items); tot.kcal += s.kcal; tot.p += s.p;
+    h += `<div class="kml"><div class="kmeal tplrow" role="button" data-act="k-tpl" data-meal="${id}" data-key="${key}"><span class="me">${mealOf(id).e}</span><div class="sp" style="min-width:0"><div class="mn">${mealName(id)}<span class="mt">${mealTime(tk, id)}</span></div><div class="mi">${items.length ? esc(itemNames(items)) : '没设 · 点一下添加'}</div></div>
+      <span class="mk ${s.kcal ? '' : 'zero'}">${Math.round(s.kcal) || '—'}</span><span class="kplus">✎</span></div></div>`;
+  }
+  const s = kset(), left = s.target - Math.round(tot.kcal);
+  h += `</div><div class="rule" style="margin-top:10px">模板合计 <b>${Math.round(tot.kcal)}</b> 大卡 · 蛋白质 <b>${Math.round(tot.p)}</b>g<br><span class="muted">${left >= 0 ? `离每天目标 ${s.target} 还留 ${left} 大卡给饮料、零食` : `比每天目标 ${s.target} 多 ${-left} 大卡，可以减点主食`}</span></div>
+    <div class="hint">在热量卡里点开某一顿，也可以「⭐ 存为模板」。</div></div>`;
+  return h;
+}
+
+/* —— 模板编辑（复用食物选择弹层，fp.tpl = { key }） —— */
+function tplList(meal) { const set = tplSet(fp.tpl.key); set[meal] = set[meal] || []; return set[meal]; }
+function tplAdd(meal, f) {
+  const a = tplList(meal); let it = f.id ? a.find(x => x.fid === f.id) : null;
+  if (it) it.q = it.q < 1 ? 1 : Math.min(20, it.q + 1); else a.push(tplItem(f, 1));
+  saveFood();
+}
+function tplSetQ(meal, id, dir) {
+  const set = tplSet(fp.tpl.key), a = set[meal] || [], it = a.find(x => x.id === id); if (!it) return;
+  if (dir > 0) it.q = it.q < 1 ? 1 : Math.min(20, it.q + 1);
+  else if (it.q > 1) it.q = it.q - 1; else if (it.q === 1) it.q = 0.5; else set[meal] = a.filter(x => x.id !== id);
+  saveFood();
+}
+function tplRm(meal, id) { const set = tplSet(fp.tpl.key); set[meal] = (set[meal] || []).filter(x => x.id !== id); saveFood(); }
 /* ===================================================================== */
 function render() {
   $('#app').innerHTML = view === 'today' ? renderToday() : view === 'week' ? renderWeek() : view === 'records' ? renderRecords() : view === 'edit' ? renderEdit() : renderSettings();
@@ -3005,7 +3420,7 @@ function saveWeight(k, w, waist) {
   mutate(k, () => { S.weights[k] = { w: okW ? w : old.w, waist: okA ? waist : old.waist }; }, '[data-act="wsave"],[data-act="rsave"]');
   if (!$('.toast.show')) toast('✅ 已记录', `${fmtMD(k)} ${S.weights[k].w ? S.weights[k].w + ' 斤' : ''} ${S.weights[k].waist ? S.weights[k].waist + ' cm' : ''}`);
 }
-const backupJSON = () => JSON.stringify({ app: 'daily-checkin', version: 3, exportedAt: new Date(now()).toISOString(), data: S, config: CFG, food: FOOD });
+const backupJSON = () => JSON.stringify({ app: 'daily-checkin', version: 4, exportedAt: new Date(now()).toISOString(), data: S, config: CFG, food: FOOD });
 async function doExport() {
   const txt = backupJSON(), name = `每日打卡备份-${todayKey()}.json`;
   try {
@@ -3029,7 +3444,7 @@ function doImport(txt) {
   if (!confirm(`恢复备份会覆盖当前数据（备份里有 ${Object.keys(d.days).length} 天打卡${hasCfg ? '，以及自定义的分类和任务' : ''}${o && o.food ? '、食物库' : ''}）。继续？`)) return;
   S = { ...blank(), ...d }; save();
   if (o && o.food && typeof o.food === 'object') { FOOD = normFood(o.food); saveFood(); }
-  if (hasCfg) { CFG = o.config; CFG.versions.sort((a, b) => a.from < b.from ? -1 : a.from > b.from ? 1 : 0); saveCfg(); cfgChanged(); } toast('✅ 恢复成功'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap();
+  if (hasCfg) { CFG = o.config; CFG.versions.sort((a, b) => a.from < b.from ? -1 : a.from > b.from ? 1 : 0); saveCfg(); cfgChanged(); migrateMeals(); } toast('✅ 恢复成功'); view = 'today'; viewDay = todayKey(); render(); snap = takeSnap();
 }
 
 // 定时刷新：计时器每秒走；每分钟刷新「现在 / 未完成」状态；跨天自动切换
