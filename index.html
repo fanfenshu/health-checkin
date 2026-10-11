@@ -823,6 +823,109 @@ h2 small{font-size:var(--fs-meta);font-weight:var(--fw-r);color:var(--sub)}
 .hero .endpill.eve{background:#fff;color:#5b3fa8;border-color:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.7),0 4px 14px rgba(60,30,120,.28);animation:pillGlow 2.4s ease-in-out infinite}
 @keyframes pillGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.55),0 4px 14px rgba(60,30,120,.28)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0),0 4px 14px rgba(60,30,120,.28)}}
 .hero .endpill.closed{background:rgba(255,255,255,.95);color:#5b4a8a;border-color:transparent;box-shadow:0 3px 10px rgba(80,50,120,.2)}
+
+/* —— v12 紧凑热量卡 —— */
+.kc2{padding:12px 14px 4px}
+.kcs{display:flex;align-items:center;gap:12px;position:relative}
+.kring.sm{width:58px;height:58px}
+.kring.sm .c{font-size:20px}
+.kcs .sp{flex:1;min-width:0}
+.kcs1{display:flex;align-items:baseline;gap:8px;white-space:nowrap;padding-right:40px;min-width:0}
+.kea{font-size:var(--fs-meta);color:var(--sub);flex-shrink:0}
+.kea b{font-family:var(--font-num);font-size:22px;font-weight:var(--fw-b);color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:0 2px}
+.kea i{font-style:normal;font-family:var(--font-num);font-size:var(--fs-meta);color:var(--sub);font-variant-numeric:tabular-nums}
+.kgp{font-size:12.5px;font-weight:var(--fw-m);border-radius:999px;padding:1px 8px;overflow:hidden;text-overflow:ellipsis;min-width:0;transform:translateY(-2px)}
+.kgp b{font-family:var(--font-num);font-size:14px;font-weight:var(--fw-b);font-variant-numeric:tabular-nums;margin:0 1px}
+.kgp.g{background:#e8f7ee;color:#178a4c}.kgp.y{background:#fff5d9;color:#a06c00}.kgp.o{background:#ffefe2;color:#d2581a}.kgp.r{background:#ffe9e7;color:#c43c3c}.kgp.n{background:#f4f2ee;color:var(--ink2)}
+.kcs2{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);line-height:1.35;margin-top:1px;white-space:nowrap;min-width:0}
+.kcs2>span:first-child{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.kcs2 .g{color:#178a4c}.kcs2 .y{color:#a06c00}.kcs2 .o{color:#d2581a}.kcs2 .r{color:#c43c3c}
+.kcs2 .kplanc{flex-shrink:0;font-size:10.5px;font-weight:var(--fw-m);color:#d2581a;background:#fff3ea;border-radius:999px;padding:0 6px}
+.kcs3{display:flex;align-items:center;gap:8px;margin-top:5px;font-size:11.5px;color:var(--sub);white-space:nowrap}
+.kcs3 b{font-family:var(--font-num);font-size:12.5px;font-weight:var(--fw-sb);color:var(--ink);font-variant-numeric:tabular-nums}
+.kcs3 .kbar{flex:1;height:5px;margin:0;min-width:40px}
+.kmtpl.ic{position:absolute;top:-2px;right:-4px;width:34px;height:34px;padding:0;border-radius:50%;font-size:17px;display:flex;align-items:center;justify-content:center}
+.knudge{flex-shrink:0;height:24px;padding:0 9px;border-radius:999px;background:#eef3ff;color:#3a56b0;font-size:11.5px;font-weight:var(--fw-sb);animation:kNudge 2.4s ease-in-out infinite}
+@keyframes kNudge{0%,100%{box-shadow:0 0 0 0 rgba(58,86,176,.28)}50%{box-shadow:0 0 0 5px rgba(58,86,176,0)}}
+.kchips{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:12px}
+.kchips.n4{grid-template-columns:repeat(4,1fr)}.kchips.n3{grid-template-columns:repeat(3,1fr)}.kchips.n2{grid-template-columns:repeat(2,1fr)}.kchips.n1{grid-template-columns:1fr}
+.kchip{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:56px;padding:6px 2px 5px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1.5px #e6e1d8;color:var(--ink2);font-family:inherit;line-height:1.2;transition:transform .15s,background .2s,box-shadow .2s;cursor:pointer;min-width:0}
+.kchip:active{transform:scale(.95)}
+.kchip b{font-size:12.5px;font-weight:var(--fw-sb);white-space:nowrap;display:flex;align-items:center;gap:2px}
+.kchip b .e{font-size:12px}
+.kchip .n{font-family:var(--font-num);font-size:14px;font-weight:var(--fw-sb);color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.15;letter-spacing:-.01em}
+.kchip small{font-family:var(--font-num);font-size:10px;color:var(--sub);white-space:nowrap;font-variant-numeric:tabular-nums;line-height:1.1}
+.kchip .kcm{position:absolute;top:-5px;right:-3px;width:17px;height:17px;border-radius:50%;font-style:normal;font-size:10.5px;font-weight:var(--fw-b);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
+.kchip.plan{box-shadow:inset 0 0 0 1.5px #e3ddd2}
+.kchip.plan .n{color:var(--sub2);font-weight:var(--fw-m)}
+.kchip.none{box-shadow:none;border:1.5px dashed #e0d8cc}.kchip.none .n{color:#ff6a2b}
+.kchip.ok{background:var(--ok);box-shadow:0 3px 8px rgba(34,180,107,.25);color:#fff}
+.kchip.ok small,.kchip.ok .n{color:rgba(255,255,255,.95)}.kchip.ok small{color:rgba(255,255,255,.8)}
+.kchip.ok .kcm{background:#fff;color:var(--ok)}
+.kchip.ok.pop .kcm{animation:pop .5s cubic-bezier(.2,.9,.3,1.4)}
+.kchip.late{background:#fff4ea;box-shadow:inset 0 0 0 1.5px #ffb486;color:#d2581a;border:0}
+.kchip.late small,.kchip.late .n{color:#e07a40}
+.kchip.late .kcm{background:#ff8a4c;color:#fff}
+.kchip.due{background:linear-gradient(135deg,#ff9a5c,#ff7a45);box-shadow:0 3px 10px rgba(255,122,69,.35);color:#fff;border:0}
+.kchip.due .n{color:#fff}.kchip.due small{color:rgba(255,255,255,.85)}
+.kchip.due .kcm{background:#fff;color:#ff7a45}
+.kchip.skip{background:#f4f2ee;box-shadow:none;color:var(--sub2)}
+.kchip.skip b{text-decoration:line-through;text-decoration-color:#c8c2b8}
+.kchip.skip b .e{filter:grayscale(1);opacity:.6}
+.kchip.skip .n{color:var(--sub2);font-weight:var(--fw-r);font-size:12px;font-family:var(--font)}
+.kchip.x{box-shadow:none;background:#f6f4f0}
+.kchip.x b{font-size:12px;font-weight:var(--fw-m)}
+.kchip.x .n{color:var(--sub)}.kchip.x.has .n{color:var(--ink)}
+.kchip.open{transform:translateY(-1px)}
+.kchip.open:after{content:"";position:absolute;left:50%;bottom:-9px;margin-left:-6px;border:6px solid transparent;border-bottom-color:#faf6f1;border-top:0}
+.kchip.open:not(.ok):not(.due){box-shadow:inset 0 0 0 2px var(--c)}
+.kchip.ok.open{box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--ok)}
+.kchip.due.open{box-shadow:0 0 0 2px #fff,0 0 0 3.5px #ff7a45}
+.kpanel{margin-top:8px}
+.kpin{background:#faf6f1;border-radius:14px;padding:10px 12px 2px}
+.kph{display:flex;align-items:baseline;gap:4px;font-size:var(--fs-sub);color:var(--ink);white-space:nowrap}
+.kph>b{font-weight:var(--fw-sb)}
+.kph .mt{font-family:var(--font-num);font-size:12px;color:var(--sub);margin:0 2px 0 4px;font-variant-numeric:tabular-nums}
+.kph .tag{margin:0 0 0 4px;vertical-align:1px}
+.kph .kxp{margin-left:4px}
+.kpk{font-family:var(--font-num);font-size:14px;font-weight:var(--fw-sb);color:var(--ink);font-variant-numeric:tabular-nums}
+.kpk.plan{font-size:12px;font-weight:var(--fw-m);color:var(--sub);border:1.5px dashed #e3ddd2;border-radius:8px;padding:0 6px}
+.kpi2{font-size:12.5px;color:var(--sub);line-height:1.45;margin:3px 0 8px}
+.kpi2.ok{color:var(--ink2)}
+.kpn{font-size:11.5px;color:var(--sub2);margin:-4px 0 8px}
+.kpanel .kmact{padding:0 0 10px}
+.kpx{display:flex;align-items:center;gap:10px;padding:6px 0 8px;cursor:pointer}
+.kpx+.kpx{border-top:1px solid #efe9df;padding-top:8px}
+.kpx .e{font-size:19px;width:24px;text-align:center}
+.kpx b{font-size:var(--fs-sub);font-weight:var(--fw-m)}
+.kpx .mi{font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpx .k{font-family:var(--font-num);font-size:14px;font-weight:var(--fw-sb);font-variant-numeric:tabular-nums}
+.kpx .kplus{width:30px;height:30px;font-size:17px}
+.kmoreh{display:flex;align-items:center;gap:8px;width:100%;margin-top:10px;padding:10px 0 9px;border-top:1px solid var(--line);font-family:inherit;text-align:left;cursor:pointer;color:var(--ink2)}
+.kmt{font-size:var(--fs-meta);font-weight:var(--fw-sb);color:var(--ink2);flex-shrink:0}
+.kms{flex:1;min-width:0;display:flex;justify-content:flex-end;align-items:baseline;gap:5px;font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden}
+.kms b{font-family:var(--font-num);font-weight:var(--fw-sb);color:var(--ink2);font-variant-numeric:tabular-nums}
+.kms i{font-style:normal;font-size:10px;color:#a87400;margin-left:2px}
+.kms .dot{color:var(--sub2)}
+.kms .okc{color:#178a4c}
+.chev{display:inline-block;font-size:17px;line-height:1;color:var(--sub2);transition:transform .22s;transform:rotate(90deg);flex-shrink:0}
+.kmoreh.open .chev{transform:rotate(-90deg)}
+.kmorein{padding:2px 0 10px}
+.kmorein .kwatch{margin-top:10px}
+.kmorein .kcola{margin-top:10px}
+.kinfol{display:flex;align-items:center;gap:4px;margin-top:10px;font-size:12.5px;font-weight:var(--fw-m);color:var(--sub);font-family:inherit;padding:2px 0}
+.kinfol .chev{font-size:14px}
+.kinfol.on .chev{transform:rotate(-90deg)}
+.kinfol+.kinfobox{margin:8px 0 0}
+.kc2 .knote{margin-top:8px}
+.kprev .kpvh{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.kpvh .kpe{font-size:18px}
+.kpvh>b{font-size:15px;font-weight:var(--fw-sb)}
+.kpvh .cs{font-size:11.5px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;min-width:0}
+.kpvh .kptot{flex-shrink:0;line-height:1.1}
+.kpvh .kptot b{display:inline;font-size:18px}
+.kprev{padding-bottom:12px}
+@media (prefers-reduced-motion:reduce){.kchip,.chev{transition:none}.knudge{animation:none}}
 </style>
 </head>
 <body>
@@ -1775,7 +1878,7 @@ function renderSettings() {
     <p class="small muted">注意：主屏幕 App 和 Safari 里的数据是分开存的，请固定用主屏幕图标打开。</p></div>
   <div class="card set"><h2>⚠️ 重置</h2><p>清空所有打卡、练琴、体重记录和徽章，无法恢复（自定义的分类和任务会保留）。建议先导出备份。</p>
     <button class="btn danger full" data-act="reset">清空全部数据</button></div>
-  <div class="foot">每日打卡 v11 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
+  <div class="foot">每日打卡 v12 · 一般健康建议，腰腿发麻、膝盖肿痛请就医</div>`;
 }
 /* =====================================================================
  *  编辑分类和任务（底部弹出表单）
@@ -2641,21 +2744,20 @@ function renderKcalCard(k) {
   const x = kcSum(k), { I, B, def, st, s } = x, over = I.kcal > s.target, left = s.target - I.kcal;
   const mm = mealMode(k), P = mm ? kcPlan(k) : { kcal: 0, n: 0 };
   const pp = Math.min(I.p / Math.max(s.protein, 1), 1);
-  let h = `<div class="card kcal" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f">
-    <div class="kchead"><div class="ce">🔥</div><div class="sp"><h3>热量</h3><div class="cs">目标摄入 ${s.target} 大卡 · 蛋白质 ${s.protein}g</div></div>
-      <button type="button" class="kinfo ${kcInfo ? 'on' : ''}" data-act="k-info" aria-label="说明">ℹ️</button></div>
-    ${kcInfo ? kcInfoBox() : ''}
-    <div class="kmain"><div class="kring">${kRing(112, 11, I.kcal / s.target, P.kcal / s.target, over ? '#ff7a2f' : '#ff9a5c', '#ffc9a3', '#fff3eb')}<div class="c"><span>已吃</span><b>${I.kcal}</b><span>/ ${s.target} 大卡</span>${P.kcal ? `<span class="kplanc">计划 +${P.kcal}</span>` : ''}</div></div>
-      <div class="kside">
-        <div class="kline"><span>消耗${B.src === 'est' ? ' <i class="kest">估算</i>' : ' <i class="kest w">⌚ 手表</i>'}</span><b>${B.total}</b></div>
-        <div class="kdet">${burnDetail(B)}</div>
-        <div class="kline"><span>${left >= 0 ? '离目标还能吃' : '超出目标'}</span><b style="color:${left >= 0 ? 'var(--ink)' : '#e0603c'}">${Math.abs(left)}</b></div>
-        ${P.kcal ? `<div class="kdet">按计划吃完 ≈ ${I.kcal + P.kcal} 大卡${s.target - I.kcal - P.kcal >= 0 ? `，还剩 ${s.target - I.kcal - P.kcal}` : `，超 ${I.kcal + P.kcal - s.target}`}</div>` : ''}
-        ${I.kcal ? `<div class="kgap ${st.c}" id="kGap"><span class="sp">${defText(def)}</span></div><div class="kgapt ${st.c}">${esc(st.t)}</div>`
-          : `<div class="kgap n" id="kGap"><span class="sp">${P.kcal ? '还没确认饮食' : '还没记录饮食'}<br><span style="font-size:12px;color:var(--sub)">${P.kcal ? '吃完点「✓ 照计划吃了」' : '点下面的餐次，几秒记一顿'}</span></span></div>`}
-      </div></div>
-    <div class="kprot"><div class="row"><span>🥚 蛋白质</span><span class="sp"></span><b>${I.p}</b><span class="muted">/ ${s.protein} g</span></div><div class="kbar"><i style="width:${(pp * 100).toFixed(1)}%;background:${pp >= 1 ? 'var(--ok)' : '#ffb27a'}"></i></div></div>`;
-  if (mm) h += mealRowsHtml(k, I);
+  const kc = kcOf(k), hasW = kc && kc.watch != null && kc.watch !== '';
+  const nudge = k === todayKey() && isEvening() && !hasW && !dayClosed(k);
+  // —— 摘要行（v12 紧凑版） ——
+  const gap = I.kcal ? `<span class="kgp ${st.c}">${defText(def)}</span>` : `<span class="kgp n">${P.kcal ? '还没确认饮食' : '还没记录饮食'}</span>`;
+  const sub = I.kcal ? `<span class="${st.c}">${esc(st.t)}</span>` : `<span>${P.kcal ? '吃完点「✓ 照计划吃了」' : '点下面的餐次，几秒记一顿'}</span>`;
+  let h = `<div class="card kcal kc2" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f">
+    <div class="kcs"><div class="kring sm">${kRing(58, 7, I.kcal / s.target, P.kcal / s.target, over ? '#ff7a2f' : '#ff9a5c', '#ffc9a3', '#fff3eb')}<div class="c">🔥</div></div>
+      <div class="sp">
+        <div class="kcs1"><span class="kea">已吃 <b>${I.kcal}</b><i>/ ${s.target}</i></span>${gap}</div>
+        <div class="kcs2">${sub}${P.kcal ? `<span class="kplanc">计划 +${P.kcal}</span>` : ''}</div>
+        <div class="kcs3"><span>🥚 <b>${I.p}</b>/${s.protein}g</span><div class="kbar"><i style="width:${(pp * 100).toFixed(1)}%;background:${pp >= 1 ? 'var(--ok)' : '#ffb27a'}"></i></div>${nudge ? `<button type="button" class="knudge" data-act="k-nudge">⌚ 填活动卡路里</button>` : ''}</div>
+      </div>
+      ${mm ? `<button type="button" class="kmtpl ic" data-act="k-gotpl" aria-label="三餐模板">🍱</button>` : ''}</div>`;
+  if (mm) h += kcMealsHtml(k, I, false);
   else {
     h += `<div class="kmeals">`;
     const extra = [];
@@ -2669,8 +2771,15 @@ function renderKcalCard(k) {
     h += `</div>`;
     if (extra.length) h += `<div class="kextra">${extra.map(m => `<button type="button" data-act="k-open" data-meal="${m.id}">＋ ${m.e} ${m.s || m.name}</button>`).join('')}</div>`;
   }
-  // 手表
-  const kc = kcOf(k), hasW = kc && kc.watch != null && kc.watch !== '';
+  // —— 消耗与更多（默认收起） ——
+  const ct = mm ? mealTask(k, 'cola') : null, colaOk = ct && frac(ct, k) >= 1;
+  h += `<button type="button" class="kmoreh ${kcMore ? 'open' : ''}" id="kMoreH" data-act="k-more" aria-expanded="${kcMore}"><span class="kmt">消耗与更多</span>
+      <span class="kms"><span>消耗 <b>${B.total}</b>${B.src === 'est' ? '<i>估算</i>' : ''}</span><span class="dot">·</span><span class="${hasW ? 'okc' : ''}">⌚ ${hasW ? Math.round(kc.watch) : '未填'}</span>${ct ? `<span class="dot">·</span><span class="${colaOk ? 'okc' : ''}">🥤 ${colaOk ? '✓' : '—'}</span>` : ''}</span><span class="chev">›</span></button>
+    <div class="kmoreb" id="kMoreB"${kcMore ? '' : ' hidden'}><div class="kmorein">
+      <div class="kline"><span>消耗${B.src === 'est' ? ' <i class="kest">估算</i>' : ' <i class="kest w">⌚ 手表</i>'}</span><b>${B.total}</b></div>
+      <div class="kdet">${burnDetail(B)}</div>
+      <div class="kline"><span>${left >= 0 ? '离目标还能吃' : '超出目标'}</span><b style="color:${left >= 0 ? 'var(--ink)' : '#e0603c'}">${Math.abs(left)}</b></div>
+      ${P.kcal ? `<div class="kdet">按计划吃完 ≈ ${I.kcal + P.kcal} 大卡${s.target - I.kcal - P.kcal >= 0 ? `，还剩 ${s.target - I.kcal - P.kcal}` : `，超 ${I.kcal + P.kcal - s.target}`}</div>` : ''}`;
   if (hasW && !kcWatchEdit) {
     h += `<div class="kwatch"><span class="we">⌚</span><div class="sp"><b>手表活动卡路里 ${Math.round(kc.watch)} 大卡</b><div class="kdet">消耗已按手表数据计算</div></div><button type="button" class="btn ghost" data-act="k-wedit">修改</button></div>`;
   } else {
@@ -2678,7 +2787,9 @@ function renderKcalCard(k) {
       <div class="kwin"><div class="field"><input id="kcWatch" type="number" inputmode="numeric" placeholder="比如 450" value="${hasW ? Math.round(kc.watch) : ''}"><span>大卡</span></div>
       <button type="button" class="btn pri" data-act="k-wsave" data-k="${k}">${hasW ? '更新' : '记录'}</button>${hasW ? `<button type="button" class="btn ghost" data-act="k-wclear" data-k="${k}">清除</button>` : ''}</div></div></div>`;
   }
-  h += `<div class="knote">热量都是估算值 · 灰色「计划」不算进摄入 · 看一周趋势更准</div></div>`;
+  if (mm) h += kcColaHtml(k);
+  h += `<button type="button" class="kinfol ${kcInfo ? 'on' : ''}" data-act="k-info">ℹ️ 消耗怎么算 <span class="chev">›</span></button>${kcInfo ? kcInfoBox() : ''}
+      <div class="knote">热量都是估算值 · 灰色「计划」不算进摄入 · 看一周趋势更准</div></div></div></div>`;
   return h;
 }
 
@@ -2972,8 +3083,11 @@ document.addEventListener('click', ev => {
   const a = el.dataset.act;
   switch (a) {
     case 'k-info': kcInfo = !kcInfo; render(); break;
+    case 'k-chip': kcToggleChip(el.dataset.meal); break;
+    case 'k-more': kcToggleMore(); break;
+    case 'k-nudge': if (kcWatchEdit === false && !$('#kcWatch')) { kcWatchEdit = true; render(); } kcToggleMore(true, true); break;
     case 'k-open': { const k = viewDay; if (isFutureDay(k)) { toast('👀 这是预览', '到当天再记录'); break; } openFP(k, el.dataset.meal); break; }
-    case 'k-wedit': kcWatchEdit = true; render(); setTimeout(() => { const i = $('#kcWatch'); if (i) i.focus(); }, 50); break;
+    case 'k-wedit': kcWatchEdit = true; kcMore = true; render(); setTimeout(() => { const i = $('#kcWatch'); if (i) i.focus(); }, 50); break;
     case 'k-wsave': { const k = el.dataset.k || viewDay, i = $('#kcWatch'); if (!i) break; if (kcSaveWatch(k, i.value)) { i.blur(); kcWatchEdit = false; render(); if (i.value.trim()) toast('⌚ 已记录手表活动卡路里', `${Math.round(+i.value)} 大卡 · 消耗已更新`); } break; }
     case 'k-wclear': { const k = el.dataset.k || viewDay; kcSaveWatch(k, ''); kcWatchEdit = false; render(); toast('已清除', '消耗改回按运动打卡估算'); break; }
     case 'k-rwedit': { ritWatchEdit = true; const b = $('#ritual .rbody'), top = b ? b.scrollTop : 0; renderRitual(); const nb = $('#ritual .rbody'); if (nb) nb.scrollTop = top; const i = $('#ritWatch'); if (i) i.focus(); break; }
@@ -3001,8 +3115,8 @@ document.addEventListener('click', ev => {
     case 'k-inc': case 'k-dec': if (!fp) break; if (fp.tpl) tplSetQ(fp.meal, el.dataset.id, a === 'k-inc' ? 1 : -1); else kcSetQ(fp.k, el.dataset.id, a === 'k-inc' ? 1 : -1); fpRefresh(false); break;
     case 'k-rm': if (!fp) break; if (fp.tpl) tplRm(fp.meal, el.dataset.id); else kcRemove(fp.k, el.dataset.id); fpRefresh(false); break;
     // v10 餐食打卡
-    case 'k-pok': mealPlanOk(viewDay, el.dataset.meal, `.kmeal[data-meal="${el.dataset.meal}"]`); break;
-    case 'k-skip': mealSkip(viewDay, el.dataset.meal); break;
+    case 'k-pok': delete kcOpen[viewDay]; mealPlanOk(viewDay, el.dataset.meal, `.kchip[data-meal="${el.dataset.meal}"]`); break;
+    case 'k-skip': { const pre = kcOpen[viewDay]; delete kcOpen[viewDay]; mealSkip(viewDay, el.dataset.meal); if (mealState(viewDay, el.dataset.meal) !== 'skip') { if (pre !== undefined) kcOpen[viewDay] = pre; render(); } break; }
     case 'k-unskip': mealUnskip(viewDay, el.dataset.meal); break;
     case 'k-undo': { if (!fp) break; const k = fp.k, meal = fp.meal; if (mealUndo(k, meal)) { closeFP(); toast(`↩︎ 已撤销${mealName(meal)}`, '改回计划状态'); } break; }
     case 'k-savetpl': if (fp && fp.k) saveMealAsTpl(fp.k, fp.meal); break;
@@ -3223,15 +3337,11 @@ function mealRowsHtml(k, I) {
 /* —— 未来预览：只读的三餐计划 —— */
 function renderKcalPreview(k) {
   if (!mealMode(k)) return '';
-  let tot = 0, rows = '';
-  for (const id of PLAN_MEALS) {
-    const items = planItems(k, id); if (!items.length) continue;
-    const s = sumItems(items); tot += s.kcal;
-    rows += `<div class="kpv"><span class="me">${mealOf(id).e}</span><div class="sp" style="min-width:0"><div class="mn">${mealName(id)}<span class="mt">${mealTime(k, id)}</span></div><div class="mi">${esc(itemNames(items))}</div></div><span class="mk plan">${Math.round(s.kcal)}</span></div>`;
-  }
-  if (!rows) return '';
+  let tot = 0, n = 0;
+  for (const id of PLAN_MEALS) { const items = planItems(k, id); if (!items.length) continue; tot += sumItems(items).kcal; n++; }
+  if (!n) return '';
   const s = kset();
-  return `<div class="card kcal kprev" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f"><div class="kchead"><div class="ce">🔥</div><div class="sp"><h3>三餐计划</h3><div class="cs">按模板带出 · 到当天吃完再确认</div></div><div class="kptot"><b>${Math.round(tot)}</b><span>/ ${s.target}</span></div></div>${rows}</div>`;
+  return `<div class="card kcal kc2 kprev" style="--c:#ff7a45;--cs:#ff7a4555;--cl:#ff7a451f"><div class="kpvh"><span class="kpe">🔥</span><b>三餐计划</b><span class="cs">按模板带出 · 到当天再确认</span><span class="sp"></span><span class="kptot"><b>${Math.round(tot)}</b><span>/ ${s.target}</span></span></div>${kcMealsHtml(k, kcIntake(k), true)}</div>`;
 }
 
 /* —— 设置：三餐模板 —— */
@@ -3272,6 +3382,134 @@ function tplSetQ(meal, id, dir) {
   saveFood();
 }
 function tplRm(meal, id) { const set = tplSet(fp.tpl.key); set[meal] = (set[meal] || []).filter(x => x.id !== id); saveFood(); }
+/* =====================================================================
+ *  v12：热量卡紧凑版（只改呈现，不改功能/数据）
+ *  · 顶部一行摘要：小圆环 + 已吃/目标 · 缺口（沿用颜色和文案）+ 蛋白质细条 + 🍱 模板入口
+ *  · 三餐变成一排小卡片（早/午/加/晚 + 饮料酒），点一下在下面展开那一顿，再点收起
+ *  · 到点的那一顿自动展开；手动展开/收起只记在内存里（本次打开有效）
+ *  · 消耗明细、⌚ 手表、零可乐、计算说明收进「消耗与更多」，默认收起；21 点后没填手表有小提示
+ * ===================================================================== */
+let kcOpen = {};          // 每天手动展开的餐：{ [k]: mealId | '' }；没有这个 key = 自动
+let kcMore = false;       // 「消耗与更多」是否展开（内存）
+const KC_EXTRA = 'extra'; // 饮料 / 酒（和没有任务的加餐）
+function kcChipList(k, I, preview) {
+  const out = [];
+  for (const id of PLAN_MEALS) {
+    if (preview) { if (planItems(k, id).length) out.push(id); continue; }
+    if (id === 'snack' && mealState(k, 'snack') === 'none' && !mealTask(k, 'snack')) continue;
+    out.push(id);
+  }
+  if (!preview) out.push(KC_EXTRA);
+  return out;
+}
+// 当前该吃的那一顿（只看今天）：先「现在」，再最早的「未完成」
+function kcDueMeal(k) {
+  if (k !== todayKey() || dayClosed(k)) return '';
+  let late = '';
+  for (const id of PLAN_MEALS) {
+    if (id === 'snack' && mealState(k, 'snack') === 'none' && !mealTask(k, 'snack')) continue;
+    const st = mealState(k, id); if (st !== 'plan' && st !== 'none') continue;
+    const d = statusOf(k, mealTime(k, id) || null);
+    if (d === 'now') return id;
+    if (d === 'missed' && !late) late = id;
+  }
+  return late;
+}
+const kcOpenId = (k, list) => { const v = k in kcOpen ? kcOpen[k] : kcDueMeal(k); return list.includes(v) ? v : ''; };
+function kcChipHtml(k, id, I, open, preview) {
+  if (id === KC_EXTRA) {
+    const n = I.meals.drink.kcal + I.meals.alcohol.kcal, has = I.meals.drink.items.length + I.meals.alcohol.items.length;
+    return `<button type="button" class="kchip x ${has ? 'has' : ''} ${open ? 'open' : ''}" data-act="k-chip" data-meal="${id}" aria-expanded="${open}"><b><span class="e">🥤</span>饮料酒</b><span class="n">${has ? n : '＋'}</span><small>${has ? '已记' : '记一笔'}</small></button>`;
+  }
+  const m = mealOf(id), tm = mealTime(k, id), mm = I.meals[id];
+  let st = preview ? 'plan' : mealState(k, id), cls = st, kc = '';
+  if (st === 'ok') kc = `${mm.kcal || '—'}`;
+  else if (st === 'plan') kc = `${Math.round(sumItems(planItems(k, id)).kcal)}`;
+  else if (st === 'none') kc = '＋';
+  else kc = '没吃';
+  if (!preview && (st === 'plan' || st === 'none')) { const d = statusOf(k, tm || null); if (d === 'now') cls += ' due'; else if (d === 'missed') cls += ' late'; }
+  const jd = justDone === 'meal:' + id ? ' pop' : '';
+  const mark = st === 'ok' ? '<i class="kcm">✓</i>' : / due| late/.test(cls) ? '<i class="kcm">!</i>' : '';
+  return `<button type="button" class="kchip ${cls}${jd} ${open ? 'open' : ''}" data-act="k-chip" data-meal="${id}" aria-expanded="${open}">${mark}<b><span class="e">${m.e}</span>${mealName(id)}</b><span class="n">${kc}</span>${tm ? `<small>${tm}</small>` : ''}</button>`;
+}
+// 展开后的那一顿
+function kcPanelHtml(k, id, I, preview) {
+  if (!id) return '';
+  if (id === KC_EXTRA) {
+    let h = '';
+    const ids = ['drink', 'alcohol'];
+    if (mealState(k, 'snack') === 'none' && !mealTask(k, 'snack')) ids.unshift('snack');
+    for (const mid of ids) {
+      const m = mealOf(mid), mm = I.meals[mid];
+      h += `<div class="kpx" role="button" data-act="k-open" data-meal="${mid}"><span class="e">${m.e}</span><div class="sp" style="min-width:0"><b>${m.s || m.name}</b><div class="mi">${mm.items.length ? esc(itemNames(mm.items)) : '还没记录'}</div></div>${mm.kcal ? `<span class="k">${mm.kcal}</span>` : ''}<span class="kplus">＋</span></div>`;
+    }
+    return h;
+  }
+  const t = mealTask(k, id), mm = I.meals[id], tm = mealTime(k, id);
+  const st = preview ? 'plan' : mealState(k, id);
+  const star = t && t.core ? '<span class="kstar">★</span>' : '';
+  const head = (txt, right) => `<div class="kph"><b>${star}${mealName(id)}</b>${tm ? `<span class="mt">${tm}</span>` : ''}${txt}<span class="sp"></span>${right || ''}</div>`;
+  const xp = t ? `<span class="kxp">+${t.xp || 0} XP</span>` : '';
+  if (preview) {
+    const items = planItems(k, id), s = sumItems(items);
+    return head('', `<span class="kpk plan">计划 ${Math.round(s.kcal)}</span>`) + `<div class="kpi2">${esc(itemNames(items))}</div><div class="kpn">到当天吃完再确认</div>`;
+  }
+  if (st === 'ok') {
+    const names = itemNames(mm.items);
+    return head(xp, `<span class="kpk">${mm.kcal || '—'} 大卡</span>`) + `<div class="kpi2 ok">${names ? esc(names) : '已打卡 · 没记具体吃了什么'}</div>
+      <div class="kmact"><button type="button" class="kmini" data-act="k-open" data-meal="${id}">${names ? '✎ 改一改 · 存为模板' : '＋ 补记吃了什么'}</button></div>`;
+  }
+  if (st === 'skip') return head('', '') + `<div class="kpi2">这顿没吃 · 计划不算进摄入</div><div class="kmact"><button type="button" class="kmini" data-act="k-unskip" data-meal="${id}">↩︎ 撤销</button></div>`;
+  const due = statusOf(k, tm || null), late = due === 'missed', nowing = due === 'now';
+  const tag = late ? '<span class="tag miss">未完成</span>' : nowing ? '<span class="tag now">现在</span>' : '';
+  if (st === 'plan') {
+    const items = planItems(k, id), s = sumItems(items);
+    return head(tag, `<span class="kpk plan">计划 ${Math.round(s.kcal)}</span>`) + `<div class="kpi2">${esc(itemNames(items))}</div>
+      <div class="kmact"><button type="button" class="kpok${late || nowing ? '' : ' soft'}" data-act="k-pok" data-meal="${id}">✓ 照计划吃了</button><button type="button" class="kmini" data-act="k-open" data-meal="${id}">改一改</button><button type="button" class="kmini" data-act="k-skip" data-meal="${id}">没吃</button></div>`;
+  }
+  return head(tag, '') + `<div class="kpi2">还没记录</div><div class="kmact"><button type="button" class="kpok soft" data-act="k-open" data-meal="${id}">＋ 添加</button><button type="button" class="kmini" data-act="k-skip" data-meal="${id}">没吃</button></div>`;
+}
+function kcMealsHtml(k, I, preview) {
+  const list = kcChipList(k, I, preview), open = kcOpenId(k, list);
+  return `<div class="kchips n${list.length}">${list.map(id => kcChipHtml(k, id, I, id === open, preview)).join('')}</div>
+    <div class="kpanel" id="kPanel" data-k="${k}"${open ? '' : ' hidden'}><div class="kpin" data-meal="${open}">${kcPanelHtml(k, open, I, preview)}</div></div>`;
+}
+// 高度动画：先量旧高度，改内容，再过渡到新高度
+function kcAnim(el, change, done) {
+  const h0 = el.hidden ? 0 : el.offsetHeight;
+  el.hidden = false; change();
+  const h1 = el.scrollHeight;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.style.height = ''; done && done(h1); return; }
+  el.style.overflow = 'hidden'; el.style.height = h0 + 'px'; void el.offsetHeight;
+  el.style.transition = 'height .26s cubic-bezier(.3,.7,.3,1)'; el.style.height = h1 + 'px';
+  clearTimeout(el._t);
+  el._t = setTimeout(() => { el.style.transition = ''; el.style.height = ''; el.style.overflow = ''; done && done(h1); }, 280);
+}
+function kcToggleChip(id) {
+  const P = $('#kPanel'); if (!P) return;
+  const k = P.dataset.k, preview = isFutureDay(k), I = kcIntake(k), list = kcChipList(k, I, preview);
+  const cur = kcOpenId(k, list), nxt = cur === id ? '' : id;
+  kcOpen[k] = nxt;
+  document.querySelectorAll('.kchip').forEach(c => { const on = c.dataset.meal === nxt; c.classList.toggle('open', on); c.setAttribute('aria-expanded', on); });
+  const inner = P.firstElementChild;
+  kcAnim(P, () => { if (nxt) { inner.dataset.meal = nxt; inner.innerHTML = kcPanelHtml(k, nxt, I, preview); } }, h1 => { if (!nxt) { P.hidden = true; inner.innerHTML = ''; inner.dataset.meal = ''; } });
+  if (!nxt) { P.style.height = P.offsetHeight + 'px'; void P.offsetHeight; P.style.height = '0px'; }
+}
+function kcToggleMore(force, focus) {
+  const B = $('#kMoreB'), H = $('#kMoreH'); if (!B) return;
+  const nxt = force != null ? force : !kcMore; kcMore = nxt;
+  H.classList.toggle('open', nxt); H.setAttribute('aria-expanded', nxt);
+  if (nxt) kcAnim(B, () => {}, () => { if (focus) { const i = $('#kcWatch'); if (i) { i.focus(); i.scrollIntoView({ block: 'center', behavior: 'smooth' }); } } });
+  else { kcAnim(B, () => {}, () => { B.hidden = true; }); B.style.height = B.offsetHeight + 'px'; void B.offsetHeight; B.style.height = '0px'; }
+  if (focus) { const i = $('#kcWatch'); if (i) i.focus({ preventScroll: true }); } // iOS 只在用户点击的同一拍里允许弹键盘
+}
+// 零可乐开关（原样搬进「消耗与更多」）
+function kcColaHtml(k) {
+  const ct = mealTask(k, 'cola'); if (!ct) return '';
+  const done = frac(ct, k) >= 1;
+  return `<button type="button" class="tgl kcola ${done ? 'on' : ''} ${justDone === ct.id ? 'pop' : ''}" data-act="check" data-id="${ct.id}"><span class="me">${esc(ct.icon || '🥤')}</span><div class="sp" style="min-width:0"><b>${ct.core ? '<span class="kstar">★</span>' : ''}${esc(ct.title)}</b>
+      <div class="kdet">${ct.desc ? esc(ct.desc) + ' · ' : ''}${done ? `<b class="kxpok">+${ct.xp || 0} XP</b>` : '全天有效，喝了就别打开'}</div></div><div class="sw"></div></button>`;
+}
 /* ===================================================================== */
 function render() {
   $('#app').innerHTML = view === 'today' ? renderToday() : view === 'week' ? renderWeek() : view === 'records' ? renderRecords() : view === 'edit' ? renderEdit() : renderSettings();
